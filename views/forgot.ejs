@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/stylesheet/forgot.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"
+		async></script>
+</head>
+<body>
+	<% if(error && error.length>0){ %>
+	<div class="alert alert-danger" role="alert">
+		<%= error %>
+	</div>
+	<% } %>
+	<% if(success && success.length>0){ %>
+	<div class="alert alert-success" role="alert">
+		<%= success %>
+	</div>
+	<% } %>
+	<div class="container-fluid">
+		<form action="/forgot" method="POST">
+			<div id = "myCard" class="card text-center">
+				<div class="card-body">
+					<div class="card-text">
+						<h2 class="card-title">Reset Password</h2>
+						<hr>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+							</div>
+							<input type="text" class="form-control" placeholder="Email" aria-label="Username"
+								aria-describedby="basic-addon1">
+						</div>
+
+						<button type="submit" class="btn btn-primary btn-block my-4">Reset Password</button>
+						<div id="or">
+							<span style="font-size: 15px; background-color: white; padding: 0 10px;">
+								OR
+							</span>
+						</div>
+						<div id = "myDiv">
+							<a href="/register">Create New Account</a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</form>
+	</div>
+	<!-- <div class="row">
+		<div class="col-md-12">
+			<form action="/forgot" method="POST">
+				<legend>Forgot Password</legend>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" autofocus class="form-control">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary" value="Reset Password">
+				</div>
+					<span>OR</span>
+				<div>
+					<a href="/register">Create Account</a>
+				</div>	
+			</form>
+		</div>
+	</div> -->
+</body>
+</html>

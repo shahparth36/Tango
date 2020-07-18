@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet/explore.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id = "check">
+    <nav id= "myNav" class="navbar fixed-top">
+        <ul class="navbar-nav">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+        </ul>
+        <a id="myBrand" class="navbar-brand" href="/home">Tango</a>
+        <form id="myForm" class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" class="float:right" type="submit">Search</button>
+        </form>
+    </nav>
+    
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="profile_image" alt="">
+            <h4>Parth</h4>
+            <form id="bottom" class="form-inline">
+                <input id ="myInput" class="form-control" type="search" placeholder="Search By Name" aria-label="Search">
+                <button class="btn btn-outline-success filter_btn" type="submit">Search</button>
+            </form>
+        </center>
+        <div class="scrollable">
+            <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="#"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="#"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="#"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
+            <a href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+            
+        </div>
+    </div>
+
+    <div class="content py-5 mr">
+        <form action="/explore" method="GET" class="item form-inline">
+            <div class="container ">
+                <!-- <input type="text" name="username" placeholder="search username" class="form-control"> -->
+                <h1 style="text-align: center;">Explore Page</h1>
+                <div class="row text-center d-flex justify-content-around" style="display:flex; flex-wrap: wrap;">
+                    <% foundUser.forEach(function(User){ %>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="<%= User.image %>" class="card-img-top" alt="Img Not found">
+                            <div class="card-body">
+                                <h5 class="card-title" text-align center><%= User.firstName %> <%= User.lastName %></h5>
+                                <p class="card-text"><%= User.username %> <%= User.age %> <%= User.city %> </p>
+                                <p class="card-text"><%= User.bio %></p>
+                                <a href="/profile/<%= User._id%>" class="btn btn-primary">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div>
+                                    <label class="col-form-label-lg">Your Preferred Sexuality</label>
+                                    <select name="sexuality" id="sexuality" class="form-group">
+                    </div>
+                    <div class="row justify-content-reverse">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">Apply filters</button>
+                            <a href="explore" class="btn btn-danger">Remove filter</a>
+                        </div>
+                    </div>
+        
+
+    <!-- Optional JavaScript -->
+    <script src="scripts/explore.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

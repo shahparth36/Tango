@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Profile</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../stylesheet/createProfile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playball&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    </head>
+<body>
+<style>
+    body{
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    h1{
+        font-family: 'Playball', cursive;
+    }
+    h3{
+        font-family: 'Playball', cursive;
+    }
+    
+    .star {
+        color: red;
+    }
+    #or {
+    width: 100%;
+    height: 14px;
+    border-bottom: 1px solid grey;
+    text-align: center;
+}
+</style>
+
+
+<div class="container">
+    <div class="card px-5 shadow-lg my-5 py-5">
+        <h1 style="text-align: center;" class="display-1">Create Your Profile</h1>
+        <div id="or">
+            <span style="font-size: 15px; background-color: white; padding: 0 10px; margin-top: 20px;">
+                Our Logo Here
+            </span>
+        </div>
+        <form action="/profile" method="POST" enctype = "multipart/form-data">
+            <h3 class="card-title text-center mb-4 py-3 display-4">Your Entered Details</h3>
+            <div class="row">
+                <div class="col-12 col-sm-6 mb-4">
+                    <label class="col-form-label-lg">First Name </label>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                        </div>
+                        <input readonly type="text" class="form-control" placeholder="Username"  name="user[firstName]" value = "<%= firstName %>" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+                </div>
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">Last Name</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[lastName]" value = "<%= lastName %>" aria-label="Username" aria-describedby="addon-wrapping">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">Username</label>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                        </div>
+                        <input readonly type="text" class="form-control" placeholder="Username" name="user[username]" value="<%= username %>" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    </div>  
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">Email ID</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"  name="user[email]" value="<%= email %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 mb-4">
+                <label class="col-form-label-lg">Age</label>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping"><img src="https://image.shutterstock.com/image-illustration/vector-icon-16-age-restriction-260nw-1602444523.jpg" width="23" height="23"> </i></span>
+                    </div>
+                    <input readonly type="text" class="form-control" placeholder="Username"  name="user[age]" value="<%= age %>"  aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 mb-4">
+                <label class="col-form-label-lg">DOB</label>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping"><i class="fas fa-birthday-cake"></i></span>
+                    </div>
+                    <input readonly type="text" class="form-control" placeholder="Username" name="user[dob]" value="<%= dob %>" aria-label="Username" aria-describedby="addon-wrapping">
+                </div> 
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-sm-9 mx-5 mb-4">
+                <label class="col-form-label-lg">Phone Number</label>   
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
+                    </div>
+                    <input readonly type="text" class="form-control" placeholder="Username" name="user[phNumber]" value="<%= phNumber %>" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>      
+            </div>
+        </div>
+        
+            
+            
+            
+            <div class="col-sm-12 col-md-6">
+                
+            <div class="form-group d-none">
+                <input type="text" class="form-control" name= "password" value="<%= password %>">
+            </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               
+            <div class="form-group d-none">
+                <input type="text" class="form-control" name="user[image]" value="<%= image %>">
+            </div>
+        </div>
+        
+        
+            <div>
+                <hr>
+                <h3 class="card-title text-center mb-4 py-3 display-4">Enter More Details</h3>
+                <div class="row justify-content-center">
+                    <div class="pr-4 mr-5">
+                        <div class="pr-5 mr-5">
+                            <label class="col-form-label-lg pr-5 mr-5">Write Your Bio<span class="star">*</span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <textarea rows="10" cols="50" name="bio"></textarea>
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center py-2">
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label-lg">Your Sexuality<span class="star">*</span></label>
+                        <select name="user[sexuality]" required id="sexuality">
+                            <option selected disabled value="">--Not Specified--</option>
+                            <option value="Straight">Straight</option>
+                            <option value="Gay">Gay</option>
+                            <option value="Lesbian">Lesbian</option>
+                            <option value="Bisexual">Bisexual</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6" style = "padding-left: 20%">
+                    <label class="col-form-label-lg">Gender<span class="star">*</span></label>
+                    <select required name=gender class="form-group">
+                        <option selected disabled value="">--Not Specified--</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-around px-5 mx-5 py-2">   
+                <div class="col-12 col-sm-6" style="padding-left: 10%;">
+                    <label class="col-form-label-lg">Marital Status<span class="star">*</span></label>
+                    <select required name=maritalStatus class="form-group">
+                            <option selected disabled value="">--Not Specified--</option>
+                                <option>Single</option>
+                                <option>Divorced</option>
+                                <option>Widowed</option>
+                    </select>
+                </div>
+            </div>            
+                
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label class="col-form-label-lg">Preferred Distance<span class="star">*</span></label>
+                        <select name="user[relType]" required id="distance">
+                            <option selected disabled value="">--Not Specified--</option>
+                            <option value="short">Short Distance (less than 10kms) </option>
+                            <option value="long">Long Distance (more than 10kms)</option>
+                            <option value="Any">Any</option>    
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6" style="padding-left: 20%;">
+                    <div class="form-group">
+                        <label class="col-form-label-lg">Live In?<span class="star">*</span></label>
+                        <select required name="user[liveIn]" id="liveIn">
+                            <option selected disabled value="">--Not Specified--</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="both">Fine with both</option>    
+                        </select>
+                    </div>
+                </div>
+            </div>    
+                    
+            <hr>
+           <div class="row justify-content-center py-3">
+                <div class="col-12 col-sm-2 pr-0">
+                    <div class="form-group">
+                        <label class="col-form-label-lg">Do You Smoke?<span class="star">*</span></label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-3 py-3 pl-0">
+                    <div class="form-check">
+                        <input type="radio" id="yes" name="smoke" value="yes" required>
+                        <label for="yes">Yes</label><br>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="no" name="smoke" value="No" required> 
+                        <label for="no">No</label><br>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="occasionally" name="smoke" value="occasionally" required>
+                        <label for="occasionally">Occasionally</label>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-2">    
+                    <div class="form-group">
+                        <label class="col-form-label-lg">Do You Drink?<span class="star">*</span></label>
+                    </div>
+                </div>
+                <div class = "col-12 col-sm-2 py-3 pl-0 pr-0">
+                    <div class="form-check">
+                        <input type="radio" id="yes" name="alcohol" value="yes" required>
+                        <label for="yes">Yes</label><br>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="no" name="alcohol" value="No" required>
+                        <label for="no">No</label><br>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="occasionally" name="alcohol" value="occasionally" required>
+                        <label for="occasionally">Occasionally</label>
+                    </div>
+                </div>
+            </div>        
+ 
+            
+            <div class="row">
+                <div class="col-12 col-sm-7">
+                    <label class="col-form-label-lg"> Age Group ?<span class="star">*</span></label>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <label class="col-form-label-lg"> Select City<span class="star">*</span></label>
+                </div>
+            </div>
+                <div class="row ">
+                    
+                    <div class="col-12 col-sm-3 form-group">                       
+                        <div class="input-group flex-nowrap">
+                       <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">From:</span>
+                        <select name="user[relInitialAge]" required id="relInitialAge" class="relInitialAge" >
+                            <option disabled selected value="">..</option>
+                            <% for ( var i =16; i<75; i++) { %>
+                                <option><%= i %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                      
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3 form-group">                       
+                        <div class="input-group flex-nowrap">
+                       <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping">To:</span>
+                        <select name="user[relFinalAge]" id="relFinalAge" class="relFinalAge" required >
+                            <option disabled selected value="">..</option>
+                            <% for ( var i =16; i<75; i++) { %>
+                                <option><%= i %></option>
+                            <% } %>
+                        </select>
+                    </div>    
+                        </div>
+                    </div>
+               
+
+                     <div class="form-group col-12 col-sm-4 pl-5 ml-5">
+                        <div class="input-group pl-2">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <select required name="user[city]" class="form-control" aria-label="City " aria-describedby="addon-wrapping">
+                                <option selected disabled value="" >Select City </option>
+                                <% for (var i = 0; i < indianCities.length; i++) { %>
+                                       <option><%= indianCities[i]%></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>         
+            
+                </div> 
+            <hr>
+            <div class="row mr-3 justify-content-center mt-5 mb-4">
+                <div>
+                    <h3 class="display-4">Add More Photos</h3>
+                </div>
+            </div>
+            <div class="row justify-content-around ml-5 mb-5">
+                <div>
+                    <input class="form-group" type="file" name="images" accept="images/*" multiple />
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div class="row justify-content-center my-5">
+                    <h3 class="display-4">Link Your Social Media Accounts </h3>
+                </div>
+                <div class="row mx-5 my-3 d-flex justify-content-center my-4">
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Instagram Account Link (Optional)" name="user[insta_url]"  aria-label="Insta_url" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+                <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping"><i class="fab fa-facebook" aria-hidden="true"></i></span>
+                        </div>
+                        <input  type="text" class="form-control" placeholder="Facebook Account Link (Optional)" name="user[facebook_url]"  aria-label="Facebook_url" aria-describedby="addon-wrapping" >
+                    </div>
+                </div>
+                <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="addon-wrapping"><i class="fab fa-twitter" aria-hidden="true" ></i></span>
+                        </div>
+                        <input  type="text" class="form-control" placeholder="Twitter Account Link (Optional)" name="user[twitter_url]"  aria-label="Twitter_url" aria-describedby="addon-wrapping" >
+                    </div>
+                </div>
+                <div class="row justify-content-start mx-5">
+                    <h5>Note: Input fields marked with <span class = "star">*</span> are compulsory.</h5>
+                </div>
+            </div>
+            <div class="row justify-content-center my-5">
+                <button type="submit" class="btn btn-lg btn-outline-success rounded-0">Create Your Profile</button>
+            </div>       
+            </div>
+        </form>
+    </div> 
+</div>
+</body>
+</html>
