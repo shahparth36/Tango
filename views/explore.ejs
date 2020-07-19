@@ -12,30 +12,36 @@
 <body>
     <input type="checkbox" id = "check">
     <nav id= "myNav" class="navbar fixed-top">
-        <ul class="navbar-nav">
-            <label for="check">
-                <i class="fas fa-bars" id="sidebar_btn"></i>
-            </label>
-        </ul>
-        <a id="myBrand" class="navbar-brand" href="/home">Tango</a>
-        <form id="myForm" class="form-inline">
+        <!-- <div id="myRow" class="row"> -->
+            <!-- <div class="col-4 col-md-1"> -->
+                <ul class="navbar-nav">
+                    <label for="check">
+                        <i class="fas fa-bars" id="sidebar_btn"></i>
+                    </label>
+                </ul>
+            <!-- </div> -->
+            <!-- <div class="col-8 col-md-11"> -->
+                <a id="myBrand" class="navbar-brand" href="/home">Tango</a>
+            <!-- </div> -->
+        <!-- </div> -->
+        <!-- <form id="myForm" class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" class="float:right" type="submit">Search</button>
-        </form>
+        </form> -->
     </nav>
     
     <div class="sidebar">
         <center class="mr-5">
             <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="profile_image" alt="">
             <h4>Parth</h4>
-            <form id="bottom" class="form-inline">
-                <input id ="myInput" class="form-control" type="search" placeholder="Search By Name" aria-label="Search">
+            <form id="bottom" action="/explore" method="GET" class="form-inline">
+                <input id ="myInput" name="fullName" class="form-control" type="search" placeholder="Search By Name" aria-label="Search">
                 <button class="btn btn-outline-success filter_btn" type="submit">Search</button>
             </form>
         </center>
         <div class="scrollable">
             <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
-            <a href="#"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
             <a href="#"><i class="fas fa-heart"></i><span>Likes</span></a>
             <a href="#"><i class="fas fa-bookmark"></i><span>Saved</span></a>
             <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
@@ -52,7 +58,7 @@
                 <h1 style="text-align: center;">Explore Page</h1>
                 <div class="row text-center d-flex justify-content-around" style="display:flex; flex-wrap: wrap;">
                     <% foundUser.forEach(function(User){ %>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-12">
                         <div class="card" style="width: 18rem;">
                             <img src="<%= User.image %>" class="card-img-top" alt="Img Not found">
                             <div class="card-body">
@@ -64,33 +70,121 @@
                         </div>
                     </div>
                     <% }); %>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-sm-6">
-                                <div>
-                                    <label class="col-form-label-lg">Your Preferred Sexuality</label>
-                                    <select name="sexuality" id="sexuality" class="form-group">
-                    </div>
-                    <div class="row justify-content-reverse">
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary">Apply filters</button>
-                            <a href="explore" class="btn btn-danger">Remove filter</a>
+
+                    <form action="/explore" method="GET">
+                        <div class="container">
+                           <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+    Filters
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Filters</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row justify-content-around">      
+                <div class="col-12">
+                    <div>
+                        <div class="collapse show" id="collapseExample">
+                          
+                                <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button id = "myclass1" class="btn btn-link card-link filter myclass text-dark btn-outline-light btn-block text-center " type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Filter by Username<i class="fas fa-chevron-down ml-2" id = "iTag1"></i>
+                                    </button>
+                                </h2>
+                            </div>
+                        
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="row">
+                                    <div class="card-body col-md-10 mx-auto">
+                                        <div class="form-group ">
+                                            <input id="text" type="text" name="username" placeholder="Filter by username" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                                </div>
+                            
+                        </div>
+                        <!-- <label class="col-form-label-lg">Filter by Username</label>
+                        <input type="text" name="username" placeholder="Search Username" class="form-control"> -->
+                        <label class="col-form-label-lg">Filter by Sexuality</label>
+                        <select name="sexuality" type="text" class="form-control">
+                            <option selected value="">Select Your Preference</option>
+                            <option value="Straight">Straight</option>
+                            <option value="Gay">Gay</option>
+                            <option value="Lesbian">Lesbian</option>
+                            <option value="Bisexual">Bisexual</option>
+                        </select>
+                    </div>                                    
+                </div>
+                <div class="col-12 ">
+                    <div>
+                        <label class="col-form-label-lg">Filter by Gender</label>
+                        <select name="gender" type="text" class="form-control">
+                            <option selected value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
                     </div>
-        
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-12">
+                    <label class="col-form-label-lg">Filter by City</label>
+                    <select name="city" type="text" class="form-control" >
+                        <option selected disabled value="" >Select City </option>
+                        <% for (var i = 0; i < indianCities.length; i++) { %>
+                               <option><%= indianCities[i]%></option>
+                        <% } %>
+                    </select>
+                </div>
+        </div>
 
-    <!-- Optional JavaScript -->
-    <script src="scripts/explore.js"></script>
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <div class="modal-footer">
+            <!-- <div class="row justify-content-center" style="padding: 20%;"> -->
+                <!-- <div class="col"> -->
+                    <button type="submit" class="btn btn-outline-success rounded-0">Apply filters</button>
+                    <a href="explore" class="btn btn-outline-danger rounded-0">Remove filter</a>
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+                            
+                                <!-- <div class="col-12">
+                                    <div class="rangeslider">
+                                        <input class="min" name="range_1" type="range" min="1" max="100" value="10" />
+                                        <input class="max" name="range_1" type="range" min="1" max="100" value="90" />
+                                        <span class="range_min light left">10.000 €</span>
+                                        <span class="range_max light right">90.000 €</span>
+                                    </div> 
+                                   
+                                </div> -->
+                            </div>
+                        </div>            
+                    
+        </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>        
+<script src="scripts/explore.js"></script>

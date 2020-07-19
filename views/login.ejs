@@ -24,77 +24,82 @@
             <a href="/register"  class=" nav-link active mr-3" style="color: white;"><i class="fas fa-user-plus mr-2" aria-hidden="true"></i> Register</a>
           </ul>
         </div>
-      </nav>
-        <div class="container mt-5">
-          <% if(error && error.length>0){ %>
-              <div class="row d-flex justify-content-between m-2">
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
-                    <%= error %>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                </div>
-        <% } %>
-        <% if(success && success.length>0){ %>
+    </nav>
+    <div class="container mt-5">
+      <% if(error && error.length>0){ %>
           <div class="row d-flex justify-content-between m-2">
-              <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
-                <%= success %>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
+                <%= error %>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-            </div>                      
-        <% } %>
-        </div>
-    <div class="container">
-        <div class="card px-3 shadow-lg py-3 main" style="margin-top: 9%;">
-            <!-- <h1 class="display-1">Sign In</h1> -->
-            <form action="/login" method="POST">
-                <h3 id="signIn" class="card-title text-center mb-4 py-3 display-4">Sign In</h3>
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <div class="input-group flex no wrap ">
-                            <input class="username" required type="text" class="form-control" placeholder="Email" style="text-align: center;">
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col my-3">
-                        <div class="input-group flex no wrap ">
-                            <!-- <input type="password" text-align="center" placeholder="Password" name="password"> -->
-                            <input class="pass" required id="password-field" type="password" class="form-control" placeholder="Password" style="text-align: center;">
-                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center" style="margin-top: 10px;">
-                    <p>
-                        <span>
-                            Forgot Password?
-                            <a href="/forgot">Click Here</a> 
-                          </p>
-                  </span>
-                </div>
-                <div class="row justify-content-center ">
-                    <p>
-                        <span>
-                            Don't Have an Account yet? 
-                            <a href="/register">Sign Up</a> 
-                          </p>  
-                    </span>
-                </div>
-                <div class="row justify-content-center">
-                    <p>
-                        <button type="submit" style="font-size: 1em" class="submit" text-align="center" >Login
-                            <i class="fas fa-sign-in-alt ml-2" aria-hidden="true"></i>
-                        </button>
-                    </p>
-                </div>
-
-            </form>
-        </div>
+            </div>
+    <% } %>
+    <% if(success && success.length>0){ %>
+      <div class="row d-flex justify-content-between m-2">
+          <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
+            <%= success %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>                      
+    <% } %>
     </div>
+
+    <div class="container" style="margin: 10% auto">
+      <div id="myCard1" class="card px-3 shadow-lg" style="width: 25rem;">
+        <form action="/login" method="POST">
+          <h3 id="signIn" class="card-title text-center mb-4 py-3 display-4">Sign In</h3>
+          <div class="row justify-content-center">
+              <div class="col">
+                  <div class="input-group flex no wrap ">
+                      <input class="username" name="username" required type="text" class="form-control" placeholder="Email" style="text-align: center;">
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col my-3">
+                  <div class="input-group flex no wrap">
+                      <input class="pass" required id="password-field" type="password" name="password" class="form-control" placeholder="Password" style="text-align: center;">
+                      <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-center" style="margin-top: 10px;">
+              <p>
+                <span>
+                    Forgot Password?
+                    <a href="/forgot">Click Here</a> 
+                </span>
+              </p>
+          </div>
+          <div class="row justify-content-center ">
+              <p>
+                <span>
+                    Don't Have an Account yet? 
+                    <a href="/register">Sign Up</a> 
+                </span>
+              </p>  
+          </div>
+          <div class="row justify-content-center">
+              <p>
+                <button type="submit" style="font-size: 1em" class="submit" text-align="center" >Login
+                    <i class="fas fa-sign-in-alt ml-2" aria-hidden="true"></i>
+                </button>
+              </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    
+
+
+
+
+    
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -110,5 +110,11 @@ input:focus {
     color: #0c0b0c;
 }
 
+@media (max-width: 576px) {
+  nav {
+    position: fixed;
+  }
+}
+
 
 
