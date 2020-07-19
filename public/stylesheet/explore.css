@@ -278,7 +278,7 @@
     color: white;
     position: fixed;
     cursor: pointer;
-    left: 8px;
+    left: 15px;
     top: 29px;
     font-size: 20px;
     transition: 0.5s;
@@ -399,6 +399,6 @@
     }
 
     label #sidebar_btn {
-      margin-left: 10px;
+      left: 8px;
     }
   }
