@@ -204,49 +204,71 @@
   [slider]:hover > div > [sign] {
     opacity: 1;
   }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .card{
-    margin-top: 10px;
-  }
-
-  .left_area h3 {
-    color: black;
-    margin: 0;
-    font-size: 32px;
-    font-weight: 900;
-  }
-
-  .logout_btn:hover {
-    background: #0D9DBB;
-  }
+  
+  /* Sidebar and navbar styling start */
 
   .sidebar {
     background: black;
     padding-top: 100px;
     position: fixed;
     left: 0;
-    width: 250px;
+    width: 60px;
     height: 100%;
     transition: 100%;
-    transition-property: left;
+    transition-property: right;
   }
 
+  #check:checked ~ .sidebar {
+    left: 0px;
+    width: 250px;
+  }
+
+  #check:checked ~ .sidebar center {
+    left: 0px;
+    width: 250px;
+    display: block;
+  }
+
+  #check:checked ~ .sidebar a span{
+    display: inline-block;
+  }
+
+  #check:checked ~ .sidebar a {
+    font-size: 17px;
+    padding-left: 50px;
+  }
+  
+  #check:checked ~ .content {
+    margin-left: 250px;
+  }
+
+  #check:checked ~ .sidebar .scrollable {
+    margin-top: 0;
+  }
+
+  .sidebar .scrollable {
+    margin-top: 225px;
+  }
+  
   .sidebar .profile_image {
     width: 100px;
     height:  100px;
     border-radius: 100px;
     margin-bottom: 10px;
   }
-
+  
   .sidebar h4 {
     color: white;
     margin-top: 0;
     margin-bottom: 20px;
+  }
+
+  .sidebar center {
+    display: none;
+  }
+
+  .sidebar span {
+    display: none;
   }
 
   .sidebar a {
@@ -255,12 +277,12 @@
     width: 100%;
     line-height: 50px;
     text-decoration: none;
-    padding-left: 40px;
+    padding-left: 20px;
     box-sizing: border-box;
     transition: 0.5s;
     transition-property: background;
   }
-
+  
   .sidebar a:hover {
     text-decoration: none;
     color: white;
@@ -290,33 +312,12 @@
     color: #19B3D3;
   }
 
-  #myForm {
-    float: right;
-  }
-
-  #check:checked ~ .sidebar {
-    left: -190px;
-  }
-
-  #check:checked ~ .sidebar a span{
-    display: none;
-  }
-
-  #check:checked ~ .sidebar a {
-    font-size: 20px;
-    margin-left: 170px;
-    width: 80px;
-  }
 
   .content {  
     margin-left: 250px;
     height: 100vh;
     transition: 0.5s;
 
-  }
-
-  #check:checked ~ .content {
-    margin-left: 60px;
   }
 
   #check {
@@ -334,14 +335,15 @@
     transition-property: color;
     
   }
+  
+  #myBrand:hover {
+    color: #19B3D3;
+  }
 
   #font {
     font-family: 'Pacifico', cursive;
   }
 
-  #myBrand:hover {
-    color: #19B3D3;
-  }
   
   #myNav {
     height: 10%;
@@ -364,15 +366,15 @@
       margin-bottom: 10px;
   }
 
-  .scrollable{
-    overflow: auto;
-  }
-
   form .filter_btn {
     margin-bottom: 10%;
   }
 
-  @media (max-width: 576px) {
+/* Navbar and sidebar styling end */
+
+/* Styling for mobile size */
+
+  @media (max-width: 1440px) {
 
     #myNav {
       padding-top: 0px;

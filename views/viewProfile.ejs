@@ -10,13 +10,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet/viewProfile.css">
+    <link rel="stylesheet" href="/stylesheet/explore.css">
     <title>View Profile</title>
 </head>
 
 <body>
-    <div class="container shadow-lg my-5">
-        <div class="row">
+
+    <!-- Navbar and sidebar start -->
+    
+    <input type="checkbox" id="check">
+    <nav id="myNav" class="navbar fixed-top">
+        <ul class="navbar-nav">
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+        </ul>
+        <a id="myBrand" class="navbar-brand" href="/home">Tango</a>
+    </nav>
+    
+    <div class="sidebar">
+        <center class="mr-5">
+            <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                class="profile_image" alt="">
+            <h4>Parth</h4>
+        </center>
+        <div class="scrollable">
+            <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+            <a href="#"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="#"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
+            <a href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
+            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    
+        </div>
+    </div>
+
+    <div class="content" style="margin-top: 7%;">
+        <div class="container shadow-lg my-5">
+            <div class="row">
             <div class="col-12 col-md-4">
                 <img class="my-5 mx-5" width="300" height="300" style="border-radius: 50%;"
                     src="<%= user.image %>"
@@ -266,6 +301,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
