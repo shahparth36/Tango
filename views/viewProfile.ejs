@@ -58,25 +58,28 @@
             </div>
             <div class="col-12 col-md-8">
                 <div class="row">
-                    <div class="col-12 col-md-6 pl-5 mt-5">
+                    <div class="col-12 col-md-6 pl-5 mt-5 good">
                         <h3><%= user.firstName %> <%= user.lastName %></h3>
                     </div>
-                    <div id="div1" class="col-0 col-md-6">
+                    <div id="div1" class="col-0 col-md-6 good">
                         <% if (currentUser._id.equals( user._id)) { %>
                             <button type="submit" class="btn btn-danger rounded-0 mr-5"
                                 style="float: right; width: 8.5rem;">Edit Profile <i
                                     class="fas fa-user-edit ml-2"></i></button>
                         <% } %>
                         <% if (!(currentUser._id.equals(user._id))) { %>
-                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
-                                    class="fas fa-thumbs-up ml-2"></i></button>
-                            <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
-                                    class="fas fa-bookmark ml-2"></i></button>
+                            
+                                <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                        class="fas fa-thumbs-up ml-2"></i></button>
+                            <form action="/savedUser" method="POST">
+                                <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
+                                        class="fas fa-bookmark ml-2"></i></button>
+                            </form>
                         <% } %>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-12 pl-5 mt-2 mb-4">
+                    <div class="col-12 col-md-12 pl-5 mt-2 mb-4 good">
                         <span class="mr-1 text-muted mb-1" style="font-size: 15px;"><%= user.age %></span>
                         <span class="text-muted" style="content: \2022; font-size: 22px;">&#8226;</span>
                         <span class="ml-1 text-muted mb-1" style="font-size: 15px;">@ <%= user.username %></span>
@@ -85,7 +88,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-11 pl-5 mb-5">
+                    <div class="col-12 col-md-11 pl-5 mb-5 good">
                         <p><%= user.bio %></p>
                         <div class="pt-2">
                             <ul class = "myclass">
@@ -122,7 +125,6 @@
             </div>
         </div>
         <div class="row">
-
             <div class="col-12 col-md-12 pl-5">
                 <nav>
                     <div class="nav justify-content-center nav-tabs" id="nav-tab" role="tablist">
@@ -135,7 +137,7 @@
                 <!-- About Tab -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row w-75 justify-content-center my-5 mx-3">
+                        <div class="row justify-content-center my-5 mx-3">
                             <div class="col-12 col-md-6">
                                 <div class="card text-white text-center bg-info mb-3" style="max-width: 22rem;">
                                     <div class="card-header">Basic Information</div>

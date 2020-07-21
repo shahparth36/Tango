@@ -285,4 +285,8 @@ ul li:nth-child(3) a:before {
     #div1 {
       margin-top: 0px;
     }
+
+    .good {
+      margin-left: 30px;
+    }
   }
