@@ -29,7 +29,13 @@ var UserSchema =new mongoose.Schema({
     images: [{ url: String, public_id: String }],
     insta_url:String,
     facebook_url:String,
-    twitter_url:String
+    twitter_url:String,
+    savedProfile:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose, {

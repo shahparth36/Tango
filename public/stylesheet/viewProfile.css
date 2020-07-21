@@ -64,6 +64,14 @@ ul li:nth-child(3) a:before {
     background: #1da1f2;
 }
 
+.pTag {
+  display: none;
+}
+
+#div1 {
+  margin-top: 50px;
+}
+
 /* Sidebar and navbar styling start */
 
   .sidebar {
@@ -170,19 +178,17 @@ ul li:nth-child(3) a:before {
     z-index: 1;
     color: #19B3D3;
   }
-
-
+  
   .content {  
-    margin-left: 250px;
+    margin-left: 80px;
     height: 100vh;
-    transition: 0.5s;
-
+    transition: 0.5s; 
   }
-
+  
   #check {
     display: none;
   }
-
+  
   #myBrand {
     font-family: 'Pacifico', cursive;
     font-size: 32px;
@@ -198,11 +204,11 @@ ul li:nth-child(3) a:before {
   #myBrand:hover {
     color: #19B3D3;
   }
-
+  
   #font {
     font-family: 'Pacifico', cursive;
   }
-
+  
   
   #myNav {
     height: 10%;
@@ -215,51 +221,68 @@ ul li:nth-child(3) a:before {
     padding-bottom: 20%;
     margin-bottom: 20%;
   }
-
+  
   #bottom {
     display: block;
   }
-
+  
   #myInput {
     width: 78%;
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
-
+  
   form .filter_btn {
     margin-bottom: 10%;
   }
-
-/* Navbar and sidebar styling end */
-
-/* Styling for mobile size */
-
-  @media (max-width: 1440px) {
-
+  
+  /* Navbar and sidebar styling end */
+  
+  /* Styling for mobile size */
+  
+  @media (max-width: 1340px) {
+    
     #myNav {
       padding-top: 0px;
     }
-
-
+    
+    
     #myBrand {
       margin-left: 40px;
       margin-bottom: 5px;
       padding-bottom: 2rem;
     }
-
+    
     #myInput {
       width: 78%;
       margin-bottom: 10px;
     }
-
+    
     #myForm {
       display: none;
     }
-
+    
     #bottom {
       display: block;
     }
-
+    
     label #sidebar_btn {
       left: 14px;
+    }
+    
+    .but {
+      display: none;
+    }
+    
+    .pTag {
+      display: block;
+      margin-right: 122px;
+    }
+    
+    #check:checked ~ .content {
+      margin-left: 500px;
+    }
+
+    #div1 {
+      margin-top: 0px;
     }
   }

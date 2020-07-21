@@ -17,7 +17,7 @@ var express               = require("express"),
  
 //REQURING ROUTES
 var profileRoutes = require("./routes/profile");
-var indexRoutes = require("./routes/index"); 
+var indexRoutes = require("./routes/index");
 var landingRoutes = require("./routes/landings"); 
 var exploreRoutes = require("./routes/explore"); 
 

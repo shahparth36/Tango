@@ -58,19 +58,19 @@
             </div>
             <div class="col-12 col-md-8">
                 <div class="row">
-                    <div class="col-5 col-md-5 pl-5 mt-5">
+                    <div class="col-12 col-md-6 pl-5 mt-5">
                         <h3><%= user.firstName %> <%= user.lastName %></h3>
                     </div>
-                    <div class="col-7 col-md-7 mt-5">
+                    <div id="div1" class="col-0 col-md-6">
                         <% if (currentUser._id.equals( user._id)) { %>
                             <button type="submit" class="btn btn-danger rounded-0 mr-5"
                                 style="float: right; width: 8.5rem;">Edit Profile <i
                                     class="fas fa-user-edit ml-2"></i></button>
                         <% } %>
                         <% if (!(currentUser._id.equals(user._id))) { %>
-                            <button type="submit" class="btn btn-danger rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
                                     class="fas fa-thumbs-up ml-2"></i></button>
-                            <button type="submit" class="btn btn-primary rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
+                            <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
                                     class="fas fa-bookmark ml-2"></i></button>
                         <% } %>
                     </div>
@@ -92,7 +92,7 @@
                                 <% if (user.insta_url) { %>
                                     <li>
                                         <a href="<%= user.insta_url %>" style="color: black;"><i class="fab fa-instagram"
-                                                    style="font-size: 1.5rem;"></i></a>
+                                        style="font-size: 1.5rem;"></i></a>
                                     </li>
                                 <% } %>
                                 <% if (user.facebook_url) { %>
@@ -108,6 +108,14 @@
                                     </li>
                                 <% } %>
                             </ul>
+                        </div>
+                        <div class="pTag">
+                            <% if (!(currentUser._id.equals(user._id))) { %>
+                            <button type="submit" class="btn btn-danger rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                    class="fas fa-thumbs-up ml-2"></i></button>
+                            <button type="submit" class="btn btn-primary rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
+                                    class="fas fa-bookmark ml-2"></i></button>
+                            <% } %>
                         </div>
                     </div>
                 </div>
@@ -127,7 +135,7 @@
                 <!-- About Tab -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row justify-content-center my-5 mx-3">
+                        <div class="row w-75 justify-content-center my-5 mx-3">
                             <div class="col-12 col-md-6">
                                 <div class="card text-white text-center bg-info mb-3" style="max-width: 22rem;">
                                     <div class="card-header">Basic Information</div>
@@ -258,7 +266,7 @@
                             <% } %>
                             <% user.images.forEach(function (img) { %>
                             <div class="col-12 col-md-6">
-                                <div class="card shadow-lg bg-white rounded mt-5">
+                                <div class="card shadow-lg bg-white rounded my-5">
                                     <img class="card-img mb-0" style="width:100%; height: 100%; object-fit: cover;" src="<%= img.url %>">
                                 </div>
                             </div>
