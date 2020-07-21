@@ -72,6 +72,17 @@ ul li:nth-child(3) a:before {
   margin-top: 50px;
 }
 
+#myRow1 .good {
+  margin-left: 25px;
+}
+
+.hello1 img {
+  width: 100%;
+  border-radius: 50%!important;
+  max-width: 360px;
+  max-height: 300px;
+}
+
 /* Sidebar and navbar styling start */
 
   .sidebar {
