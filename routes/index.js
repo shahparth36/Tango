@@ -38,9 +38,7 @@ router.get("/createProfile", (req, res) => {
   res.render("createProfile");
 })
 
-  // <% for (var i = 0; i < indianCities.length; i++) { %>
-  //   <option><%= indianCities[i]%></option>
-  //   <% } %>
+  
 
 
 router.get("/register", function (req, res) {
@@ -153,18 +151,19 @@ router.get("/login", function (req, res) {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successFlash: true,
-    successRedirect: "/home",
     failureFlash: true,
     failureRedirect: "/login",
   }),
-  function (req, res) {}
+  function (req, res) {
+    req.flash("success",`Welcome Back ${req.user.username}`)
+    res.redirect(`/home/${req.user._id}`);
+  }
 );
 
 router.get("/logout", function (req, res) {
   req.logOut();
   req.flash("success", "Logged you out");
-  res.redirect("/");
+  res.redirect("/login");
 });
 
 // forgot password

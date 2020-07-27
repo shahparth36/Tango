@@ -239,7 +239,12 @@ body {
 
   /* Card Styling start */
 
+  #cont{
+    margin-top: 0;
+  }
+
 .container{
+    margin-left: 50px;
     width: 1000px;
     position: relative;
     display: flex;
@@ -248,7 +253,7 @@ body {
 
 .container .cards{
     position: relative;
-  padding: 0;
+    padding: 0;
 }
 
 .container .cards .face{
@@ -258,25 +263,25 @@ body {
 }
 
 .container .cards .face.face1{
-    position: relative;
+    position: relative; 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transform: translateY(317px);
+    transform: translateY(117px);
 }
 
 .container .cards:hover .face.face1{
-    transform: translateY(216px);
+    transform: translateY(0);
 }
 
 .container .cards .face.face2{
     position: relative;
     background: black;
     color: #fff;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     display: flex;
     justify-content: center;  
     align-items: center;
@@ -292,7 +297,7 @@ body {
     transform: translateY(0);
 }
 
-.container .cards .face.face2 .content p {
+.container .cards .face.face2 .content1 p {
     margin: 0;
     padding: 0;
 }
@@ -306,14 +311,14 @@ body {
     opacity: 1;
 } */
 
-.container .card .face.face1 .content img{
+.container .card .face.face1 .content1 img{
   margin-left: 0;
   border: none;
   /* max-width: 150px; */
   
 }
 
-.container .cards .face.face1 .content p{
+.container .cards .face.face1 .content1 p{
     /* margin: 10px 0 0 ; */
     padding: 0;
     text-align: center; 
@@ -338,15 +343,28 @@ body {
     color: black;
 }
 
+.explore{
+  font-family: 'Playball', cursive;
+}
+
+
   /* Card Styling end */
   /* Styling for mobile size */
 
-  @media (max-width: 1340px) {
+  @media (max-width: 640px) {
 
     #myNav {
       padding-top: none;
     }
+    
+    .content {
+      margin-left: 213px;
+    }
 
+    #check:checked ~ .container {
+      margin-left: 250px;
+      padding-left: 100px;
+    }
 
     #myBrand {
       margin-left: 40px;

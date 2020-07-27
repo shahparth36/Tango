@@ -27,7 +27,7 @@
                 <i class="fas fa-bars" id="sidebar_btn"></i>
             </label>
         </ul>
-        <a id="myBrand" class="navbar-brand" href="/home">Tango</a>
+        <a id="myBrand" class="navbar-brand" href="/home/<%= currentUser._id %>">Tango</a>
     </nav>
     
     <div class="sidebar">
@@ -37,14 +37,13 @@
             <h4>Parth</h4>
         </center>
         <div class="scrollable">
-            <a href="#"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
             <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
-            <a href="#"><i class="fas fa-heart"></i><span>Likes</span></a>
-            <a href="#"><i class="fas fa-bookmark"></i><span>Saved</span></a>
+            <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
             <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
             <a href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
-            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
-    
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
         </div>
     </div>
 
@@ -68,13 +67,32 @@
                                         class="fas fa-user-edit ml-2"></i></button>
                             <% } %>
                             <% if (!(currentUser._id.equals(user._id))) { %>
-                                
-                                    <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                <!-- Unlike button -->
+                                <% if (currentUser.likedUser.indexOf(user._id) !== -1) { %>
+                                        <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 6.5rem;">
+                                            Unlike <i class="fas fa-thumbs-up ml-2"></i></a>       
+ 
+                                <% } %>
+                                <!-- Like button -->
+                                <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
+                                    <form action="/liked/<%= user._id %>" method="POST">
+                                        <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
                                             class="fas fa-thumbs-up ml-2"></i></button>
-                                <form action="/savedUser" method="POST">
+                                    </form>
+                                <% } %>
+                                <!-- Unsave button -->
+                                <% if (currentUser.savedUser.indexOf(user._id) !== -1) { %>
+                                    <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 6.5rem;">Unsave <i
+                                            class="fas fa-bookmark ml-2"></i></a>
+                                    
+                                <% } %>
+                                <!-- Save button -->
+                                <% if (currentUser.savedUser.indexOf(user._id) === -1) { %>
+                                <form action="/saved/<%= user._id %>" method="POST">
                                     <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
                                             class="fas fa-bookmark ml-2"></i></button>
                                 </form>
+                                <% } %>        
                             <% } %>
                         </div>
                     </div>
@@ -114,10 +132,32 @@
                             </div>
                             <div class="pTag">
                                 <% if (!(currentUser._id.equals(user._id))) { %>
-                                <button type="submit" class="btn btn-danger rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
-                                        class="fas fa-thumbs-up ml-2"></i></button>
-                                <button type="submit" class="btn btn-primary rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
-                                        class="fas fa-bookmark ml-2"></i></button>
+                                    <!-- Unlike button -->
+                                    <% if (currentUser.likedUser.indexOf(user._id) !== -1) { %>
+                                    <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5"
+                                        style="float: right; width: 6.5rem;">
+                                        Unlike <i class="fas fa-thumbs-up ml-2"></i></a>    
+                                    <% } %>
+                                    <!-- Like button -->
+                                    <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
+                                    <form action="/liked/<%= user._id %>" method="POST">
+                                        <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                                class="fas fa-thumbs-up ml-2"></i></button>
+                                    </form>
+                                    <% } %>
+                                    <!-- Unsave button -->
+                                    <% if (currentUser.savedUser.indexOf(user._id) !== -1) { %>
+                                    <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3"
+                                        style="float: right; width: 6.5rem;">Unsave <i class="fas fa-bookmark ml-2"></i></a>
+                                    
+                                    <% } %>
+                                    <!-- Save button -->
+                                    <% if (currentUser.savedUser.indexOf(user._id) === -1) { %>
+                                    <form action="/saved/<%= user._id %>" method="POST">
+                                        <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
+                                                class="fas fa-bookmark ml-2"></i></button>
+                                    </form>
+                                    <% } %>
                                 <% } %>
                             </div>
                         </div>
@@ -192,8 +232,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 my-3">
-                                                    <h5 class="card-title"><%= user.relType %></h5>
-                                                    <!-- <p>Short Distance Relationship</p> -->
+                                                    <h5 class="card-title">Preferred Distance</h5>
+                                                    <p><%= user.relType %></p>
                                                 </div>
                                             </div>
                                             </p>

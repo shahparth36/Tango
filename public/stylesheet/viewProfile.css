@@ -191,6 +191,7 @@ ul li:nth-child(3) a:before {
   }
   
   .content {  
+    width: 1000px;
     margin-left: 80px;
     height: 100vh;
     transition: 0.5s; 
@@ -284,7 +285,12 @@ ul li:nth-child(3) a:before {
       display: none;
     }
     
-    .pTag {
+    .pTag a {
+      display: inline-block;
+      margin-right: 122px;
+    }
+
+    .pTag a {
       display: block;
       margin-right: 122px;
     }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Profiles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheet/savedProfiles.css">
+</head>
+<body>
+      <!-- Navbar and sidebar start -->
+
+       <input type="checkbox" id = "check">
+      <nav id= "myNav" class="navbar fixed-top">
+          <ul class="navbar-nav">
+              <label for="check">
+                  <i class="fas fa-bars" id="sidebar_btn"></i>
+              </label>
+          </ul>
+          <a id="myBrand" class="navbar-brand" href="/home/<%= currentUser._id %>">Tango</a>
+      </nav>
+      
+      <div class="sidebar">
+          <center class="mr-5">
+              <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="profile_image" alt="">
+              <h4>Parth</h4>
+              <form id="bottom" action="/explore" method="GET" class="form-inline">
+                  <input id ="myInput" name="fullName" class="form-control" type="search" placeholder="Search By Name" aria-label="Search">
+                  <button type="submit" class="btn btn-outline-primary rounded-0 mb-4">Search</button>
+              </form>
+          </center>
+          <div class="scrollable">
+              <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
+              <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
+              <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+              <a href="/savedProfiles/<%= currentUser._id %>" ><i class="fas fa-bookmark"></i><span>Saved</span></a>
+              <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
+              <a href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
+              <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+          </div>
+      </div> 
+  
+      <!-- Navbar and sidebar end -->
+      
+      <div class="content  py-5" style="width: 1000px;">
+        <div class="container" style="margin-top: 70px; margin-right: 250px;">
+        <div class="jumbotron text-center py-3">                  
+            <h1 class="display-3 saved">Saved Profiles</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>                   
+        </div>  
+        <section id="team">
+            <div class="container py-5 my-3 text-center">
+                <div class="row mb-5">
+                    <div class="col my-5">
+                        <h1>Saved Profiles</h1>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <% user.savedUser.forEach(function(User){ %>
+                        <div class="col-lg-4 col-md-6">
+                            <a href="/profile/<%= User._id %>">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="<%= User.image %>"
+                                         alt="" class="img-fluid rounded-circle mb-3" >
+                                        <h3 class="card-title"><%= User.fullName %> </h3>
+                                        <h5 class="py-1 "><%= User.age %> &bull;  <%= User.username %> &bull;  <%= User.city %></h5>
+                                        <p>
+                                            <% if (User.bio.length <= 150 ) { %>
+                                                <p ><%= User.bio %> </p>
+                                            <% } else { %>
+                                                <p ><%= User.bio.substring(0,250) %>...</p>
+                                            <% } %>
+                                        </p>
+                                        
+                                        <div class="d-flex flex-row justify-content-center">
+                                            <% if (user.insta_url) { %>
+                                                <div class="px-4">
+                                                    <a href="<%= User.insta_url %>">
+                                                        <i class="fab fa-instagram"></i>
+                                                    </a>
+                                                </div>
+                                            <% } %>
+                                            <% if (user.facebook_url) { %>
+                                                <div     class="px-4">
+                                                    <a href="<%= User.facebook_url %>">
+                                                        <i class="fab fa-facebook"></i>
+                                                    </a>
+                                                </div>
+                                            <% } %>
+                                            <% if (user.twitter_url) { %>
+                                                <div class="px-4">
+                                                    <a href="<%= User.twitter_url %>">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+            

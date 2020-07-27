@@ -20,13 +20,15 @@ var profileRoutes = require("./routes/profile");
 var indexRoutes = require("./routes/index");
 var landingRoutes = require("./routes/landings"); 
 var exploreRoutes = require("./routes/explore"); 
+var savedProfileRoutes = require("./routes/savedProfile");
+var likedProfileRoutes = require("./routes/likedProfile");
+var homeRoutes = require("./routes/home");
 
-
-// mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-mongoose.connect(
-  "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect(
+//   "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+// );
 var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -55,17 +57,13 @@ app.use(function(req, res, next){
   next();
 });
 
-
-app.get("/home", function(req,res){
-  res.render("home")
-})
-
 app.use(profileRoutes);
 app.use(indexRoutes);
 app.use(landingRoutes);
 app.use(exploreRoutes);
-
-
+app.use(savedProfileRoutes);
+app.use(likedProfileRoutes);
+app.use(homeRoutes);
   app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("The Server is listening on " + process.env.PORT);
  });

@@ -30,11 +30,28 @@ var UserSchema =new mongoose.Schema({
     insta_url:String,
     facebook_url:String,
     twitter_url:String,
-    savedProfile:[
+    savedUser:[
         {
-            type:mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref:"User"
         }
+    ],
+
+    likedUser:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        }
+    ],
+
+    likedBy:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        }
+    ],
+    temp: [
+        String
     ]
 });
 

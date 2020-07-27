@@ -6,13 +6,48 @@ var cities = require("all-countries-and-cities-json");
 var indianCities = cities["India"];
 var mongoose = require("mongoose");
 
-router.post("/savedUser/:id", function(req,res){
-    User.findById(req.params.id, function(err,savedUser){
+//SAVING A USER
+
+router.post("/saved/:clickedUser_id", function(req,res){
+    User.findById(req.params.clickedUser_id, function(err,foundUser){
         if(err){
             console.log(err);
             res.redirect("back");
-        }else{
-            savedUser.push(savedUser);
+        }else{  
+            req.user.savedUser.push(foundUser);
+            req.user.save();
+            res.redirect("/profile/" + req.params.clickedUser_id );
+        }   
+    });
+});
+
+// SHOWING A SAVED USER
+
+router.get("/savedProfiles/:loggedInUser_id",  function(req,res){
+    User.findById(req.params.loggedInUser_id).populate("savedUser").exec(function(err, loggedInUser){
+        if(err){
+            console.log(err);
+            res.redirect("viewProfile")
+        } else {
+            res.render("savedProfiles" , {user: loggedInUser});
         }
     });
 });
+
+// UNSAVING A USER
+
+router.get("/unsave/:unsaveUser_id", function(req,res){
+    User.findById(req.params.unsaveUser_id, function(err, unsaveUser){
+        if(err){
+            console.log(err);
+            res.redirect("/profile/" + req.params.unsaveUser_id);
+        } else {
+            req.user.savedUser.pull(unsaveUser);
+            req.user.save();
+            res.redirect("/profile/" + req.params.unsaveUser_id);
+        }
+    });
+});
+
+module.exports = router;
+
