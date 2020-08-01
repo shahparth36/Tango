@@ -12,8 +12,8 @@ var express               = require("express"),
     async                 = require("async"),
     nodemailer            = require("nodemailer"),
     crypto                = require("crypto")
-    multer = require('multer');
-
+    multer                = require('multer');
+    fast2sms              = require('fast-two-sms')
  
 //REQURING ROUTES
 var profileRoutes = require("./routes/profile");
@@ -23,19 +23,23 @@ var exploreRoutes = require("./routes/explore");
 var savedProfileRoutes = require("./routes/savedProfile");
 var likedProfileRoutes = require("./routes/likedProfile");
 var homeRoutes = require("./routes/home");
+var settingRoutes = require("./routes/settings");
+var footerRoutes = require("./routes/footer");
 
-// mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-mongoose.connect(
-  "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect(
+//   "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+// );
 var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require('moment');
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended:false}));
 app.use(require("express-session")({
     secret: "Rusty is the best and cutest dog in the world",
     resave: false,
@@ -51,10 +55,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
-  res.locals.currentUser = req.user;
-  res.locals.error = req.flash("error")
-  res.locals.success = req.flash("success")
-  next();
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error")
+    res.locals.success = req.flash("success")
+    next();
 });
 
 app.use(profileRoutes);
@@ -64,6 +68,15 @@ app.use(exploreRoutes);
 app.use(savedProfileRoutes);
 app.use(likedProfileRoutes);
 app.use(homeRoutes);
+app.use(settingRoutes);
+app.use(footerRoutes);
+
+// fast2sms.sendMessage({
+// 	authorization: process.env.API_KEY1,
+// 	message: "94759 is your OTP(One Time Password) to register on Tango. It is valid for 5 minutes.Please enter the OTP to continue \n Thank You, \n Team Tango",
+// 	numbers: ["7021765486"]
+// });
+
   app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("The Server is listening on " + process.env.PORT);
  });

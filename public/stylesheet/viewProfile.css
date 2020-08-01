@@ -1,23 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 10vh; 
-}
-ul {
+.myclass {
     position: relative;
     display: flex;
 }
-ul li {
+
+.myclass li {
     position: relative;
     list-style: none;
 }
-ul li a {
+
+.myclass li a {
     position: relative;
     width: 55px;
     height: 55px;
@@ -41,7 +32,7 @@ ul li a {
     position: relative;
     z-index: 1;
 }
-ul li a:before {
+.myclass li a:before {
     content: '';
     position: absolute;
     top: 10px;
@@ -52,15 +43,15 @@ ul li a:before {
     border: 2px solid rgba(0,0,0,0.1);
 }
 
-ul li:nth-child(1) a:before {
+.myclass li:nth-child(1) a:before {
     background: #c32aa3;
 }
 
-ul li:nth-child(2) a:before {
+.myclass li:nth-child(2) a:before {
     background: #1877f2;
 }
 
-ul li:nth-child(3) a:before {
+.myclass li:nth-child(3) a:before {
     background: #1da1f2;
 }
 
@@ -83,11 +74,27 @@ ul li:nth-child(3) a:before {
   max-height: 300px;
 }
 
+.footer-content {
+    color: white;
+}
+
+.footer {
+    margin-left: 50px;
+    background: black;
+    padding: 50px 0px; 
+    margin-top: 200px;
+}
+
+.footer a:hover {
+    color: #19B3D3;
+}
+
+
 /* Sidebar and navbar styling start */
 
   .sidebar {
     background: black;
-    padding-top: 50px;
+    padding-top: 100px;
     position: fixed;
     left: 0;
     width: 60px;
@@ -117,7 +124,7 @@ ul li:nth-child(3) a:before {
   }
   
   #check:checked ~ .content {
-    margin-left: 250px;
+    margin-left: 350px;
   }
 
   #check:checked ~ .sidebar .scrollable {
@@ -190,13 +197,19 @@ ul li:nth-child(3) a:before {
     color: #19B3D3;
   }
   
-  .content {  
+  .content {
+    padding-top: 7%;
+    margin-bottom: 700px;  
     width: 1000px;
-    margin-left: 80px;
+    margin-left: 250px;
     height: 100vh;
     transition: 0.5s; 
   }
   
+  #check:checked ~ footer {
+    margin-left: 250px;
+  }
+
   #check {
     display: none;
   }
@@ -251,7 +264,7 @@ ul li:nth-child(3) a:before {
   
   /* Styling for mobile size */
   
-  @media (max-width: 1340px) {
+  @media (max-width: 1040px) {
     
     #myNav {
       padding-top: 0px;
@@ -296,7 +309,7 @@ ul li:nth-child(3) a:before {
     }
     
     #check:checked ~ .content {
-      margin-left: 500px;
+      padding-left: 300px;
     }
 
     #div1 {

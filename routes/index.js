@@ -1,16 +1,19 @@
 require("dotenv/config");
 
-var express = require("express");
-var router = express.Router();
-var passport = require("passport");
-var User = require("../models/user"),
-  async = require("async"),
-  nodemailer = require("nodemailer"),
-  crypto = require("crypto"),
-  multer = require("multer");
-  var cities = require("all-countries-and-cities-json")
-  var indianCities = cities["India"];
-  
+var express      = require("express");
+var router       = express.Router();
+var passport     = require("passport");
+var User         = require("../models/user"),
+  	async        = require("async"),
+  	nodemailer   = require("nodemailer"),
+  	crypto 	     = require("crypto"),
+  	multer 	     = require("multer"),
+    cities 	     = require("all-countries-and-cities-json"),
+    indianCities = cities["India"],
+    fast2sms     = require("fast-two-sms");
+var middleware   = require("../middleware");
+
+
 //CLOUDINARY REQUIREMENTS
 var storage = multer.diskStorage({
   filename: function (req, file, callback) {
@@ -36,10 +39,7 @@ cloudinary.config({
 
 router.get("/createProfile", (req, res) => {
   res.render("createProfile");
-})
-
-  
-
+});
 
 router.get("/register", function (req, res) {
   res.render("register");
@@ -49,13 +49,14 @@ router.post("/register", upload.single("image"), function (req, res) {
   if (req.body.password !== req.body.retypedpassword) {
     req.flash("error", "passwords do not match");
     return res.redirect("back");
-  }
-  console.log("before cloudinary");
-  cloudinary.v2.uploader.upload(req.file.path, function (err, result) {
-    console.log("inside cloudinary"); 
-    if (err) {
-      console.log(err);
-    } else {
+  } else {
+    // console.log("before cloudinary");
+    cloudinary.v2.uploader.upload(req.file.path, function (err, result) {
+      // console.log("inside cloudinary");
+      if (err) {
+        console.log(err);
+        return res.redirect("/register");
+      } else {
         var dateString = req.body.user.dob;
         var today = new Date();
         var birthDate = new Date(dateString);
@@ -71,33 +72,181 @@ router.post("/register", upload.single("image"), function (req, res) {
         if (da < 0) {
           da += 30;
         }
-        res.render("createProfile", {
-          username: req.body.user.username,
-          email: req.body.user.email,
-          firstName: req.body.user.firstName,
-          lastName: req.body.user.lastName,
-          phNumber: req.body.user.phNumber,
-          image: result.secure_url,
-          imageId: result.public_id,
-           password:req.body.password,
-          dob: req.body.user.dob,
-          indianCities: indianCities,
-          age: age
-        });
-    }
-  });
-}); 
+        if (age < 15 || age > 76) {
+          req.flash(
+            "error",
+            "Age " + age + " is restricted. You must be 16 years or older."
+          );
+          res.redirect("/register");
+        } else {
+          var otp = Math.floor(10000 + Math.random() * 90000);
+        var unirest = require("unirest");
 
-router.post("/profile", upload.array('images'), async function (req, res) {
+        var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
+
+        req1.headers({
+            "content-type": "application/x-www-form-urlencoded",
+            "cache-control": "no-cache",
+            "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+        });
+        req1.form({
+            "sender_id": "FSTSMS",
+            "language": "english",
+            "route": "qt",
+            "numbers": req.body.user.phNumber,
+            "message": "32925",
+            "variables": "{#AA#}",
+            "variables_values": otp
+        });
+
+        req1.end(function (res) {
+            if (res.error) throw new Error(res.error);
+            console.log(res.body);
+        });
+        
+        console.log("message sent succesfully with otp " + otp);
+        res.render("otp", {
+            username: req.body.user.username,
+            email: req.body.user.email,
+            firstName: req.body.user.firstName,
+            lastName: req.body.user.lastName,
+            phNumber: req.body.user.phNumber,
+            image: result.secure_url,
+            imageId: result.public_id,
+            password: req.body.password,
+            retypedpassword: req.body.retypedpassword,
+            dob: req.body.user.dob,
+            indianCities: indianCities,
+            age: age,
+            otp: otp,
+            result: result,
+        });
+        }
+      }
+    });
+  }
+});
+
+router.post("/resendotp", function (req, res) {
+  if (req.body.password !== req.body.retypedpassword) {
+    req.flash("error", "passwords do not match");
+    return res.redirect("back");
+  } else {
+    var dateString = req.body.user.dob;
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    var da = today.getDate() - birthDate.getDate();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    if (m < 0) {
+      m += 12;
+    }
+    if (da < 0) {
+      da += 30;
+    }
+    if (age < 15 || age > 76) {
+      req.flash(
+        "error",
+        "Age " + age + " is restricted. You must be 16 years or older."
+      );
+      res.redirect("/register");
+    } else {
+      	var otp = Math.floor(10000 + Math.random() * 90000);
+      	var unirest = require("unirest");
+
+      	var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
+
+      	req1.headers({
+        	"content-type": "application/x-www-form-urlencoded",
+        	"cache-control": "no-cache",
+        	"authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+      	});
+      	req1.form({
+      	  	"sender_id": "FSTSMS",
+      	  	"language": "english",
+      	  	"route": "qt",
+      	  	"numbers": req.body.user.phNumber,
+      	  	"message": "32925",
+      	  	"variables": "{#AA#}",
+      	  	"variables_values": otp
+      	});
+
+      	req1.end(function (res) {
+      	  	if (res.error) throw new Error(res.error);
+      	  	console.log(res.body);
+      	});
+
+      console.log("message sent succesfully with otp " + otp);
+      res.render("otp", {
+        username: req.body.user.username,
+        email: req.body.user.email,
+        firstName: req.body.user.firstName,
+        lastName: req.body.user.lastName,
+        phNumber: req.body.user.phNumber,
+        image: req.body.result1,
+        imageId: req.body.result2,
+        password: req.body.password,
+        retypedpassword: req.body.retypedpassword,
+        dob: req.body.user.dob,
+        indianCities: indianCities,
+        age: age,
+        otp: otp,
+        result: req.body.result,
+      });
+    }
+  }
+});
+
+router.get("/otp", function (req, res) {
+  res.render("otp");
+});
+
+router.post("/otp", function (req, res) {
+  console.log(req.body.enteredOTP);
+  console.log(req.body.otp);
+  enteredOTP = req.body.enteredOTP;
+  if (enteredOTP === req.body.otp) {
+    res.render("createProfile", {
+      username: req.body.user.username,
+      email: req.body.user.email,
+      firstName: req.body.user.firstName,
+      lastName: req.body.user.lastName,
+      phNumber: req.body.user.phNumber,
+      image: req.body.result1,
+      imageId: req.body.result2,
+      password: req.body.password,
+      dob: req.body.user.dob,
+      indianCities: indianCities,
+      age: req.body.user.age,
+    });
+  } else {
+    req.flash("error", "You Entered the wrong OTP. Please try again.");
+    res.redirect("/register");
+  }
+});
+
+router.post("/profile", upload.array("images"), async function (req, res) {
+  // if(enteredOTP == otp){
+  // 	req.flash("success", "Successfully registered, please login to continue" )
+  // 	console.log("inside");
+  // 	res.redirect("/login");
+
+  //   	}else{
+  // 	  	req.flash("error", "You entered the wrong OTP");
+  // 	  	res.redirect("back");
+  //   	}
   req.body.user.images = [];
   for (const file of req.files) {
-      var image = await cloudinary.v2.uploader.upload(file.path);
-      req.body.user.images.push({
-          url: image.secure_url,
-          public_id: image.public_id
-      }) 
+    var image = await cloudinary.v2.uploader.upload(file.path);
+    req.body.user.images.push({
+      url: image.secure_url,
+      public_id: image.public_id,
+    });
   }
-  var newUser= new User({
+  var newUser = new User({
     username: req.body.user.username,
     email: req.body.user.email,
     firstName: req.body.user.firstName,
@@ -109,40 +258,41 @@ router.post("/profile", upload.array('images'), async function (req, res) {
     dob: req.body.user.dob,
     city: req.body.user.city,
     gender: req.body.user.gender,
-    maritalStatus:req.body.user.maritalStatus,
-    relType:req.body.user.relType,
-    liveIn:req.body.user.liveIn,
-    smoke:req.body.user.smoke,
-    alcohol:req.body.user.alcohol,
-    sexuality:req.body.user.sexuality,
+    maritalStatus: req.body.user.maritalStatus,
+    relType: req.body.user.relType,
+    liveIn: req.body.user.liveIn,
+    smoke: req.body.user.smoke,
+    alcohol: req.body.user.alcohol,
+    sexuality: req.body.user.sexuality,
     bio: req.body.user.bio,
     age: req.body.user.age,
-    relInitialAge:req.body.user.relInitialAge,
-    relFinalAge:req.body.user.relFinalAge,
+    relInitialAge: req.body.user.relInitialAge,
+    relFinalAge: req.body.user.relFinalAge,
     images: req.body.user.images,
     insta_url: req.body.user.insta_url,
     facebook_url: req.body.user.facebook_url,
-    twitter_url: req.body.user.twitter_url
+    twitter_url: req.body.user.twitter_url,
   });
+
   User.register(newUser, req.body.password, function (err, user) {
     if (err) {
-        req.flash("error", err.message)
-        console.log(err);
-        return res.redirect("back");
-        
+      req.flash("error", err.message);
+      console.log(err);
+      return res.redirect("back");
     } else {
-      if(req.body.user.relIntAge>=req.body.user.relFinalAge){
-        req.flash("error","final age cannot be less than initial age");
+      if (req.body.user.relIntAge >= req.body.user.relFinalAge) {
+        req.flash("error", "final age cannot be less than initial age");
         return res.redirect("back");
-      }else{
-        req.flash("success", "Successfully registered, please login to continue" )
-        console.log("inside");
-        res.redirect("/login");
+      } else {
+        req.flash(
+          "success",
+          "Successfully Registered, Please Login to continue"
+        );
+        res.redirect("login");
       }
     }
   });
 });
-
 
 router.get("/login", function (req, res) {
   res.render("login");
@@ -155,7 +305,7 @@ router.post(
     failureRedirect: "/login",
   }),
   function (req, res) {
-    req.flash("success",`Welcome Back ${req.user.username}`)
+    req.flash("success", `Welcome Back, ${req.user.username}!`);
     res.redirect(`/home/${req.user._id}`);
   }
 );
@@ -184,7 +334,7 @@ router.post("/forgot", function (req, res, next) {
         User.findOne({ email: req.body.email }, function (err, user) {
           if (!user) {
             console.log("hi");
-            req.flash('error', 'No account with that email address exists.');
+            req.flash("error", "No account with that email address exists.");
             return res.redirect("back");
           }
           console.log(user);
@@ -220,7 +370,12 @@ router.post("/forgot", function (req, res, next) {
         };
         smtpTransport.sendMail(mailOptions, function (err) {
           console.log("mail sent");
-            req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+          req.flash(
+            "success",
+            "An e-mail has been sent to " +
+              user.email +
+              " with further instructions."
+          );
           done(err, "done");
         });
       },
@@ -240,7 +395,7 @@ router.get("/reset/:token", function (req, res) {
     },
     function (err, user) {
       if (!user) {
-        req.flash('error', 'Password reset token is invalid or has expired.');
+        req.flash("error", "Password reset token is invalid or has expired.");
         return res.redirect("/forgot");
       }
       res.render("reset", { token: req.params.token });
@@ -259,7 +414,10 @@ router.post("/reset/:token", function (req, res) {
           },
           function (err, user) {
             if (!user) {
-              req.flash('error', 'Password reset token is invalid or has expired.');
+              req.flash(
+                "error",
+                "Password reset token is invalid or has expired."
+              );
               return res.redirect("back");
             }
             if (req.body.password === req.body.confirm) {
@@ -274,7 +432,7 @@ router.post("/reset/:token", function (req, res) {
                 });
               });
             } else {
-                req.flash("error", "Passwords do not match.");
+              req.flash("error", "Passwords do not match.");
               return res.redirect("back");
             }
           }
@@ -299,7 +457,7 @@ router.post("/reset/:token", function (req, res) {
             " has just been changed.\n",
         };
         smtpTransport.sendMail(mailOptions, function (err) {
-            req.flash('success', 'Success! Your password has been changed.');
+          req.flash("success", "Success! Your password has been changed.");
           done(err);
         });
       },
@@ -309,6 +467,5 @@ router.post("/reset/:token", function (req, res) {
     }
   );
 });
-
 
 module.exports = router;

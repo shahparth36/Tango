@@ -58,10 +58,16 @@
 <div class="container">
     <div class="card px-5 shadow-lg my-5 py-5">
         <h1 class="display-1">Create Your Profile</h1>
-        <div id="or">
-            <span class="divider">
-                Our Logo Here
-            </span>
+        <div class="row ">
+            <div class="col-5 mt-1">
+                <hr style="width: 460px; background-color: black;">
+            </div>
+            <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;">
+            </div>
+            <div class="col-5 ml-2 pl-0 mt-1">
+                <hr style="width: 460px; background-color: black">
+            </div>
         </div>
         <form action="/profile" method="POST" enctype = "multipart/form-data">
             <h3 class="card-title text-center mb-4 py-3 display-4">Your Entered Details</h3>
@@ -73,78 +79,73 @@
                           <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
                         </div>
                         <input readonly type="text" class="form-control" placeholder="Username"  name="user[firstName]" value = "<%= firstName %>" aria-label="Username" aria-describedby="addon-wrapping">
-                      </div>
-                </div>
-                    <div class="col-12 col-sm-6 mb-4">
-                        <label class="col-form-label-lg">Last Name</label>
-                        <div class="input-group flex-nowrap">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                            </div>
-                            <input readonly type="text" class="form-control" placeholder="Username" name="user[lastName]" value = "<%= lastName %>" aria-label="Username" aria-describedby="addon-wrapping">
-                          </div>
                     </div>
                 </div>
+                <div class="col-12 col-sm-6 mb-4">
+                    <label class="col-form-label-lg">Last Name</label>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                        </div>
+                        <input readonly type="text" class="form-control" placeholder="Username" name="user[lastName]" value = "<%= lastName %>" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+            </div>
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-4">
                         <label class="col-form-label-lg">Username</label>
-                    <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[username]" value="<%= username %>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
-                        <input readonly type="text" class="form-control" placeholder="Username" name="user[username]" value="<%= username %>" aria-label="Username" aria-describedby="addon-wrapping">
-                    </div>
                     </div>  
                     <div class="col-12 col-sm-6 mb-4">
                         <label class="col-form-label-lg">Email ID</label>
                         <div class="input-group flex-nowrap">
                             <div class="input-group-prepend">
-                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-envelope"></i></span>
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input readonly type="text" class="form-control" placeholder="Username"  name="user[email]" value="<%= email %>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
                     </div>
                 </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 mb-4">
-                <label class="col-form-label-lg">Age</label>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"><img src="https://image.shutterstock.com/image-illustration/vector-icon-16-age-restriction-260nw-1602444523.jpg" width="23" height="23"> </i></span>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">Age</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><img src="https://image.shutterstock.com/image-illustration/vector-icon-16-age-restriction-260nw-1602444523.jpg" width="23" height="23"> </i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username"  name="user[age]" value="<%= age %>"  aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
                     </div>
-                    <input readonly type="text" class="form-control" placeholder="Username"  name="user[age]" value="<%= age %>"  aria-label="Username" aria-describedby="addon-wrapping">
+                    <div class="col-12 col-sm-6 mb-4">
+                        <label class="col-form-label-lg">DOB</label>
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-birthday-cake"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[dob]" value="<%= dob %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div> 
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 mb-4">
-                <label class="col-form-label-lg">DOB</label>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="addon-wrapping"><i class="fas fa-birthday-cake"></i></span>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-sm-9 mx-5 mb-4">
+                        <label class="col-form-label-lg">Phone Number</label>   
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
+                            </div>
+                            <input readonly type="text" class="form-control" placeholder="Username" name="user[phNumber]" value="<%= phNumber %>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>      
                     </div>
-                    <input readonly type="text" class="form-control" placeholder="Username" name="user[dob]" value="<%= dob %>" aria-label="Username" aria-describedby="addon-wrapping">
-                </div> 
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-12 col-sm-9 mx-5 mb-4">
-                <label class="col-form-label-lg">Phone Number</label>   
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile"></i></span>
-                    </div>
-                    <input readonly type="text" class="form-control" placeholder="Username" name="user[phNumber]" value="<%= phNumber %>" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>      
-            </div>
-        </div>
-        
-            
-            
-            
-            <div class="col-sm-12 col-md-6">
-                
-            <div class="form-group d-none">
-                <input type="text" class="form-control" name= "password" value="<%= password %>">
-            </div>
+                </div>
+            <div class="col-sm-12 col-md-6">   
+                <div class="form-group d-none">
+                    <input type="text" class="form-control" name= "password" value="<%= password %>">
+                </div>
             </div>
             <div class="col-sm-12 col-md-6">
                
@@ -158,7 +159,17 @@
         
         
             <div>
-                <hr>
+                <div class="row">
+                    <div class="col-5 mt-1">
+                        <hr style="width: 460px; background-color: black;">
+                    </div>
+                    <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;">
+                    </div>
+                    <div class="col-5 ml-2 pl-0 mt-1">
+                        <hr style="width: 460px; background-color: black">
+                    </div>
+                </div>
                 <h3 class="card-title text-center mb-4 py-3 display-4">Enter More Details</h3>
                 <div class="row justify-content-center">
                     <div class="pr-4 mr-5">
@@ -287,28 +298,27 @@
                     
                     <div class="col-12 col-sm-3 form-group">                       
                         <div class="input-group flex-nowrap">
-                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping">From:</span>
-                        <select name="user[relInitialAge]" required id="relInitialAge" class="relInitialAge" >
-                            <option disabled selected value="">..</option>
-                            <% for ( var i =16; i<75; i++) { %>
-                                <option><%= i %></option>
-                            <% } %>
-                        </select>
-                    </div>
-                      
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">From:</span>
+                                <select name="user[relInitialAge]" required id="relInitialAge" class="relInitialAge" >
+                                    <option disabled selected value="">..</option>
+                                    <% for ( var i =16; i<75; i++) { %>
+                                        <option><%= i %></option>
+                                    <% } %>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-3 form-group">                       
                         <div class="input-group flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">To:</span>
-                                    <select name="user[relFinalAge]" id="relFinalAge" class="relFinalAge" required >
+                                <select name="user[relFinalAge]" id="relFinalAge" class="relFinalAge" required >
                                     <option disabled selected value="">..</option>
                                     <% for ( var i =16; i<75; i++) { %>
-                                    <option><%= i %></option>
+                                        <option><%= i %></option>
                                     <% } %>
-                                    </select>
+                                </select>
                             </div>    
                         </div>
                     </div>
@@ -326,7 +336,17 @@
                         </div>
                     </div>         
                 </div> 
-            <hr>
+                <div class="row ">
+                    <div class="col-5 mt-1">
+                        <hr style="width: 460px; background-color: black;">
+                    </div>
+                    <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;">
+                    </div>
+                    <div class="col-5 ml-2 pl-0 mt-1">
+                        <hr style="width: 460px; background-color: black">
+                    </div>
+                </div>
             <div class="row mr-3 justify-content-center mt-5 mb-4">
                 <div>
                     <h3 class="display-4">Add More Photos</h3>
@@ -337,7 +357,17 @@
                     <input class="form-group" type="file" name="images" accept="images/*" multiple />
                 </div>
             </div>
-            <hr>
+            <div class="row ">
+                <div class="col-5 mt-1">
+                    <hr style="width: 460px; background-color: black;">
+                </div>
+                <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                    <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;">
+                </div>
+                <div class="col-5 ml-2 pl-0 mt-1">
+                    <hr style="width: 460px; background-color: black">
+                </div>
+            </div>
             <div>
                 <div class="row justify-content-center my-5">
                     <h3 class="display-4">Link Your Social Media Accounts </h3>
@@ -370,10 +400,19 @@
                     <h5>Note: Input fields marked with <span class = "star">*</span> are compulsory.</h5>
                 </div>
             </div>
+            <!-- <div id="or">
+                <span class="divider">
+                    Our Logo Here
+                </span>    
+            </div>
+            <div class="row">
+                <input type="text" name="otp" id="">
+                <input type="text" name="enteredOTP" value="">
+            </div> -->
+
             <div class="row justify-content-center my-5">
                 <button type="submit"style="font-size: 1em" >Start Using Tango<i class="fas fa-door-open ml-2"></i></button>
-            </div>       
-           
+            </div>          
         </form>
     </div> 
 </div>

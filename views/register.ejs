@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet/register.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" /> 
     
-    <title>Sign up</title>
+    <title>Tango | Sign up</title>
   </head>
 
   <body>
@@ -68,10 +68,13 @@
           </span>
         </div>
         
-        <div class="mr-4">
+        <div class="mr-3"  id="phone">
           <span> <i class="fa fa-phone" aria-hidden="true"></i>
             <input type="text" class="number" placeholder="Phone Number" name="user[phNumber]" required />
           </span>
+          <span type="button" data-toggle="tooltip" data-placement="right" title="An OTP will be sent to your mobile number">
+            <i class="fa fa-info-circle"></i>
+        </span> 
         </div>        
         <div>
           <span class="pas"> <i class="fa fa-key" aria-hidden="true"></i>
@@ -121,41 +124,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="scripts/register.js"></script>
-    <%- include('../partials/footer') %> 
+  </body>
+  </html> 
    
-     <!-- <script> 
-    function getAge() {
-    var dateString = document.getElementById("date").value;
-    if(dateString !="")
-    {
-        var today = new Date();
-        var birthDate = new Date(dateString);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        var da = today.getDate() - birthDate.getDate();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        if(m<0){
-            m +=12;
-        }
-        if(da<0){
-            da +=30;
-        }
     
-      if(age < 18 || age > 100)
-    {
-    alert("Age "+age+" is restrict"); 
-    
-     } else {
-    
-    alert("Age "+age+" is allowed");
-    }
-    } else {
-    alert("please provide your date of birth");
-    }
-    }
- -->
-
-     
-  

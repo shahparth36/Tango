@@ -1,9 +1,10 @@
 require("dotenv/config");
-var express = require("express");
-var router = express.Router();   
-var User = require("../models/user");  
+var express    = require("express");
+var router     = express.Router();   
+var User       = require("../models/user");  
+var middleware = require("../middleware");
 
-router.get("/home/:id",function(req,res){
+router.get("/home/:id",middleware.isLoggedIn,function(req,res){
     User.findById(req.params.id, function (err, foundUser) {
         if (err) {
             console.log(err);
@@ -33,9 +34,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -63,9 +64,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                user: shuffle(arr),
                                 });
                             }
                         })
@@ -90,9 +91,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -122,9 +123,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -150,9 +151,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -175,9 +176,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -205,9 +206,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -233,9 +234,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -258,9 +259,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -290,9 +291,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                  user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -319,9 +320,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -345,9 +346,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -376,9 +377,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -404,9 +405,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -429,9 +430,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -460,9 +461,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                  user: shuffle(arr),
                                 });
                             }
                         })
@@ -488,9 +489,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -513,9 +514,9 @@ router.get("/home/:id",function(req,res){
                                 return res.redirect("back");
                             }
                             else {
-                                percentage(filteredUsers, req);
+                                var arr = percentage(filteredUsers, req);
                                 res.render("home", {
-                                    user: filteredUsers
+                                    user: shuffle(arr)
                                 });
                             }
                         })
@@ -542,9 +543,9 @@ router.get("/home/:id",function(req,res){
                             return res.redirect("back");
                         }
                         else {
-                            percentage(filteredUsers, req);
+                            var arr = percentage(filteredUsers, req);
                             res.render("home", {
-                                user: filteredUsers
+                                user: shuffle(arr)
                             });
                         }
                     })
@@ -569,9 +570,9 @@ router.get("/home/:id",function(req,res){
                             return res.redirect("back");
                         }
                         else {
-                            percentage(filteredUsers, req);
+                            var arr = percentage(filteredUsers, req);
                             res.render("home", {
-                                user: filteredUsers
+                                user: shuffle(arr)
                             });
                         }
                     })
@@ -593,9 +594,9 @@ router.get("/home/:id",function(req,res){
                             return res.redirect("back");
                         }
                         else {
-                            percentage(filteredUsers, req);
+                            var arr = percentage(filteredUsers, req);
                             res.render("home", {
-                                user: filteredUsers
+                                user: shuffle(arr)
                             });
                         }
                     })
@@ -637,14 +638,37 @@ function percentage(filteredUsers,req) {
         if (filteredusers.alcohol === req.user.alcohol) {
              score += 3;
         }
-        // filteredusers.temp.push(Math.round((score / 44) * 100));
         var percentage=Math.round((score / 60) * 100);
-        // console.log( percentage );
+        var x = {
+          user: filteredusers,
+          percentage: percentage,
+        };
+        array.push(x);
         score = 0;
+        // filteredusers.temp.push(Math.round((score / 44) * 100));
+        // console.log( percentage );
     })
-    array.push(percentage);
-     return percentage;
+    return array;
 }
 
+function shuffle(array) {
+  let counter = array.length;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    let index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter--;
+
+    // And swap the last element with it
+    let temp = array[counter];
+    array[counter] = array[index];
+    array[index] = temp;
+  }
+
+  return array;
+}
     
 module.exports = router;

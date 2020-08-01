@@ -105,8 +105,9 @@
   }
 
   .content {  
-    margin-left: 150px;
-    height: 10vh;
+    
+    margin-left: 90px;
+    height: 100%;
     transition: 0.5s;
   }
 
@@ -228,13 +229,40 @@ h5{
   text-decoration: none;
 }
 
+.footer-content {
+    color: white;
+}
+
+footer h5 {
+  color: white;
+}
+
+.footer {
+    margin-left: 50px;
+    background: black;
+    
+    height: auto; 
+    padding: 50px 0px; 
+}
+
+.footer a:hover {
+    color: #19B3D3;
+}
+
+
+
 /* #team .card:hover h5, #team .card:hover p{
   color: #999;
 } */
 .saved{
   font-family: 'Playball', cursive;
+  color: black;
 }
 
+.like{
+  font-family: 'Playball', cursive;
+  font-size: 50px;
+}
 
 /* card styling end  */
 

@@ -10,10 +10,10 @@ var UserSchema =new mongoose.Schema({
     email: { type: String, unique: true, required: true },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-    phNumber:String,
+    phNumber: {type: String, unique: true, required: true },
     image: String,
     imageId: String,
-    DOB: String,
+    dob: String,
     city: String,
     gender: String,
     maritalStatus: String,
@@ -52,7 +52,8 @@ var UserSchema =new mongoose.Schema({
     ],
     temp: [
         String
-    ]
+    ],
+    createdAt: { type: Date, default: Date.now }
 });
 
 UserSchema.plugin(passportLocalMongoose, {

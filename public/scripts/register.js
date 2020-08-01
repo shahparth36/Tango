@@ -40,7 +40,7 @@ function getAge() {
             da +=30;
         }
     
-      if(age < 18 || age > 100)
+      if(age < 16 || age > 75)
     {
     req.flash("error","Age "+ age +" is restrict"); 
     

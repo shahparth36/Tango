@@ -1,206 +1,198 @@
 /* Sidebar and navbar styling start */
 
-  .sidebar {
-    background: black;
-    padding-top: 50px;
-    position: fixed;
-    left: 0;
-    width: 60px;
-    height: 100%;
-    transition: 100%;
-    transition-property: right;
-  }
+.sidebar {
+  	background: black;
+  	padding-top: 100px;
+  	position: fixed;
+  	left: 0;
+  	width: 60px;
+  	height: 100%;
+  	transition: 100%;
+  	transition-property: right;
+}
 
-  #check:checked ~ .sidebar {
-    left: 0px;
-    width: 250px;
-  }
+#check:checked ~ .sidebar {
+  	left: 0px;
+  	width: 250px;
+}
 
-  #check:checked ~ .sidebar center {
-    left: 0px;
-    width: 250px;
-    display: block;
-  }
+#check:checked ~ .sidebar center {
+  	left: 0px;
+  	width: 250px;
+  	display: block;
+}
 
-  #check:checked ~ .sidebar a span{
-    display: inline-block;
-  }
+#check:checked ~ .sidebar a span{
+  	display: inline-block;
+}
 
-  #check:checked ~ .sidebar a {
-    font-size: 17px;
-    padding-left: 70px;
-  }
+#check:checked ~ .sidebar a {
+  	font-size: 17px;
+  	padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  	margin-left: 250px;
+}
+#check:checked ~ .sidebar .scrollable {
+  	margin-top: 0;
+}
+
+#check:checked ~ footer {
+    margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  	margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  	width: 100px;
+  	height:  100px;
+  	border-radius: 100px;
+  	margin-bottom: 10px;
+}
   
-  #check:checked ~ .content {
-    margin-left: 250px;
-  }
+.sidebar h4 {
+  	color: white;
+  	margin-top: 0;
+  	margin-bottom: 40px;
+}
 
-  #check:checked ~ .sidebar .scrollable {
-    margin-top: 0;
-  }
+.sidebar center {
+  	display: none;
+}
 
-  .sidebar .scrollable {
-    margin-top: 225px;
-  }
+.sidebar span {
+  	display: none;
+}
+
+.sidebar a {
+  	color: #fff;
+  	display: block;
+  	width: 100%;
+  	line-height: 50px;
+  	text-decoration: none;
+  	padding-left: 20px;
+  	box-sizing: border-box;
+  	transition: 0.5s;
+  	transition-property: background;
+}
   
-  .sidebar .profile_image {
-    width: 100px;
-    height:  100px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar h4 {
-    color: white;
-    margin-top: 0;
-    margin-bottom: 40px;
-  }
-
-  .sidebar center {
-    display: none;
-  }
-
-  .sidebar span {
-    display: none;
-  }
-
-  .sidebar a {
-    color: #fff;
-    display: block;
-    width: 100%;
-    line-height: 50px;
-    text-decoration: none;
-    padding-left: 20px;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
-  }
-  
-  .sidebar a:hover {
+.sidebar a:hover {
     text-decoration: none;
     color: white;
     background: #19B3D3;
-  }
+}
 
-  .sidebar i {
+.sidebar i {
     padding-right: 10px;
-  }
+}
 
-  label #sidebar_btn {
+label #sidebar_btn {
     z-index: 1;
-    /* padding-left: 6%; */
     padding-top: 1px;
     color: white;
     position: fixed;
     cursor: pointer;
     left: 17px;
-    top: 29px;
+    top: 21px;
     font-size: 20px;
     transition: 0.5s;
     transition-property: color;
-  }
+}  
 
-  label #sidebar_btn:hover {
+label #sidebar_btn:hover {
     z-index: 1;
     color: #19B3D3;
-  }
+}
 
 
-  .content {  
+.content {  
     width: 1200px;
-    margin-left: 150px;
+    margin-left: 200px;
     height: 100vh;
     transition: 0.5s;
+}
 
-  }
-
-  #check {
+#check {
     display: none;
-  }
+}
 
-  #myBrand {
+#myBrand {
     font-family: 'Pacifico', cursive;
-    font-size: 32px;
-    margin-left: 20px;
-    padding-left: 15px;
-    padding-right: 90%;
+    font-size: 28px;
     color: white;
     transition: 0.3s;
     transition-property: color;
-    
-  }
+}
   
-  #myBrand:hover {
+#myBrand:hover {
     color: #19B3D3;
-  }
+}
 
-  #font {
+#font {
     font-family: 'Pacifico', cursive;
-  }
+}
 
   
-  #myNav {
-    height: 10%;
+#myNav {
+    padding-top: 15px;
+    height: 9.5%;
     background-color: black;
     color: white;
     padding-bottom: 20px; 
-  }
+}
 
-  #myRow {
-    padding-bottom: 20%;
-    margin-bottom: 20%;
-  }
-
-  #bottom {
+#bottom {
     display: block;
-  }
+}
 
-  #myInput {
+#myInput {
     width: 78%;
-      margin-bottom: 10px;
-  }
+    margin-bottom: 10px;
+}
 
-  form .filter_btn {
+form .filter_btn {
     margin-bottom: 10%;
-  }
+}
 
-  .home{
+.home{
     font-family: 'Playball', cursive;
-  }
+}
 
 /* Navbar and sidebar styling end */
 
 /* Styling for mobile size */
 
-  @media (max-width: 1440px) {
+@media (max-width: 1040px) {
 
     #myNav {
-      padding-top: 0px;
+      	padding-top: 0px;
+      	height: 70px;
     }
 
-
-    #myBrand {
-      margin-left: 40px;
-      margin-bottom: 5px;
-      padding-bottom: 2rem;
+    .navbar-brand {
+      	padding-top: .6525rem;
     }
 
     #myInput {
-      width: 78%;
-      margin-bottom: 10px;
+      	width: 78%;
+      	margin-bottom: 10px;
     }
 
     #myForm {
-      display: none;
+      	display: none;
     }
 
     #bottom {
-      display: block;
+      	display: block;
     }
 
     label #sidebar_btn {
-      left: 14px;
+      	left: 14px;
     }
+
   }
 
      

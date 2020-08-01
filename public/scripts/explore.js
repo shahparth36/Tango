@@ -35,6 +35,13 @@ myclass4.addEventListener("click", function() {
     }
 })
 
+myclass5.addEventListener("click", function() {
+    if(iTag5.classList) {
+    iTag5.classList.toggle("fa-chevron-up")
+    iTag5.classList.toggle("fa-chevron-down")
+    }
+})
+
 function validate() {
     if (document.getElementById('check').checked) {
         alert("checked");
@@ -43,13 +50,45 @@ function validate() {
     }
 }
 
-// <div class="row">
-//     <div class="col">
-//         <div class="rangeslider">
-//             <input class="min" name="age" type="range" min="16" max="75" value="16" />
-//             <input class="max" name="age" type="range" min="16" max="75" value="75" />
-//             <span class="range_min light left">16</span>
-//             <span class="range_max light right">75</span>
-//         </div>
-//     </div>
-// </div>
+// age filter 
+
+(function() {
+
+    function addSeparator(nStr) {
+        nStr += '';
+        var x = nStr.split('.');
+        var x1 = x[0];
+        var x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + '.' + '$2');
+        }
+        return x1 + x2;
+    }
+
+    function rangeInputChangeEventHandler(e){
+        var rangeGroup = $(this).attr('name'),
+            minBtn = $(this).parent().children('.min'),
+            maxBtn = $(this).parent().children('.max'),
+            range_min = $(this).parent().children('.range_min'),
+            range_max = $(this).parent().children('.range_max'),
+            minVal = parseInt($(minBtn).val()),
+            maxVal = parseInt($(maxBtn).val()),
+            origin = $(this).context.className;
+
+        if(origin === 'min' && minVal > maxVal-2){
+            $(minBtn).val(maxVal-2);
+        }
+        var minVal = parseInt($(minBtn).val());
+        $(range_min).html(addSeparator(minVal) );
+
+
+        if(origin === 'max' && maxVal-2 < minVal){
+            $(maxBtn).val(2+ minVal);
+        }
+        var maxVal = parseInt($(maxBtn).val());
+        $(range_max).html(addSeparator(maxVal));
+    }
+
+ $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
+})();

@@ -1,11 +1,13 @@
 require("dotenv/config");
-var express = require("express");
-var router = express.Router();
-var User = require("../models/user");  
-var cities = require("all-countries-and-cities-json");
+var express      = require("express");
+var router       = express.Router();
+var User         = require("../models/user");  
+var cities       = require("all-countries-and-cities-json");
 var indianCities = cities["India"];
+var middleware   = require("../middleware")
 
-router.get("/explore", function (req, res) {
+
+router.get("/explore",middleware.isLoggedIn, function (req, res) {
     var noMatch = null; 
     if (Object.keys(req.query).length > 0) {
         User.find( filter(req) , function (err, allUsers) {
@@ -20,7 +22,7 @@ router.get("/explore", function (req, res) {
                 }
             }
             res.render("explore", {
-                foundUser: allUsers,
+                foundUser: shuffle(allUsers),
                 noMatch: noMatch,
                 indianCities: indianCities
             }) 
@@ -40,7 +42,7 @@ router.get("/explore", function (req, res) {
             }
             else {
                 // render explore.ejs file
-                res.render("explore", {foundUser: foundUser,noMatch: noMatch, indianCities: indianCities});
+                res.render("explore", {foundUser: shuffle(foundUser),noMatch: noMatch, indianCities: indianCities});
             }
         });
     }
@@ -85,7 +87,29 @@ function filter(req) {
     }
     return search1;
 }
-    
+
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
+
+
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }

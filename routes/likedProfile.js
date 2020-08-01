@@ -1,10 +1,11 @@
 require("dotenv/config");
-var express = require("express");
-var router = express.Router(); 
-var User = require("../models/user");  
-var mongoose = require("mongoose");
+var express     =  require("express");
+var router      =  express.Router(); 
+var User        =  require("../models/user");  
+var mongoose    =  require("mongoose");
+var middleware  =  require("../middleware")
 
-router.post("/liked/:clickedUser_id", function(req,res){
+router.post("/liked/:clickedUser_id", middleware.isLoggedIn, function(req,res){
     User.findById(req.params.clickedUser_id, function(err,foundUser){
         if(err){
             console.log(err);
@@ -19,7 +20,7 @@ router.post("/liked/:clickedUser_id", function(req,res){
     });
 });
 
-router.get("/likedProfiles/:id",  async function(req,res){
+router.get("/likedProfiles/:id",middleware.isLoggedIn,  async function(req,res){
     await User.findById(req.params.id).populate("likedUser").exec(async function(err, foundUser){
         if(err){
             console.log(err); 
@@ -50,7 +51,7 @@ router.get("/likedProfiles/:id",  async function(req,res){
     });
 });
 
-router.get("/unlike/:unlikeUser_id", function(req,res){
+router.get("/unlike/:unlikeUser_id",middleware.isLoggedIn, function(req,res){
     User.findById(req.params.unlikeUser_id, function(err, unlikeUser){
         if(err){
             console.log(err);

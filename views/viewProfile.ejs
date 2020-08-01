@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="en"> 
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -13,13 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playball&family=Source+Sans+Pro&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet/viewProfile.css">
-    <title>View Profile</title>
+    <title><%= currentUser.username %> | Tango | View Profile</title>
 </head>
 
 <body>
 
     <!-- Navbar and sidebar start -->
-    
     <input type="checkbox" id="check">
     <nav id="myNav" class="navbar fixed-top">
         <ul class="navbar-nav">
@@ -32,9 +30,8 @@
     
     <div class="sidebar">
         <center class="mr-5">
-            <img src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                class="profile_image" alt="">
-            <h4>Parth</h4>
+            <img src="<%= currentUser.image %>" class="profile_image" alt="">
+            <h4><%= currentUser.fullName %></h4>
         </center>
         <div class="scrollable">
             <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
@@ -46,110 +43,49 @@
             <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
         </div>
     </div>
-
-    <div class="content" style="margin-top: 7%;">
-        <div class="container shadow-lg my-5">
-            <div class="row">
-                <div class="col-12 col-md-4 hello1">
-                    <img class="my-5 mr-5 ml-2"
-                        src="<%= user.image %>"
-                        alt="...">
-                </div>
-                <div class="col-12 col-md-8">
-                    <div class="row">
-                        <div class="col-12 col-md-6 pl-5 mt-5 good">
-                            <h3><%= user.firstName %> <%= user.lastName %></h3>
-                        </div>
-                        <div id="div1" class="col-0 col-md-6 good">
-                            <% if (currentUser._id.equals( user._id)) { %>
-                                <button type="submit" class="btn btn-danger rounded-0 mr-5"
-                                    style="float: right; width: 8.5rem;">Edit Profile <i
-                                        class="fas fa-user-edit ml-2"></i></button>
-                            <% } %>
-                            <% if (!(currentUser._id.equals(user._id))) { %>
-                                <!-- Unlike button -->
-                                <% if (currentUser.likedUser.indexOf(user._id) !== -1) { %>
-                                        <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 6.5rem;">
-                                            Unlike <i class="fas fa-thumbs-up ml-2"></i></a>       
- 
-                                <% } %>
-                                <!-- Like button -->
-                                <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
-                                    <form action="/liked/<%= user._id %>" method="POST">
-                                        <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
-                                            class="fas fa-thumbs-up ml-2"></i></button>
+        <div class="content">
+            <div class="container shadow-lg my-5">
+                <div class="row">
+                    <div class="col-12 col-md-4 hello1">
+                        <img class="my-5 mr-  ml-2"
+                            src="<%= user.image %>"
+                            alt="...">
+                    </div>
+                    <div class="col-12 col-md-8">  
+                        <div class="row">
+                            <div class="col-12 col-md-6 pl-5 mt-5 good">
+                                <h3><%= user.firstName %> <%= user.lastName %></h3>
+                            </div>
+                            <div id="div1" class="col-0 col-md-6 good">
+                                <% if (currentUser._id.equals( user._id)) { %>
+                                    <form action="/profile/<%= currentUser._id %>/edit" method="GET">
+                                        <button type="submit" class="btn btn-danger rounded-0 mr-5" style="float: right; width: 8.5rem;">Edit Profile <i
+                                                class="fas fa-user-edit ml-2"></i>
+                                        </button>
                                     </form>
                                 <% } %>
-                                <!-- Unsave button -->
-                                <% if (currentUser.savedUser.indexOf(user._id) !== -1) { %>
-                                    <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 6.5rem;">Unsave <i
-                                            class="fas fa-bookmark ml-2"></i></a>
-                                    
-                                <% } %>
-                                <!-- Save button -->
-                                <% if (currentUser.savedUser.indexOf(user._id) === -1) { %>
-                                <form action="/saved/<%= user._id %>" method="POST">
-                                    <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
-                                            class="fas fa-bookmark ml-2"></i></button>
-                                </form>
-                                <% } %>        
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-12 pl-5 mt-2 mb-4 good">
-                            <span class="mr-1 text-muted mb-1" style="font-size: 15px;"><%= user.age %></span>
-                            <span class="text-muted" style="content: \2022; font-size: 22px;">&#8226;</span>
-                            <span class="ml-1 text-muted mb-1" style="font-size: 15px;">@ <%= user.username %></span>
-                            <span class="text-muted" style="content: \2022; font-size: 22px;">&#8226;</span>
-                            <span class="ml-1 text-muted mb-1" style="font-size: 15px;"><%= user.sexuality %></span>
-                        </div>
-                    </div>
-                    <div id="myRow1" class="row">
-                        <div class="col-12 col-md-11 pl-4 mb-5 good">
-                            <p><%= user.bio %></p>
-                            <div class="pt-2">
-                                <ul class = "myclass">
-                                    <% if (user.insta_url) { %>
-                                        <li>
-                                            <a href="<%= user.insta_url %>" style="color: black;"><i class="fab fa-instagram"
-                                            style="font-size: 1.5rem;"></i></a>
-                                        </li>
-                                    <% } %>
-                                    <% if (user.facebook_url) { %>
-                                        <li>
-                                            <a href="<%= user.facebook_url %>" style="color: black;"><i class="fab fa-facebook"
-                                                        style="font-size: 1.5rem;"></i></a>
-                                        </li>
-                                    <% } %>
-                                    <% if (user.twitter_url) { %>
-                                        <li>
-                                            <a href="<%= user.twitter_url %>" style="color: black;"><i class="fab fa-twitter"
-                                                        style="font-size: 1.5rem;"></i></a>
-                                        </li>
-                                    <% } %>
-                                </ul>
-                            </div>
-                            <div class="pTag">
                                 <% if (!(currentUser._id.equals(user._id))) { %>
                                     <!-- Unlike button -->
                                     <% if (currentUser.likedUser.indexOf(user._id) !== -1) { %>
-                                    <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5"
-                                        style="float: right; width: 6.5rem;">
-                                        Unlike <i class="fas fa-thumbs-up ml-2"></i></a>    
+                                            <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 6.5rem;">
+                                                Unlike <i class="fas fa-thumbs-up ml-2"></i></a>       
+     
                                     <% } %>
-                                    <!-- Like button -->
                                     <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
-                                    <form action="/liked/<%= user._id %>" method="POST">
-                                        <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                        <form action="/liked/<%= user._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like Back<i
                                                 class="fas fa-thumbs-up ml-2"></i></button>
-                                    </form>
+                                        </form>
+                                    <% } else if (user.likedUser.indexOf(currentUser._id) !== -1) { %>
+                                        <form action="/liked/<%= user._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like<i
+                                                class="fas fa-thumbs-up ml-2"></i></button>
+                                        </form>
                                     <% } %>
                                     <!-- Unsave button -->
                                     <% if (currentUser.savedUser.indexOf(user._id) !== -1) { %>
-                                    <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3"
-                                        style="float: right; width: 6.5rem;">Unsave <i class="fas fa-bookmark ml-2"></i></a>
-                                    
+                                        <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 6.5rem;">Unsave <i
+                                                class="fas fa-bookmark ml-2"></i></a>
                                     <% } %>
                                     <!-- Save button -->
                                     <% if (currentUser.savedUser.indexOf(user._id) === -1) { %>
@@ -157,214 +93,292 @@
                                         <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
                                                 class="fas fa-bookmark ml-2"></i></button>
                                     </form>
-                                    <% } %>
+                                    <% } %>        
                                 <% } %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-12 pl-5 mt-2 mb-4 good">
+                                <span class="mr-1 text-muted mb-1" style="font-size: 15px;"><%= user.age %></span>
+                                <span class="text-muted" style="content: \2022; font-size: 22px;">&#8226;</span>
+                                <span class="ml-1 text-muted mb-1" style="font-size: 15px;">@ <%= user.username %></span>
+                                <span class="text-muted" style="content: \2022; font-size: 22px;">&#8226;</span>
+                                <span class="ml-1 text-muted mb-1" style="font-size: 15px;"><%= user.sexuality %></span>
+                            </div>
+                        </div>
+                        <div id="myRow1" class="row">
+                            <div class="col-12 col-md-11 pl-4 mb-5 good">
+                                <p><%= user.bio %></p>
+                                <div class="pt-2">
+                                    <ul class = "myclass">
+                                        <% if (user.insta_url) { %>
+                                            <li>
+                                                <a href="<%= user.insta_url %>" style="color: black;"><i class="fab fa-instagram"
+                                                style="font-size: 1.5rem;"></i></a>
+                                            </li>
+                                        <% } %>
+                                        <% if (user.facebook_url) { %>
+                                            <li>
+                                                <a href="<%= user.facebook_url %>" style="color: black;"><i class="fab fa-facebook"
+                                                            style="font-size: 1.5rem;"></i></a>
+                                            </li>
+                                        <% } %>
+                                        <% if (user.twitter_url) { %>
+                                            <li>
+                                                <a href="<%= user.twitter_url %>" style="color: black;"><i class="fab fa-twitter"
+                                                            style="font-size: 1.5rem;"></i></a>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                                <div class="pTag">
+                                    <% if (!(currentUser._id.equals(user._id))) { %>
+                                        <!-- Unlike button -->
+                                        <% if (currentUser.likedUser.indexOf(user._id) !== -1) { %>
+                                        <a href="/unlike/<%= user._id %>" type="submit" class="btn btn-danger but rounded-0 mr-5"
+                                            style="float: right; width: 6.5rem;">
+                                            Unlike <i class="fas fa-thumbs-up ml-2"></i></a>    
+                                        <% } %>
+                                        <!-- Like button -->
+                                        <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
+                                        <form action="/liked/<%= user._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                                    class="fas fa-thumbs-up ml-2"></i></button>
+                                        </form>
+                                        <% } %>
+    
+                                        <% if (currentUser.likedUser.indexOf(user._id) === -1) { %>
+                                        <form action="/liked/<%= user._id %>" method="POST">
+                                            <button type="submit" class="btn btn-danger but rounded-0 mr-5" style="float: right; width: 5.5rem;">Like <i
+                                                    class="fas fa-thumbs-up ml-2"></i></button>
+                                        </form>
+                                        <% } %>
+    
+                                        <!-- Unsave button -->
+                                        <% if (currentUser.savedUser.indexOf(user._id) !== -1) { %>
+                                        <a href="/unsave/<%= user._id %>" type="submit" class="btn btn-primary but rounded-0 mr-3"
+                                            style="float: right; width: 6.5rem;">Unsave <i class="fas fa-bookmark ml-2"></i></a>
+                                        <% } %>
+                                        <!-- Save button -->
+                                        <% if (currentUser.savedUser.indexOf(user._id) === -1) { %>
+                                        <form action="/saved/<%= user._id %>" method="POST">
+                                            <button type="submit" class="btn btn-primary but rounded-0 mr-3" style="float: right; width: 5.5rem;">Save <i
+                                                    class="fas fa-bookmark ml-2"></i></button>
+                                        </form>
+                                        <% } %>
+                                    <% } %>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-12 pl-5">
-                    <nav>
-                        <div class="nav justify-content-center nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                role="tab" aria-controls="nav-home" aria-selected="true">About</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                                role="tab" aria-controls="nav-profile" aria-selected="false">Pictures</a>
-                        </div>
-                    </nav>
-                    <!-- About Tab -->
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            <div class="row justify-content-center my-5 mx-3">
-                                <div class="col-12 col-md-6">
-                                    <div class="card text-white text-center bg-info mb-3" style="max-width: 22rem;">
-                                        <div class="card-header">Basic Information</div>
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="row ">
-                                                <div class="col-6">
-                                                    <h5 class="card-title">Age</h5>
-                                                    <div class="mt-2">
-                                                        <span><i class="fas fa-birthday-cake"></i> <%= user.age %></span>
+                <div class="row">
+                    <div class="col-12 col-md-12 pl-5">
+                        <nav>
+                            <div class="nav justify-content-center nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                    role="tab" aria-controls="nav-home" aria-selected="true">About</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                    role="tab" aria-controls="nav-profile" aria-selected="false">Pictures</a>
+                            </div>
+                        </nav>
+                        <!-- About Tab -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="row justify-content-center my-5 mx-3">
+                                    <div class="col-12 col-md-6">
+                                        <div class="card text-white text-center bg-info mb-3" style="max-width: 22rem;">
+                                            <div class="card-header">Basic Information</div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                <div class="row ">
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">Age</h5>
+                                                        <div class="mt-2">
+                                                            <span><i class="fas fa-birthday-cake"></i> <%= user.age %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">City</h5>
+                                                        <div class="mt-2">
+                                                            <span><i class="fas fa-map"></i> <%= user.city %></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
-                                                    <h5 class="card-title">City</h5>
-                                                    <div class="mt-2">
-                                                        <span><i class="fas fa-map"></i> <%= user.city %></span>
+                                                <div class="row my-4">
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">Gender</h5>
+                                                        <div class="mt-2">
+                                                            <span><i class="fas fa-male"></i> <%= user.gender %></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">Marital Status</h5>
+                                                        <div class="mt-2">
+                                                            <span> <%= user.maritalStatus %></span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                </p>
                                             </div>
-                                            <div class="row my-4">
-                                                <div class="col-6">
-                                                    <h5 class="card-title">Gender</h5>
-                                                    <div class="mt-2">
-                                                        <span><i class="fas fa-male"></i> <%= user.gender %></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="card text-white text-center bg-success mb-3" style="max-width: 22rem;">
+                                            <div class="card-header">Dating Preferences</div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">Preferred Age Group</h5>
+                                                        <p> <%= user.relInitialAge %> - <%= user.relFinalAge %> </p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="card-title">Live In ?</h5>
+                                                        <p><%= user.liveIn %></p>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
-                                                    <h5 class="card-title">Marital Status</h5>
-                                                    <div class="mt-2">
-                                                        <span> <%= user.maritalStatus %></span>
+                                                <div class="row">
+                                                    <div class="col-12 my-3">
+                                                        <h5 class="card-title">Preferred Distance</h5>
+                                                        <p><%= user.relType %></p>
                                                     </div>
                                                 </div>
+                                                </p>
                                             </div>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="card text-white text-center bg-success mb-3" style="max-width: 22rem;">
-                                        <div class="card-header">Dating Preferences</div>
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <h5 class="card-title">Preferred Age Group</h5>
-                                                    <p> <%= user.relInitialAge %> - <%= user.relFinalAge %> </p>
+                                <div class="row justify-content-center my-5 mx-3">
+                                    <div class="col-12 col-md-6">
+                                        <div class="card text-white text-center bg-danger mb-3" style="max-width: 22rem;">
+                                            <div class="card-header">Additional Information</div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                <div class="row ">
+                                                    <div class="col-12">
+                                                        <h5 class="card-title"><i class="fas fa-glass-martini-alt"
+                                                                style="font-size: 1.1rem;"></i> Drink ?</h5>
+                                                        <div class="mt-2">
+                                                            <span><%= user.alcohol %></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-6">
-                                                    <h5 class="card-title">Live In ?</h5>
-                                                    <p><%= user.liveIn %></p>
+                                                <div class="row">
+                                                    <div class="col-12 my-4">
+                                                        <h5 class="card-title"><span><i class="fas fa-smoking"></i></span> Smoke ?</h5>
+                                                        <div class="mt-2">
+                                                            <span> <%= user.smoke %></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                </p>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-12 my-3">
-                                                    <h5 class="card-title">Preferred Distance</h5>
-                                                    <p><%= user.relType %></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="card text-white text-center bg-dark mb-3" style="max-width: 22rem;">
+                                            <div class="card-header">Social Media Accounts</div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-12">
+                                                        <% if (user.insta_url) { %>
+                                                            <h5 class="card-title">Instagram Handle <span class="mx-3"><a href="<%= user.insta_url %>"
+                                                                        style="color: white"><i class="fab fa-instagram"
+                                                                            style="font-size: 1.4rem;"></i></a></span> </h5>
+                                                        <% } %>
+                                                        <% if (user.facebook_url) { %>
+                                                            <h5 class="card-title">Facebook Handle <span class="mx-3"><a href="<%= user.facebook_url %>"
+                                                                        style="color: white"><i class="fab fa-facebook"
+                                                                            style="font-size: 1.4rem;"></i></a></span> </h5>
+                                                        <% } %>
+                                                        <% if (user.twitter_url) { %>
+                                                            <h5 class="card-title">Twitter Handle <span class="mx-3"><a href="<%= user.twitter_url %>"
+                                                                        style="color: white"><i class="fab fa-twitter"
+                                                                            style="font-size: 1.4rem;"></i></a></span> </h5>
+                                                        <% } else { %>
+                                                            <h5 class="card-title">No Links Provided</h5>
+                                                        <% } %>
+                                                    </div>
                                                 </div>
+                                                </p>
                                             </div>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center my-5 mx-3">
-                                <div class="col-12 col-md-6">
-                                    <div class="card text-white text-center bg-danger mb-3" style="max-width: 22rem;">
-                                        <div class="card-header">Additional Information</div>
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="row ">
-                                                <div class="col-12">
-                                                    <h5 class="card-title"><i class="fas fa-glass-martini-alt"
-                                                            style="font-size: 1.1rem;"></i> Drink ?</h5>
-                                                    <div class="mt-2">
-                                                        <span><%= user.alcohol %></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 my-4">
-                                                    <h5 class="card-title"><span><i class="fas fa-smoking"></i></span> Smoke ?</h5>
-                                                    <div class="mt-2">
-                                                        <span> <%= user.smoke %></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </p>
+                            <!-- Profile Tab -->
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="row w-75 mx-auto d-flex justify-content-center ">
+                                    <% if (user.images.length==0) {%>
+                                    <h2 class="my-5">No Pictures Uploaded.</h2>
+                                    <% } %>
+                                    <% user.images.forEach(function (img) { %>
+                                    <div class="col-12 col-md-6">
+                                        <div class="card shadow-lg bg-white rounded my-5">
+                                            <img class="card-img mb-0" style="width:350px; height:200px; object-fit: cover;" src="<%= img.url %>">
                                         </div>
                                     </div>
+                                    <% }); %>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="card text-white text-center bg-dark mb-3" style="max-width: 22rem;">
-                                        <div class="card-header">Social Media Accounts</div>
-                                        <div class="card-body">
-                                            <p class="card-text">
-                                            <div class="row">
-                                                <div class="col-12 col-md-12">
-                                                    <% if (user.insta_url) { %>
-                                                        <h5 class="card-title">Instagram Handle <span class="mx-3"><a href="<%= user.insta_url %>"
-                                                                    style="color: white"><i class="fab fa-instagram"
-                                                                        style="font-size: 1.4rem;"></i></a></span> </h5>
-                                                    <% } %>
-                                                    <% if (user.facebook_url) { %>
-                                                        <h5 class="card-title">Facebook Handle <span class="mx-3"><a href="<%= user.facebook_url %>"
-                                                                    style="color: white"><i class="fab fa-facebook"
-                                                                        style="font-size: 1.4rem;"></i></a></span> </h5>
-                                                    <% } %>
-                                                    <% if (user.twitter_url) { %>
-                                                        <h5 class="card-title">Twitter Handle <span class="mx-3"><a href="<%= user.twitter_url %>"
-                                                                    style="color: white"><i class="fab fa-twitter"
-                                                                        style="font-size: 1.4rem;"></i></a></span> </h5>
-                                                    <% } else { %>
-                                                        <h5 class="card-title">No Links Provided</h5>
-                                                    <% } %>
-                                                </div>
+                                <% if (currentUser._id.equals(user._id)) { %>
+                                    <div class="row mx-5 my-5 text-center">
+                                        <div class="col-12 col-md-12 my-3">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-danger rounded-0" data-toggle="modal"
+                                            data-target="#exampleModal" style="width: 9.5rem;">
+                                            Edit Pictures <i class="fas fa-edit ml-2"></i>
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Pictures</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                            </p>
+                                            
+                                            <form  action="/profile/<%= user._id%>/view?_method=PUT" method="POST"enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <input class="mt-3 mb-5" type="file" accept="image/*" name="images" multiple />
+                                                            <% user.images.forEach(function(image,i) { %>
+                                                            <div class="col-12">
+                                                                <img src="<%= image.url %>" alt="..." width="300px;" height="200px;">
+                                                                <div class="my-3">
+                                                                    <span class="d-flex justify-content-center">
+                                                                        <label class="m-0 h5" for="image<%= i %>">Delete?</label>
+                                                                        <input class="mt-1 m-2" type="checkbox" name="deleteImages[]"
+                                                                            class="imageDeleteCheckbox" id="<%= i %>" value="<%= image.public_id %>">
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <% }) %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary rounded-0">Save
+                                                Changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Profile Tab -->
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            <div class="row w-75 mx-auto d-flex justify-content-center ">
-                                <% if (user.images.length==0) {%>
-                                <h2 class="my-5">No Pictures Uploaded.</h2>
                                 <% } %>
-                                <% user.images.forEach(function (img) { %>
-                                <div class="col-12 col-md-6">
-                                    <div class="card shadow-lg bg-white rounded my-5">
-                                        <img class="card-img mb-0" style="width:100%; height: 100%; object-fit: cover;" src="<%= img.url %>">
-                                    </div>
                                 </div>
-                                <% }); %>
-                            </div>
-                            <% if (currentUser._id.equals(user._id)) { %>
-                                <div class="row mx-5 my-5 text-center">
-                                    <div class="col-12 col-md-12 my-3">
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger rounded-0" data-toggle="modal"
-                                        data-target="#exampleModal" style="width: 9.5rem;">
-                                        Edit Pictures <i class="fas fa-edit ml-2"></i>
-                                    </button>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edit Pictures</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                                    Images here
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary rounded-0">Save
-                                                        Changes</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% } %>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        <%- include("../partials/footer") %>
