@@ -182,19 +182,39 @@ form .filter_btn {
     color: #19B3D3;
 }
 
+.imgclass {
+    margin-left: 40px; 
+    margin-right: 5px;
+}
 
 /* Styling for mobile size */
 
 @media (max-width: 1040px) {
 
+    body {
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+    }
+
+    .classs {
+        margin-left: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #myNav {
+        height: 5%;
+    }
+
     .footer {
         margin-left: 0px;
-        margin-top: 150px;
+        margin-top: 70px;
     }
 
     .card {
-        width: 21rem;
-        margin-left: 0px;
+        width: 23rem;
+        margin-left: 10px;
     
     }
 
@@ -203,20 +223,35 @@ form .filter_btn {
         width: 0px;
     }
 
+    #check:checked ~ .sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    #check:checked ~ .content {
+        margin-left: 500px;
+    }
+
+    #check:checked ~ .footer {
+        margin-left: 500px;
+    }
+
     #check:checked ~ .sidebar center {
         display: block;
         width: 100%;
         text-align: center;
     }
 
-    #check:checked ~ .sidebar .scrollable {
-        margin-left: 10px;
-        margin-right: 100px;
+    #check:checked ~ .sidebar a {
+        padding-left: 170px;
     }
 
-
     .navbar-brand {
-      	padding-top: .6525rem;
+      	padding-top: 0rem;
+    }
+
+    .imgclass {
+        margin-left: 30px;
     }
 
 
