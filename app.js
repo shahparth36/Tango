@@ -26,11 +26,11 @@ var homeRoutes         = require("./routes/home");
 var settingRoutes      = require("./routes/settings");
 var footerRoutes       = require("./routes/footer");
 
-mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-// mongoose.connect(  
-//   "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-// );
+// mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect(  
+  "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+);
 var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -71,11 +71,6 @@ app.use(homeRoutes);
 app.use(settingRoutes);
 app.use(footerRoutes);
 
-// fast2sms.sendMessage({
-// 	authorization: process.env.API_KEY1,
-// 	message: "94759 is your OTP(One Time Password) to register on Tango. It is valid for 5 minutes.Please enter the OTP to continue \n Thank You, \n Team Tango",
-// 	numbers: ["7021765486"]
-// });
 
 app.get("/test", function (req, res) {
     res.render("loader")
