@@ -109,10 +109,14 @@ label #sidebar_btn:hover {
 
 
 .content {
-    min-width: 1200px;
-    padding-left: 180px;
+    max-width: 100%;
+    margin-left: 80px;
     height: 100%;
     transition: 0.5s;
+}
+
+.content .container {
+    padding-top: 90px;
 }
 
 #check {
@@ -125,6 +129,10 @@ label #sidebar_btn:hover {
     color: white;
     transition: 0.3s;
     transition-property: color;
+}
+
+.star {
+    color: red;
 }
   
 #myBrand:hover {
@@ -162,6 +170,27 @@ form .filter_btn {
 }
 
 /* Navbar and sidebar styling end */
+
+.navimg {
+    margin-left: 40px; 
+    margin-right: 5px;
+}
+
+.chclass {
+    height: 50px;
+}
+
+.padclass {
+    padding-left: 0px;
+}
+
+.fclass {
+    margin-left: 375px;
+}
+
+.imgc {
+    border-radius: 50%;
+}
 
 .footer-content {
     color: white;
@@ -245,17 +274,29 @@ form .filter_btn {
       	display: block;
     }
 
-    
-
     #idDiv {
       	display: none;
     }
 
   }
      
+hr{
+    width: 460px;
+    background-color: black;
+}
+
+.hrLogo{
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 40px;
+    padding-bottom: 15px;
+}
+
+
 @media(max-width:1367px){
     .card{
+        
         width: 1050px;
-        margin-left: -20px;
+        margin-left: 20px;
     }
 }

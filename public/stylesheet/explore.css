@@ -248,6 +248,15 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.navimg {
+  margin-left: 40px;
+  margin-right: 5px;
+}
+
+.container1 .cona {
+  text-decoration: none;
+}
+
 /* Card Styling start */
   
   .container1{
@@ -355,6 +364,10 @@ form .filter_btn {
   font-family: 'Playball', cursive;
 }
 
+.pUsername{
+  /* text-decoration: none; */
+  font-size: 20px;
+}
 
   /* Card Styling end */
 

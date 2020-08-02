@@ -163,6 +163,11 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.navimg {
+  margin-left: 40px; 
+  margin-right: 5px;
+}
+
 /* cards styling start  */
 h1{
 	font-size: 36px;
@@ -298,6 +303,10 @@ footer h5 {
   } 
 }
 
+.first .container{
+  margin-top: 70px;
+}
+
 @media (max-width: 1367px){
   #container1{
     width: 95%;
@@ -305,7 +314,7 @@ footer h5 {
   }
 
   .jumbotron{
-    margin-left:-25px;
+    margin-left:-35px;
     width: 98%;
   }
 }

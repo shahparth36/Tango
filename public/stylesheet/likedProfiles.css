@@ -163,6 +163,19 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.navimg {
+  margin-left: 40px; 
+  margin-right: 5px;
+}
+
+.container {
+  padding-top: 130px;
+}
+
+section .container {
+  padding-top: 50px;
+}
+
 /* cards styling start  */
 h1{
 	font-size: 36px;
@@ -302,11 +315,15 @@ footer h5 {
   } 
 }
 
+.nav-item .nav-link{
+  color: black;
+}
+
 @media (max-width: 1367px){
   .container1{
     /* width: 1000px; */
-    width: 88%;
-    margin-left: 0px;
+    width: 92%;
+    margin-left: 20px;
   }
 
   .jumbotron{
