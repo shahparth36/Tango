@@ -46,7 +46,7 @@ router.get("/settings/:loggedInUser_id", (req, res) => {
     })
 });
 
-router.post("/edit/:id",middleware.checkOwnership, (req, res) => {
+router.post("/edit/:id",middleware.isLoggedIn, (req, res) => {
     User.findByIdAndUpdate(req.params.id, 
         {
             username: req.body.username,
@@ -78,7 +78,7 @@ router.post("/edit/:id",middleware.checkOwnership, (req, res) => {
 });
 
 
-router.post("/changePassword/:id",middleware.checkOwnership, (req,res) => {
+router.post("/changePassword/:id",middleware.isLoggedIn, (req,res) => {
     User.findById(req.params.id, function(err, foundUser){
         if(err){
             console.log(err);
@@ -101,7 +101,7 @@ router.post("/changePassword/:id",middleware.checkOwnership, (req,res) => {
     });
                  
 
-    router.put("/edit/:id/image",middleware.checkOwnership, upload.single('image'), function(req, res){
+    router.put("/edit/:id/image",middleware.isLoggedIn, upload.single('image'), function(req, res){
         User.findById(req.params.id, async function(err, foundUser){
             if(err){
                 req.flash("error", "Something went wrong");
@@ -126,7 +126,7 @@ router.post("/changePassword/:id",middleware.checkOwnership, (req,res) => {
     });    
 
     
-    router.post("/delete/:id",middleware.checkOwnership, function(req,res){
+    router.post("/delete/:id",middleware.isLoggedIn, function(req,res){
         User.findByIdAndRemove(req.params.id,async function(err, foundUser){
             if(err){
                 console.log(err);

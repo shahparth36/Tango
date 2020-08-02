@@ -29,7 +29,7 @@
                 <i class="fas fa-bars" id="sidebar_btn"></i>
             </label>
             <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png"
-                width="45" height="45" class="d-inline-block align-top" alt="" style="margin-left: 40px;">
+                width="45" height="45" class="d-inline-block align-top navimg" alt="">
             <span id="myBrand">Tango</span>
         </a>
     </nav>
@@ -50,8 +50,8 @@
     </div>
     
     <!-- Navbar and sidebar end -->
-    <div class="content py-5">
-        <div class="container mt-5">
+    <div class="content py-5 lorem">
+        <div class="container">
             <% if(error && error.length>0){ %>
             <div class="row d-flex justify-content-between m-2">
                 <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 100%;">
@@ -80,8 +80,8 @@
                     <div class="col-5 mt-1">
                         <hr class="hrLeft">
                     </div>
-                    <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
-                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;" class="hrLogo" >
+                    <div class="col-1 text-center hrLogo">
+                        <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt="" height="48px;" width="48px;">
                     </div>
                     <div class="col-5 ml-2 pl-0 mt-1">
                         <hr  class="hrRight">
@@ -171,9 +171,9 @@
                         <div class="col-5 mt-1">
                             <hr class="hrLeft">
                         </div>
-                        <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                        <div class="col-1 text-center hrLogo">
                             <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
-                                height="48px;" width="48px;" class="hrLogo">
+                                height="48px;" width="48px;">
                         </div>
                         <div class="col-5 ml-2 pl-0 mt-1">
                             <hr class="hrRight">
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-2 col-sm-2 text-center" style="margin-left: 375px;">
+                            <div class="col-2 col-sm-2 text-center sabclass">
                                 <div class="input-group flex-nowrap">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="addon-wrapping">From:</span>
@@ -417,9 +417,9 @@
                         <div class="col-5 mt-1">
                             <hr class="hrLeft">
                         </div>
-                        <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                        <div class="col-1 text-center hrLogo">
                             <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
-                                height="48px;" width="48px;" class="hrLogo">
+                                height="48px;" width="48px;">
                         </div>
                         <div class="col-5 ml-2 pl-0 mt-1">
                             <hr class="hrRight">
@@ -458,28 +458,28 @@
                         </div>
                     </div>
                     <div class="row justify-content-center my-5">
-                        <button type="submit" class="btn btn-info rounded-0" style="font-size: 1em" >Update Your Profile<i class="fas fa-edit ml-2"></i></button>
+                        <button type="submit" class="btn btn-info rounded-0">Update Your Profile<i class="fas fa-edit ml-2"></i></button>
                     </div> 
 
                     <div class="row ">
                         <div class="col-5 mt-1">
                             <hr class="hrLeft">
                         </div>
-                        <div class="col-1 text-center" style="padding-right: 0; margin-right: 0; margin-left: 35px; padding-bottom: 15px;">
+                        <div class="col-1 text-center hrLogo">
                             <img src="https://res.cloudinary.com/du7tc1ufz/image/upload/v1595879395/icons8-two-hearts-48_nlgynt.png" alt=""
-                                height="48px;" width="48px;" class="hrLogo">
+                                height="48px;" width="48px;">
                         </div>
                         <div class="col-5 ml-2 pl-0 mt-1">
                             <hr class="hrRight">
                         </div>
                     </div>
-                    <h3  class="card-title text-center my-5 display-4 home">Edit your profile pictures</h3>
+                    <h3  class="card-title text-center my-5 display-4 home">Update your profile pictures</h3>
                     
                     <div class="row d-flex justify-content-center ml-5">
                         <% user.images.forEach(function (image) { %>
                         <div class="col-6 mb-5">
                             <div class="rounded ">
-                                <img class="rounded-lg" style="width:350px; height:200px; object-fit: cover;" src="<%= image.url %>">
+                                <img class="rounded-lg pictures" src="<%= image.url %>">
                             </div>
                         </div>
                         <% }); %>
@@ -537,17 +537,8 @@
           </div>
         </div>   
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>        
-  
-  </body>
-  </html>                                
+
+    <%- include("../partials/footer") %>                           
                        
                     
 

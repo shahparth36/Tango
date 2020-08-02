@@ -109,10 +109,12 @@
   .content {  
     width: 1200px;
     margin-left: 200px;
-    height: 100vh;
+    height: 100%;
     transition: 0.5s;
 
   }
+
+
 
   #check {
     display: none;
@@ -181,6 +183,46 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.footer-content {
+    color: white;
+}
+
+.footer {
+    margin-left: 50px;
+    background: black;
+    height: auto; 
+    padding: 50px 0px; 
+    margin-top: 80px;
+}
+
+#check:checked ~ .footer {
+  margin-left: 150px;
+}
+
+.footer a:hover {
+    color: #19B3D3;
+}
+
+.navimg {
+  margin-left: 40px;
+  margin-right: 5px;
+}
+
+.lorem .container {
+  padding-top: 20px;
+}
+
+.hrLogo {
+  padding-right: 0; 
+  margin-right: 0; 
+  margin-left: 35px; 
+  padding-bottom: 15px;
+}
+
+.sabclass {
+  margin-left: 375px;
+}
+
 .hrRight{
   width: 460px;
   background-color: rgba(0, 0, 0, 0.705);
@@ -189,6 +231,16 @@ form .filter_btn {
 .hrLeft{
   width: 460px;
   background-color: rgba(0, 0, 0, 0.705); 
+}
+
+.pictures{
+  width:350px; 
+  height:200px;
+  object-fit: cover;
+}
+
+.btn .btn-info{
+  font-size: 1em;
 }
 
 /* Styling for mobile size */
@@ -227,15 +279,15 @@ form .filter_btn {
   @media(max-width:1367px){
     .card{
         width: 1050px;
-        margin-left: -25px;
+        margin-left: -15px;
     }
 
     .hrLogo{
-      margin-left: 25px;
+      margin-left: 55px;
     }
 
     .hrRight{
-      width: 440px;
+      width: 430px;
     }
 }
 

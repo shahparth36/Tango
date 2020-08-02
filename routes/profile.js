@@ -59,7 +59,7 @@ router.get("/profile/:id/edit", middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.put("/profile/:id/update",middleware.checkOwnership, function (req, res) {
+router.put("/profile/:id/update",middleware.isLoggedIn, function (req, res) {
     var dateString = req.body.user.dob;
     var today = new Date();
     var birthDate = new Date(dateString);

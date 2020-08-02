@@ -255,6 +255,47 @@ form .filter_btn {
 }
 
 /* Navbar and sidebar styling end */
+
+.navimg {
+  margin-left: 40px; 
+  margin-right: 5px;
+}
+
+.ebut {
+  float: right; 
+  width: 8.5rem;
+}
+
+.ulbut {
+  float: right; 
+  width: 6.5rem;
+}
+
+.lbut {
+  float: right; 
+  width: 5.5rem;
+}
+
+.rclass {
+  font-size: 15px;
+}
+
+.bul {
+  content: \2022; 
+  font-size: 22px;
+}
+
+.iconn {
+  font-size: 1.5rem;
+}
+
+.aicon {
+  color: black;
+}
+
+.hcard {
+  max-width: 22rem;
+}
   
   /* Styling for mobile size */
   
@@ -313,6 +354,32 @@ form .filter_btn {
     .good {
       margin-left: 30px;
     }
+  }
+
+  .btn .btn-danger{
+    width: 9.5rem;
+  }
+
+  .card-img{
+    width:350px;
+    height:200px;
+    object-fit: cover;
+  }
+  
+  .card-title a{
+    color: white;
+  }
+
+  .card-title i{
+    font-size: 1.4rem;
+  }
+
+  .card-icons{
+    max-width: 22rem;
+  }
+
+  .fas .fa-glass-martini-alt{
+    font-size: 1.1rem;
   }
 
   @media(max-width:1367px){
