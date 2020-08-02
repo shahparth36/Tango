@@ -302,3 +302,19 @@ footer h5 {
   } 
 }
 
+@media (max-width: 1367px){
+  .container1{
+    width: 1000px;
+    margin-left: 0px;
+  }
+
+  .jumbotron{
+    margin-left:-40px;
+    width: 98%;
+  }
+
+  #team .cards{
+    height: 350px;
+  }
+}
+

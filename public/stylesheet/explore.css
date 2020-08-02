@@ -1,8 +1,6 @@
 body {
   position: relative;
-
   display: flex;
-
   min-height: 100vh;
   align-items: center;
   justify-content: center;
@@ -254,7 +252,7 @@ form .filter_btn {
 /* Card Styling start */
   
   .container1{
-    margin-top: 0;
+    margin-top: 5%;
     padding-left: 0;
     margin-left: 250px;
     width: 1000px;
@@ -320,14 +318,6 @@ form .filter_btn {
     padding: 0;
 }
 
-/* .container .card .face.face1. content {
-    opacity: 0.2;
-    transition: 0.5s;
-}
-
-.container .card:hover .face.face1 .content{
-    opacity: 1;
-} */
 
 .container1 .card .face.face1 .content1 img{
   margin-left: 0;
@@ -367,51 +357,8 @@ form .filter_btn {
 
 
   /* Card Styling end */
-  /* Styling for mobile size */
 
-  @media (max-width: 640px) {
-
-    #myNav {
-      padding-top: none;
-    }
-    
-    .content {
-      margin-left: 213px;
-    }
-
-    #check:checked ~ .container {
-      margin-left: 250px;
-      padding-left: 100px;
-    }
-
-    #myBrand {
-      margin-left: 40px;
-      margin-bottom: 5px;
-      padding-bottom: 2rem;
-    }
-
-    #myInput {
-      width: 78%;
-      margin-bottom: 10px;
-    }
-
-    #myForm {
-      display: none;
-    }
-
-    #bottom {
-      display: block;
-    }
-
-    label #sidebar_btn {
-      left: 14px;
-    }
-  }
-
-  .modal-title{
-    margin-right: 100px;
-  }
-
+  
 /* Age filter styling */
 
 input[type='range'] {
@@ -480,4 +427,65 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
    margin-right: -5px;
 }
 
-  
+/* age filter styling end */
+
+
+  /* Styling for mobile size */
+
+  @media (max-width: 1040px) {
+   
+
+    
+    #myNav {
+      padding-top: none;
+    }
+    
+    .content {
+      margin-left: 213px;
+    }
+
+    #check:checked ~ .container {
+      margin-left: 250px;
+      padding-left: 100px;
+    }
+
+    #myBrand {
+      margin-left: 40px;
+      margin-bottom: 5px;
+      padding-bottom: 2rem;
+    }
+
+    #myInput {
+      width: 78%;
+      margin-bottom: 10px;
+    }
+
+    #myForm {
+      display: none;
+    }
+
+    #bottom {
+      display: block;
+    }
+
+    label #sidebar_btn {
+      left: 14px;
+    }
+  }
+
+  .modal-title{
+    margin-right: 100px;
+  }
+
+
+  /* styling for ipad size */
+
+  @media (max-width: 1367px){
+    .container1{
+      margin-left: 190px;
+    }
+
+    .jumbotron{
+      margin-left: 50px;
+    }
+  }

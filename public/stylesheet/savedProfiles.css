@@ -268,12 +268,11 @@ footer h5 {
 
 /* card styling end  */
 
-@media (max-width: 1340px) {
+@media (max-width: 1040px) {
 
   #myNav {
     padding-top: none;
   }
-
 
   #myBrand {
     margin-left: 40px;
@@ -297,5 +296,17 @@ footer h5 {
   label #sidebar_btn {
     left: 14px;
   } 
+}
+
+@media (max-width: 1367px){
+  #container1{
+    width: 1100px;
+    margin-left: -30px;
+  }
+
+  .jumbotron{
+    margin-left:-25px;
+    width: 98%;
+  }
 }
 
