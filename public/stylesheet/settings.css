@@ -109,8 +109,8 @@ label #sidebar_btn:hover {
 
 
 .content {  
-    width: 1200px;
-    margin-left: 200px;
+    max-width: 10px;
+    margin-left: 250px;
     height: 100%;
     transition: 0.5s;
 }
@@ -225,9 +225,7 @@ form .filter_btn {
       	display: block;
     }
 
-    .content {
-      	margin-left: 60px;
-    }
+    
 
     #idDiv {
       	display: none;
@@ -235,3 +233,9 @@ form .filter_btn {
 
   }
      
+@media(max-width:1367px){
+    .card{
+        width: 1050px;
+        margin-left: -20px;
+    }
+}

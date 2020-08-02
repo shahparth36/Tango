@@ -304,7 +304,8 @@ footer h5 {
 
 @media (max-width: 1367px){
   .container1{
-    width: 1000px;
+    /* width: 1000px; */
+    width: 88%;
     margin-left: 0px;
   }
 

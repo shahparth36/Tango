@@ -194,7 +194,7 @@ label #sidebar_btn:hover {
 
 
 .content { 
-    width: 100%;
+    max-width: 100%;
     padding-top: 100px;
     margin-left: 200px;
     height: 100vh;
@@ -255,7 +255,7 @@ form .filter_btn {
     margin-top: 5%;
     padding-left: 0;
     margin-left: 250px;
-    width: 1000px;
+    width: 88%;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -433,9 +433,64 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
   /* Styling for mobile size */
 
   @media (max-width: 1040px) {
-   
+    body {
+      margin: 0px;
+      padding: 0px;
+  }
+    .sidebar {
+      display: none;
+      width: 0px;
+  }
 
-    
+  #check:checked ~ .sidebar {
+      display: block;
+      width: 100%;
+  }
+
+  #check:checked ~ .content {
+      display: none;
+  }
+
+  #check:checked ~ .footer {
+      display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+      display: block;
+      margin-left: 80px;
+  }
+
+  #check:checked ~ #myNav {
+      height: 9.5%;
+  }
+
+  #check:checked ~ .sidebar a {
+      padding-left: 170px;
+  }
+
+  .navbar-brand {
+      padding-top: 0rem;
+  }
+
+ .jumbotron{
+    margin-right: 55px;
+    margin-left: 20px;
+   
+ }
+
+ /* .container1 .cards{
+   margin-right: 100px;
+ } */
+
+ .container1{
+   width: 200px;
+   margin-left: -200px;
+   margin-right: 200px;
+ }
+  
+
+
+
     #myNav {
       padding-top: none;
     }

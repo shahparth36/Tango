@@ -181,6 +181,16 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.hrRight{
+  width: 460px;
+  background-color: rgba(0, 0, 0, 0.705);
+}
+
+.hrLeft{
+  width: 460px;
+  background-color: rgba(0, 0, 0, 0.705); 
+}
+
 /* Styling for mobile size */
 
   @media (max-width: 1040px) {
@@ -213,5 +223,20 @@ form .filter_btn {
       left: 14px;
     }
   }
+
+  @media(max-width:1367px){
+    .card{
+        width: 1050px;
+        margin-left: -25px;
+    }
+
+    .hrLogo{
+      margin-left: 25px;
+    }
+
+    .hrRight{
+      width: 440px;
+    }
+}
 
   

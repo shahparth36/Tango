@@ -10,7 +10,7 @@
   	transition: 100%;
   	transition-property: right;
 }
-
+ 
 #check:checked ~ .sidebar {
   	left: 0px;
   	width: 250px;
@@ -108,7 +108,7 @@ label #sidebar_btn:hover {
 }
 
 .classs {
-    margin-left: 190px;
+    margin-left: 80px;
 }
 
 .content {  
