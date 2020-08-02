@@ -32,8 +32,9 @@
 }
 
 #check:checked ~ .content {
-  	margin-left: 250px;
+  	margin-left: 90px;
 }
+
 #check:checked ~ .sidebar .scrollable {
   	margin-top: 0;
 }
@@ -165,6 +166,32 @@ form .filter_btn {
 
 /* Navbar and sidebar styling end */
 
+.container {
+    margin-top: 70px;
+    margin-left: 220px;
+}
+
+.card {
+    background: #43C6AC; 
+    background: -webkit-linear-gradient(to right, #191654, #43C6AC);
+    background: linear-gradient(to right, #191654, #43C6AC); 
+    max-width: 69.5rem;
+}
+
+.wcolor {
+    color: white;
+}
+
+.spill {
+    font-size: 15px;
+}
+
+.myHr {
+    background-color: white; 
+    width: 100%; 
+    margin-right: 120px;
+}
+
 .footer-content {
     color: white;
 }
@@ -172,10 +199,9 @@ form .filter_btn {
 .footer {
     margin-left: 50px;
     background: black;
-    
     height: auto; 
     padding: 50px 0px; 
-    margin-top: 400px;
+    margin-top: 100px;
 }
 
 .footer a:hover {
@@ -186,6 +212,29 @@ form .filter_btn {
     margin-left: 40px; 
     margin-right: 5px;
 }
+
+#check:checked ~ .content .carousel-control-next {
+    margin-right: 10px;
+    margin-top: 455px;
+}
+
+#check:checked ~ .content .carousel-control-prev {
+    margin-left: 270px;
+    margin-top: 455px;
+}
+
+/* carousel styling */
+
+.carousel-control-next{
+    margin-right: 90px;
+    margin-top: 455px;
+}
+
+.carousel-control-prev{
+    margin-left: 170px;
+    margin-top: 455px;
+}
+
 
 /* Styling for mobile size */
 
@@ -275,6 +324,41 @@ form .filter_btn {
     }
 
   }
+
+  @media(max-width:1367px){
+
+    .jumbotron{
+        width:92%;
+        margin-left:-25px;
+    }
+
+    .card{
+        width: 64rem;
+        margin-left: -25px;
+    }
+
+    .carousel-control-next{
+        margin-right: 40px;
+        margin-top: 530px;
+    }
+    
+    .carousel-control-prev{
+        margin-left: 150px;
+        margin-top: 530px;
+    }
+
+
+    #check:checked ~ .content .carousel-control-next {
+        margin-right: -50px;
+        margin-top: 530px;
+    }
+    
+    #check:checked ~ .content .carousel-control-prev {
+        margin-left: 245px;
+        margin-top: 530px;
+    }
+}
+
   /* a{
     padding-bottom: 0.714em !important;
     padding-top: 0.714em !important;
@@ -379,3 +463,4 @@ form .filter_btn {
     font-size: 20px;
 } */
       
+

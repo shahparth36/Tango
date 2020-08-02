@@ -126,7 +126,6 @@ body {
   	margin-top: 0;
 }
 
-
 .sidebar .scrollable {
   	margin-top: 225px;
 }
@@ -254,15 +253,16 @@ form .filter_btn {
   .container1{
     margin-top: 5%;
     padding-left: 0;
-    margin-left: 250px;
-    width: 88%;
+    margin-left: 220px;
+    width: 75%;
     position: relative;
     display: flex;
     justify-content: space-between;
 }
 
 #check:checked ~ .content .container1 {
-  margin-left: 100px;
+  width: 80%;
+  margin-left: 140px;
 }
 
 .container1 .cards{
@@ -474,13 +474,6 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
     margin-left: 20px;
    
  }
-
- 
- 
-  
-
-
-
     #myNav {
       padding-top: none;
     }
@@ -527,10 +520,22 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
 
   @media (max-width: 1367px){
     .container1{
-      margin-left: 190px;
+      width: 1100px;
+      margin-left: 175px;
+    }
+  
+    .jumbotron{
+      width: 1100px;
+      margin-left:25px;
     }
 
-    .jumbotron{
-      margin-left: 50px;
+    #check:checked ~ .content .container1{
+      margin-left: 70px;   
+      width: 1000px;
+    }
+
+    #check:checked ~ .content .jumbotron{
+      width: 1050px;
+      margin-left: 20px;
     }
   }
