@@ -26,11 +26,11 @@ var homeRoutes         = require("./routes/home");
 var settingRoutes      = require("./routes/settings");
 var footerRoutes       = require("./routes/footer");
 
-// mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-mongoose.connect(  
-  "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect(  
+//   "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+// );
 var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
