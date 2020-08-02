@@ -203,7 +203,7 @@ form .filter_btn {
     }
 
     #myNav {
-        height: 8%;
+        height: 5%;
     }
 
     .footer {
@@ -228,7 +228,7 @@ form .filter_btn {
     }
 
     #check:checked ~ .content {
-        margin-left: 500px;
+        margin-left: 800px;
     }
 
     #check:checked ~ .footer {
@@ -237,8 +237,11 @@ form .filter_btn {
 
     #check:checked ~ .sidebar center {
         display: block;
-        width: 100%;
-        text-align: center;
+        margin-left: 80px;
+    }
+
+    #check:checked ~ #myNav {
+        height: 2%;
     }
 
     #check:checked ~ .sidebar a {
