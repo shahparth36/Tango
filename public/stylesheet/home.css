@@ -232,7 +232,7 @@ form .filter_btn {
     }
 
     #check:checked ~ .footer {
-        margin-left: 500px;
+        display: none;
     }
 
     #check:checked ~ .sidebar center {
@@ -241,7 +241,7 @@ form .filter_btn {
     }
 
     #check:checked ~ #myNav {
-        height: 2%;
+        height: 9.5%;
     }
 
     #check:checked ~ .sidebar a {
