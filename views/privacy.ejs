@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/stylesheet/privacy.css">
     <link rel="stylesheet" href="/stylesheet/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy | Tango</title>
 </head>
 <body>
      <!-- Navbar and sidebar start -->
@@ -38,6 +38,7 @@
             <a href="/profile/<%= currentUser._id %>"><i class="fas fa-user"></i><span>Profile</span></a>
             <a href="/explore"><i class="fas fa-search"></i><span>Explore</span></a>
             <a href="/likedProfiles/<%= currentUser._id %>"><i class="fas fa-heart"></i><span>Likes</span></a>
+            <a href="/savedProfiles/<%= currentUser._id %>"><i class="fas fa-bookmark"></i><span>Saved</span></a>
             <a href="/            <a href="#"><i class="fas fa-comments"></i><span>Chat</span></a>
             <a href="/settings/<%= currentUser._id %>"><i class="fas fa-cog"></i><span>Settings</span></a>
             <a href="/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>

@@ -7,43 +7,54 @@ var indianCities = cities["India"];
 var middleware   = require("../middleware")
 
 
-router.get("/explore",middleware.isLoggedIn, function (req, res) {
+router.get("/explore", middleware.isLoggedIn, function (req, res) {
+    var perPage = 9;
+    var pageQuery = parseInt(req.query.page);
+    var pageNumber = pageQuery ? pageQuery : 1;
     var noMatch = null; 
     if (Object.keys(req.query).length > 0) {
-        User.find( filter(req) , function (err, allUsers) {
-            if (err) {
-                console.log(err);
-                req.flash("error", "Something went wrong.");
-                return res.redirect("back");
-            }else{
-                if(allUsers.length < 1){
-                    req.flash("error","No user exists" );
-                    return res.redirect("/explore");
+        User.find(filter(req)).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allUsers) {
+            User.count().exec(function (err, count) {
+                if (err) {
+                    console.log(err);
+                    req.flash("error", "Something went wrong.");
+                    return res.redirect("back");
                 }
-            }
-            res.render("explore", {
-                foundUser: shuffle(allUsers),
-                noMatch: noMatch,
-                indianCities: indianCities
-            }) 
+                else {
+                    if(allUsers.length < 1){
+                        req.flash("error","No user exists" );
+                        return res.redirect("/explore");
+                    }
+                    res.render("explore", {
+                        current: pageNumber,
+                        pages: Math.ceil(count / perPage),
+                        foundUser: shuffle(allUsers),
+                        noMatch: noMatch,
+                        indianCities: indianCities
+                    }) 
+                }
+            })
         })
     } 
     else {
     //Get all users      
-       User.find({
-           _id:{
-           $ne:req.user
-           }
-        }
-            ,function(err,foundUser){
-            if(err){
-                console.log(err);
-                res.redirect("back");
-            }
-            else {
-                // render explore.ejs file
-                res.render("explore", {foundUser: shuffle(foundUser),noMatch: noMatch, indianCities: indianCities});
-            }
+       User.find({_id:{$ne:req.user}}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function(err,foundUser){
+           User.count().exec(function (err, count) {
+               if (err) {
+                    console.log(err);
+                    res.redirect("back");
+                }
+                else {
+                    // render explore.ejs file
+                    res.render("explore", {
+                       current: pageNumber,
+                       pages: Math.ceil(count / perPage),
+                       foundUser: shuffle(foundUser),
+                       noMatch: noMatch,
+                       indianCities: indianCities
+                   });
+                }
+           }) 
         });
     }
   });

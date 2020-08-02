@@ -1,79 +1,82 @@
 /* Sidebar and navbar styling start */
 
-  .sidebar {
-    background: black;
-    padding-top: 100px;
-    position: fixed;
-    left: 0;
-    width: 60px;
-    height: 100%;
-    transition: 100%;
-    transition-property: right;
-  }
+.sidebar {
+  	background: black;
+  	padding-top: 75px;
+  	position: fixed;
+  	left: 0;
+  	width: 60px;
+  	height: 100%;
+  	transition: 100%;
+  	transition-property: right;
+}
 
-  #check:checked ~ .sidebar {
-    left: 0px;
-    width: 250px;
-  }
+#check:checked ~ .sidebar {
+  	left: 0px;
+  	width: 250px;
+}
 
-  #check:checked ~ .sidebar center {
-    left: 0px;
-    width: 250px;
-    display: block;
-  }
+#check:checked ~ .sidebar center {
+  	left: 0px;
+  	width: 250px;
+  	display: block;
+}
 
-  #check:checked ~ .sidebar a span{
-    display: inline-block;
-  }
+#check:checked ~ .sidebar a span{
+  	display: inline-block;
+}
 
-  #check:checked ~ .sidebar a {
-    font-size: 17px;
-    padding-left: 70px;
-  }
+#check:checked ~ .sidebar a {
+  	font-size: 17px;
+  	padding-left: 70px;
+}
+
+#check:checked ~ .content {
+  	margin-left: 250px;
+}
+#check:checked ~ .sidebar .scrollable {
+  	margin-top: 0;
+}
+
+#check:checked ~ footer {
+    margin-left: 150px;
+}
+
+.sidebar .scrollable {
+  	margin-top: 225px;
+}
+
+.sidebar .profile_image {
+  	width: 100px;
+  	height:  100px;
+  	border-radius: 100px;
+  	margin-bottom: 10px;
+}
   
-  #check:checked ~ .content {
-    margin-left: 250px;
-  }
-
-  #check:checked ~ .sidebar .scrollable {
-    margin-top: 0;
-  }
-
-  .sidebar .scrollable {
-    margin-top: 225px;
-  }
-  
-  .sidebar .profile_image {
-    width: 100px;
-    height:  100px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar h4 {
-    color: white;
-    margin-top: 0;
-    margin-bottom: 40px;
+.sidebar h4 {
+  	color: white;
+  	margin-top: 0;
+  	margin-bottom: 40px;
 }
 
 .sidebar center {
-    display: none;
+  	display: none;
 }
 
-  .sidebar span {
-    display: none;
+.sidebar span {
+  	display: none;
 }
 
 .sidebar a {
-    color: #fff;
-    display: block;
-    width: 100%;
-    line-height: 50px;
-    text-decoration: none;
-    padding-left: 20px;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
+  	color: #fff;
+  	display: block;
+  	width: 100%;
+  	line-height: 50px;
+  	text-decoration: none;
+  	padding-left: 20px;
+  	box-sizing: border-box;
+  	transition: 0.5s;
+  	transition-property: background;
 }
   
 .sidebar a:hover {
@@ -88,7 +91,6 @@
 
 label #sidebar_btn {
     z-index: 1;
-    /* padding-left: 6%; */
     padding-top: 1px;
     color: white;
     position: fixed;
@@ -98,7 +100,7 @@ label #sidebar_btn {
     font-size: 20px;
     transition: 0.5s;
     transition-property: color;
-}
+}  
 
 label #sidebar_btn:hover {
     z-index: 1;
@@ -106,19 +108,14 @@ label #sidebar_btn:hover {
 }
 
 
-.content {
-    max-width: 100%;  
+.content {  
+    width: 1200px;
     margin-left: 200px;
-    height: 100vh;
+    height: 100%;
     transition: 0.5s;
-
 }
 
-#check:checked ~ footer {
-  margin-left: 250px;
-}
-
-  #check {
+#check {
     display: none;
 }
 
@@ -138,7 +135,8 @@ label #sidebar_btn:hover {
     font-family: 'Pacifico', cursive;
 }
 
-  #myNav {
+  
+#myNav {
     padding-top: 15px;
     height: 9.5%;
     background-color: black;
@@ -151,16 +149,16 @@ label #sidebar_btn:hover {
 }
 
 #myInput {
-  	width: 78%;
+    width: 78%;
     margin-bottom: 10px;
 }
 
 form .filter_btn {
- 	 margin-bottom: 10%;
+    margin-bottom: 10%;
 }
 
 .home{
-  	font-family: 'Playball', cursive;
+    font-family: 'Playball', cursive;
 }
 
 /* Navbar and sidebar styling end */

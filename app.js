@@ -11,26 +11,26 @@ var express               = require("express"),
     User                  = require("./models/user");
     async                 = require("async"),
     nodemailer            = require("nodemailer"),
-    crypto                = require("crypto")
+    crypto                = require("crypto") 
     multer                = require('multer');
     fast2sms              = require('fast-two-sms')
  
 //REQURING ROUTES
-var profileRoutes = require("./routes/profile");
-var indexRoutes = require("./routes/index");
-var landingRoutes = require("./routes/landings"); 
-var exploreRoutes = require("./routes/explore"); 
+var profileRoutes      = require("./routes/profile");
+var indexRoutes        = require("./routes/index");
+var landingRoutes      = require("./routes/landings"); 
+var exploreRoutes      = require("./routes/explore"); 
 var savedProfileRoutes = require("./routes/savedProfile");
 var likedProfileRoutes = require("./routes/likedProfile");
-var homeRoutes = require("./routes/home");
-var settingRoutes = require("./routes/settings");
-var footerRoutes = require("./routes/footer");
+var homeRoutes         = require("./routes/home");
+var settingRoutes      = require("./routes/settings");
+var footerRoutes       = require("./routes/footer");
 
-// mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-mongoose.connect(
-  "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect(  
+//   "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+// );
 var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
@@ -77,7 +77,12 @@ app.use(footerRoutes);
 // 	numbers: ["7021765486"]
 // });
 
-  app.listen(process.env.PORT || 3000, process.env.IP, function(){
+app.get("/test", function (req, res) {
+    res.render("loader")
+})
+
+
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("The Server is listening on " + process.env.PORT);
- });
+});
     

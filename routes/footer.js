@@ -29,4 +29,9 @@ router.get("/safety", (req, res) => {
     res.render("safety");
 });
 
+router.get("/about",(req, res) => {
+    res.render("about");
+})
+
+
 module.exports = router;
