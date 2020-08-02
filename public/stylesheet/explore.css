@@ -433,10 +433,7 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
   /* Styling for mobile size */
 
   @media (max-width: 1040px) {
-    body {
-      margin: 0px;
-      padding: 0px;
-  }
+   
     .sidebar {
       display: none;
       width: 0px;
@@ -478,15 +475,8 @@ input[type='range']:nth-child(1)::-webkit-slider-thumb{
    
  }
 
- /* .container1 .cards{
-   margin-right: 100px;
- } */
-
- .container1{
-   width: 200px;
-   margin-left: -200px;
-   margin-right: 200px;
- }
+ 
+ 
   
 
 
