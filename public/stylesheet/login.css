@@ -139,6 +139,10 @@ input:focus {
   nav {
     position: fixed;
   }
+
+  .navbar.mynav{
+    width: 110%;
+  }
 }
 
 
