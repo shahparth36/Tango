@@ -141,7 +141,6 @@ body {
 
   
 #myNav {
-    max-width: 100%;
     padding-top: 15px;
     height: 9.5%;
     background-color: black;
@@ -167,7 +166,7 @@ form .filter_btn {
 }
 
 .content {  
-    max-width: 100%;
+    width: (100% - 250px);
     height: 100%;
     transition: 0.5s;
 }
@@ -192,6 +191,8 @@ form .filter_btn {
 }
 
 .imgc {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
 }
 
@@ -233,9 +234,35 @@ form .filter_btn {
   	display: none;
 }
 
+hr{
+    width: 460px;
+    background-color: black;
+}
+
+.hrLogo{
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 40px;
+    padding-bottom: 15px;
+}
+
+
+@media(max-width:1367px){
+    .card{
+        
+        width: 1050px;
+        margin-left: 20px;
+    }
+}
+
 /* Styling for mobile size */
 
   @media (max-width: 1040px) {
+
+    .dclass {
+        padding-right: 25px;
+    }
+
     .sidebar {
         display: none;
         width: 0px;
@@ -307,25 +334,30 @@ form .filter_btn {
       	display: none;
     }
 
+    .card{
+        width: 350px;
+        margin-left: 0;
+    }
+
+    .imgc{
+        height: 220px;
+        width:220px;
+    }
+
+    hr{
+        margin-left: 10px;
+        width: 100px;
+    }
+
+    .hrLogo{
+        margin-left: 0px;
+        margin-right: 15px;
+        padding-left: 5px;
+    }
+
   }
      
-hr{
-    width: 460px;
-    background-color: black;
-}
-
-.hrLogo{
-    padding-right: 0;
-    margin-right: 0;
-    margin-left: 40px;
-    padding-bottom: 15px;
-}
 
 
-@media(max-width:1367px){
-    .card{
-        
-        width: 1050px;
-        margin-left: 20px;
-    }
-}
+
+
