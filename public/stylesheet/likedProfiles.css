@@ -286,6 +286,34 @@ footer h5 {
 
 @media (max-width: 1340px) {
 
+  .sidebar {
+    display: none;
+    width: 0px;
+}
+
+
+#check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+}
+
+#check:checked ~ .content {
+    display: none;
+}
+
+#check:checked ~ .footer {
+    display: none;
+}
+
+#check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+}
+
+#check:checked ~ .sidebar a {
+    padding-left: 170px;
+}
+
   #myNav {
     padding-top: none;
   }
@@ -312,6 +340,10 @@ footer h5 {
 
   label #sidebar_btn {
     left: 14px;
+  }
+  .jumbotron{
+    width:300px;
+    margin-left: 500px;
   } 
 }
 

@@ -141,6 +141,7 @@ body {
 
   
 #myNav {
+    max-width: 100%;
     padding-top: 15px;
     height: 9.5%;
     background-color: black;
@@ -163,6 +164,12 @@ form .filter_btn {
 
 .home{
     font-family: 'Playball', cursive;
+}
+
+.content {  
+    max-width: 100%;
+    height: 100%;
+    transition: 0.5s;
 }
 
 /* Navbar and sidebar styling end */
@@ -229,15 +236,9 @@ form .filter_btn {
 /* Styling for mobile size */
 
   @media (max-width: 1040px) {
-
     .sidebar {
         display: none;
         width: 0px;
-    }
-
-    .content {
-        margin-left: 10px;
-        padding-right: 500px;
     }
 
     #check:checked ~ .sidebar {
