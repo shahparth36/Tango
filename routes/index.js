@@ -288,7 +288,7 @@ router.post("/profile", upload.array("images"), async function (req, res) {
           "success",
           "Successfully Registered, Please Login to continue"
         );
-        res.redirect("login");
+        res.redirect("/login");
       }
     }
   });

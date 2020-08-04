@@ -250,7 +250,7 @@ form .filter_btn {
     }
 
     #myNav {
-        height: 9.5%;
+        height: 3.0%;
     }
 
     .footer {
@@ -336,24 +336,24 @@ form .filter_btn {
     }
 
     .carousel-control-next{
-        margin-right: 40px;
-        margin-top: 530px;
+        margin-right: 55px;
+        /* margin-top: 530px; */
     }
     
     .carousel-control-prev{
-        margin-left: 150px;
-        margin-top: 530px;
+        margin-left: -70px;
+        /* margin-top: 530px; */
     }
 
 
     #check:checked ~ .content .carousel-control-next {
-        margin-right: -50px;
-        margin-top: 530px;
+        margin-right: 55px;
+        margin-top: 0px;
     }
     
     #check:checked ~ .content .carousel-control-prev {
-        margin-left: 245px;
-        margin-top: 530px;
+        margin-left: -70px;
+        margin-top: 0px;
     }
 }
 

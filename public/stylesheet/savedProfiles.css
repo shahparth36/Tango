@@ -271,18 +271,34 @@ footer h5 {
   font-size: 50px;
 }
 
+@media (max-width: 1367px){
+  #container1{
+    width: 95%;
+    margin-left: -25px;
+  }
+
+  .jumbotron{
+    margin-left:-35px;
+    width: 98%;
+  }
+}
+
+
 /* card styling end  */
 
 @media (max-width: 1040px) {
 
   #myNav {
-    padding-top: none;
+    /* padding-top: none; */
+    /* background-color: red; */
+    height: 2%;
   }
 
   #myBrand {
     margin-left: 40px;
-    margin-bottom: 5px;
-    padding-bottom: 2rem;
+    /* margin-bottom: 5px; */
+    /* padding-bottom: 2rem; */
+  
   }
 
   #myInput {
@@ -301,21 +317,27 @@ footer h5 {
   label #sidebar_btn {
     left: 14px;
   } 
+
+  #team .card{
+    width: 350px;
+  }
+
+  #team #container1{
+    margin-left: -90px;
+    /* background-color: red; */
+    /* width:10px; */
+  }
+
+  .jumbotron{
+    width:285px;
+    margin-left: -120px;
+  }
 }
 
 .first .container{
   margin-top: 70px;
 }
 
-@media (max-width: 1367px){
-  #container1{
-    width: 95%;
-    margin-left: -25px;
-  }
 
-  .jumbotron{
-    margin-left:-35px;
-    width: 98%;
-  }
-}
+
 

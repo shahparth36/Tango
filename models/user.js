@@ -10,7 +10,7 @@ var UserSchema =new mongoose.Schema({
     email: { type: String, unique: true, required: true },
     resetPasswordToken: String,
     resetPasswordExpires: Date,
-    phNumber: {type: String, unique: true, required: true },
+    phNumber: {type: String, required: true },
     image: String,
     imageId: String,
     dob: String,

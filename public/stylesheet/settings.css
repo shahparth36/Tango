@@ -107,12 +107,8 @@ label #sidebar_btn:hover {
     color: #19B3D3;
 }
 
-
-.content {
-    max-width: 100%;
-    margin-left: 80px;
-    height: 100%;
-    transition: 0.5s;
+body {
+    width: 100%;
 }
 
 .content .container {
@@ -233,6 +229,38 @@ form .filter_btn {
 /* Styling for mobile size */
 
   @media (max-width: 1040px) {
+
+    .sidebar {
+        display: none;
+        width: 0px;
+    }
+
+    .content {
+        margin-left: 10px;
+        padding-right: 500px;
+    }
+
+    #check:checked ~ .sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    #check:checked ~ .content {
+        display: none;
+    }
+
+    #check:checked ~ .footer {
+        display: none;
+    }
+
+    #check:checked ~ .sidebar center {
+        display: block;
+        margin-left: 80px;
+    }
+
+    #check:checked ~ .sidebar a {
+        padding-left: 170px;
+    }
 
     body {
         margin: 0px;
