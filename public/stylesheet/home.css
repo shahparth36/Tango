@@ -226,12 +226,12 @@ form .filter_btn {
 /* carousel styling */
 
 .carousel-control-next{
-    margin-right: 90px;
+    margin-right: -50px;
     margin-top: 455px;
 }
 
 .carousel-control-prev{
-    margin-left: 170px;
+    margin-left: -30px;
     margin-top: 455px;
 }
 
