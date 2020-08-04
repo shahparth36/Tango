@@ -128,7 +128,7 @@
                       <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
                         <%= user[i].user.city %></p>
                       <div>
-                        <span class="badge badge-pill badge-success spill">47% Match</span>
+                        <span class="badge badge-pill badge-success spill"><%= user[i].percentage %>% Match</span>
                       </div>
                       <hr class="myHr">
                       <% if (user[i].user.bio.length <= 150 ) { %>
@@ -155,7 +155,7 @@
                     <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
                       <%= user[i].user.city %></p>
                     <div>
-                      <span class="badge badge-pill badge-success spill">47% Match</span>
+                      <span class="badge badge-pill badge-success spill"><%= user[i].percentage %>% match</span>
                     </div>
                     <hr class="myHr">
                     <% if (user[i].user.bio.length <= 150 ) { %>

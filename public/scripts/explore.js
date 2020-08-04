@@ -7,6 +7,7 @@ var iTag2 = document.getElementById("iTag2");
 var iTag3 = document.getElementById("iTag3");
 var iTag4 = document.getElementById("iTag4");
 
+
 myclass1.addEventListener("click", function() {
     if(iTag1.classList) {
     iTag1.classList.toggle("fa-chevron-up")
