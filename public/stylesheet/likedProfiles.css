@@ -282,6 +282,23 @@ footer h5 {
   font-size: 50px;
 }
 
+@media (max-width: 1367px){
+  .container1{
+    /* width: 1000px; */
+    width: 92%;
+    margin-left: 20px;
+  }
+
+  .jumbotron{
+    margin-left:-40px;
+    width: 98%;
+  }
+
+  #team .cards{
+    height: 350px;
+  }
+}
+
 /* card styling end  */
 
 @media (max-width: 1340px) {
@@ -343,7 +360,7 @@ footer h5 {
   }
   .jumbotron{
     width:300px;
-    margin-left: 500px;
+    margin-left: -170px;
   } 
 }
 
@@ -351,20 +368,5 @@ footer h5 {
   color: black;
 }
 
-@media (max-width: 1367px){
-  .container1{
-    /* width: 1000px; */
-    width: 92%;
-    margin-left: 20px;
-  }
 
-  .jumbotron{
-    margin-left:-40px;
-    width: 98%;
-  }
-
-  #team .cards{
-    height: 350px;
-  }
-}
 
