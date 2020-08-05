@@ -301,72 +301,107 @@ footer h5 {
 
 /* card styling end  */
 
-@media (max-width: 1340px) {
+@media(max-width:1040px){
+	.content {
+	width: 300px;
+	}
 
-  .sidebar {
-    display: none;
-    width: 0px;
-}
+	.sidebar {
+		display: none;
+		width: 0px;
+	}
 
+	#check:checked ~ .sidebar {
+		display: block;
+		width: 100%;
+	}
 
-#check:checked ~ .sidebar {
-    display: block;
-    width: 100%;
-}
+	#check:checked ~ .content {
+		display: none;
+	}
 
-#check:checked ~ .content {
-    display: none;
-}
+	#check:checked ~ .footer {
+		display: none;
+	}
 
-#check:checked ~ .footer {
-    display: none;
-}
+	#check:checked ~ .sidebar center {
+		display: block;
+		margin-left: 80px;
+	}
 
-#check:checked ~ .sidebar center {
-    display: block;
-    margin-left: 80px;
-}
-
-#check:checked ~ .sidebar a {
-    padding-left: 170px;
-}
+	#check:checked ~ .sidebar a {
+		padding-left: 170px;
+	}
 
   #myNav {
-    padding-top: none;
+  	padding-top: none;
+  	height: 70px;
   }
 
-
   #myBrand {
-    margin-left: 40px;
-    margin-bottom: 5px;
-    padding-bottom: 2rem;
+  	margin-left: 0px;
+  	margin-bottom: 5px;
+  	padding-bottom: 2rem;
   }
 
   #myInput {
-    width: 78%;
-    margin-bottom: 10px;
+  	width: 78%;
+  	margin-bottom: 10px;
   }
 
   #myForm {
-    display: none;
+  	display: none;
   }
 
   #bottom {
-    display: block;
+  display: block;
   }
 
   label #sidebar_btn {
-    left: 14px;
-  }
-  .jumbotron{
-    width:300px;
-    margin-left: -120px;
+  	left: 14px;
   } 
- 
-}
 
-.nav-item .nav-link{
-  color: black;
+  #team .card{
+  	width: 300px;
+  }
+
+  #team .container1{
+	margin-left: -190px;
+	width:300px;
+	margin-right: 0px;
+  }
+
+  .jumbotron{
+	width:300px;
+	margin-left: -180px;
+	margin-right: 0px;
+  }
+
+  .title{
+	margin-left: 0px;
+    width: 300px;
+  }
+
+  .like{
+    margin-left: 20px;
+  }
+
+  .footer{ 
+	margin-left: 0; 
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-top: 50px;
+	width: 500px;
+  }
+
+  .tab-content {
+    width: 100px;
+  }
+  
+  #myTab{
+	  margin-left: -175px;
+	  width: 300px;
+  }
 }
 
 
