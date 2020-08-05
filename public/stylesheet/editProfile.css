@@ -243,19 +243,38 @@ form .filter_btn {
   font-size: 1em;
 }
 
+.rounded-lg {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.mayclass {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/* Styling for shourya's laptop size */
+@media(max-width:1367px){
+  .card{
+      width: 1050px;
+      margin-left: -15px;
+  }
+
+  .hrLogo{
+    margin-left: 55px;
+  }
+
+  .hrRight{
+    width: 430px;
+  }
+}
+
 /* Styling for mobile size */
 
-  @media (max-width: 1040px) {
-
-    #myNav {
-      padding-top: 0px;
-    }
-
-
+  /* @media (max-width: 1040px) {
     #myBrand {
-      margin-left: 40px;
-      margin-bottom: 5px;
-      padding-bottom: 2rem;
+      padding-top: 0.6525rem;
     }
 
     #myInput {
@@ -274,21 +293,203 @@ form .filter_btn {
     label #sidebar_btn {
       left: 14px;
     }
+
+    .sidebar {
+    display: none;
+    width: 0px;
   }
 
-  @media(max-width:1367px){
-    .card{
-        width: 1050px;
-        margin-left: -15px;
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #myNav {
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .content{
+    margin-left: 100px;
+    width:350px
+  }
+   .card{
+     width:300px;
+     margin-left: -75px;
+     
+   } 
+  } */
+
+
+
+
+  @media (max-width: 1040px) {
+
+    .footer {
+      margin-left: 0px;
     }
 
-    .hrLogo{
-      margin-left: 55px;
+    .content {
+      width:310px;
+      margin-left: 35px;
     }
 
-    .hrRight{
-      width: 430px;
+    .sabclass {
+      margin-left: 30px;
     }
-}
+
+    .cenclass {
+      text-align: center;
+    }
+  
+    .abcd {
+      margin-left: 100px;
+    }
+  
+    .dclass {
+      padding-right: 25px;
+    }
+  
+    .sidebar {
+      display: none;
+      width: 0px;
+    }
+  
+    #check:checked ~ .sidebar {
+      display: block;
+      width: 100%;
+    }
+  
+    #check:checked ~ .content {
+      display: none;
+    }
+  
+    #check:checked ~ .footer {
+      display: none;
+    }
+  
+    #check:checked ~ .sidebar center {
+      display: block;
+      margin-left: 80px;
+    }
+  
+    #check:checked ~ .sidebar a {
+      padding-left: 170px;
+    }
+  
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  
+    #myNav {
+      padding-top: 0px;
+      height: 70px;
+    }
+  
+    .navbar-brand {
+      padding-top: 0.6525rem;
+    }
+  
+    #myInput {
+      width: 78%;
+      margin-bottom: 10px;
+    }
+  
+    #myForm {
+      display: none;
+    }
+  
+    #bottom {
+      display: block;
+    }
+  
+    label #sidebar_btn {
+      left: 14px;
+    }
+  
+    .vl {
+      display: none;
+    }
+  
+    .hlr {
+      border-top: 1px solid black;
+      display: block;
+    }
+  
+    #idDiv {
+      display: none;
+    }
+  
+    .card {
+      width: 375px;
+      margin-left: 0px;
+    }
+  
+    .imgc {
+      height: 220px;
+      width: 220px;
+    }
+  
+    .hrRight {
+      margin-left: 10px;
+      width: 100px;
+    }
+
+    .hrLeft{
+      width: 100px;
+    }
+    
+  
+    .hrLogo {
+      margin-left: 0px;
+      margin-right: 15px;
+      padding-left: 5px;
+    }
+  
+    .rounded-lg {
+      width: 350px;
+      padding-right: 180px;
+    }
+  
+    .mclass {
+      margin-right: 14px;
+    }
+
+    .mayclass {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  
+    .gclass {
+      text-align: center;
+    }
+  
+  }
+  
+
+  
 
   

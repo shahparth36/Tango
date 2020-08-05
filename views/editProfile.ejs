@@ -74,7 +74,7 @@
             <% } %>
         </div>
         <div class="container">
-          <div class="card px-5 shadow-lg my-5 py-5">    
+          <div class="card px-5 shadow-lg my-5 py-5 mclass">    
             <h1 class="display-1 text-center home">Your Profile</h1>
                 <div class="row ">
                     <div class="col-5 mt-1">
@@ -295,7 +295,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2 col-sm-2 text-center">
+                            <div class="col-2 col-sm-2 text-center abcd">
                                 <div class="input-group flex-nowrap">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="addon-wrapping">To:</span>
@@ -427,9 +427,9 @@
                     </div>
                     <div>
                         <div class="row justify-content-center my-5">
-                            <h3 class="display-4 home">Link Your Social Media Accounts </h3>
+                            <h3 class="display-4 home cenclass">Link Your Social Media Accounts </h3>
                         </div>
-                        <div class="row mx-5 my-3 d-flex justify-content-center my-4">
+                        <div class="row mayclass my-3 d-flex justify-content-center my-4">
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="addon-wrapping"><i class="fab fa-instagram" aria-hidden="true"></i></span>
@@ -437,7 +437,7 @@
                                 <input type="text" class="form-control"  value="<%= user.insta_url %>" placeholder="Instagram Account Link (Optional)" name="user[insta_url]"  aria-label="Insta_url" aria-describedby="addon-wrapping">
                             </div>
                         </div>
-                        <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                        <div class="row mayclass my-2 d-flex justify-content-center my-4">
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="addon-wrapping"><i class="fab fa-facebook" aria-hidden="true"></i></span>
@@ -445,7 +445,7 @@
                                 <input  type="text" class="form-control" value="<%= user.facebook_url %>" placeholder="Facebook Account Link (Optional)" name="user[facebook_url]"  aria-label="Facebook_url" aria-describedby="addon-wrapping" >
                             </div>
                         </div>
-                        <div class="row mx-5 my-2 d-flex justify-content-center my-4">
+                        <div class="row mayclass my-2 d-flex justify-content-center my-4">
                             <div class="input-group flex-nowrap">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="addon-wrapping"><i class="fab fa-twitter" aria-hidden="true" ></i></span>
@@ -477,7 +477,7 @@
                     
                     <div class="row d-flex justify-content-center ml-5">
                         <% user.images.forEach(function (image) { %>
-                        <div class="col-6 mb-5">
+                        <div class="col-12 col-md-6 mb-5">
                             <div class="rounded ">
                                 <img class="rounded-lg pictures" src="<%= image.url %>">
                             </div>
