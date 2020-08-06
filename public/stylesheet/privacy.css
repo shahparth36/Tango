@@ -199,6 +199,10 @@ form .filter_btn {
     width: 330px;
   }
 
+  .container{
+    width:360px;
+  }
+
   .sidebar {
     display: none;
     width: 0px;
