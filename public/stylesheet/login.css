@@ -143,6 +143,12 @@ input:focus {
 @media (max-width: 1040px) {
   nav {
     position: fixed;
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.6525rem;
   }
 
   .navbar.mynav{

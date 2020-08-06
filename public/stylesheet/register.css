@@ -221,14 +221,14 @@ input::before {
 
 @media (max-width: 1040px) { 
 .main{
-    width:390px;
+    width:420px;
     margin-top: 50px;
 }
+
 nav {
     position: fixed;
-  }
-
-  #brand{
-    width: 390px;
+    padding-top: 0px;
+    height: 70px;
+    width: 420px;
   }
 }

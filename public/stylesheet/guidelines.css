@@ -217,7 +217,7 @@ font-family: 'Playball', cursive;
   }
 
   .container{
-    max-width: 360px;
+    width: 360px;
   }
 
   .sidebar {

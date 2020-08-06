@@ -28,3 +28,27 @@ body{
 .navbar-nav{
     font-size: 1.1em;
 }
+
+@media (max-width: 1040px) {
+  nav {
+    position: fixed;
+    padding-top: 0px;
+    height: 70px;
+  }
+
+  .navbar-brand {
+    padding-top: 0.6525rem;
+  }
+
+  .navbar.mynav{
+    width: 110%;
+  }
+  .mycon {
+
+    margin-top: 150px;
+    margin-left: -14px;
+  }
+  .navbar-toggler{
+    margin-right: 40px;
+  }
+}
