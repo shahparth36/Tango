@@ -180,6 +180,15 @@ form .filter_btn {
     color: #19B3D3;
 }
 
+.class12345 {
+  padding: 0px 17px;
+}
+
+.weight {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 
 @media(max-width:1367px){
   .container{
@@ -264,14 +273,4 @@ form .filter_btn {
   label #sidebar_btn {
         left: 14px;
   }
-
-
-}
-.class12345 {
-    padding: 0px 17px;
-}
-
-.weight {
-    font-weight: 400;
-    line-height: 1.2;
 }
