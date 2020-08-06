@@ -228,7 +228,6 @@ input::before {
 nav {
     position: fixed;
     padding-top: 0px;
-    height: 70px;
     width: 420px;
   }
 }

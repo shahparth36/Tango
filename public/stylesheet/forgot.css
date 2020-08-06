@@ -24,7 +24,6 @@ text-align: center;
   nav {
     position: fixed;
     padding-top: 0px;
-    height: 70px;
   }
 
   .navbar-brand {
@@ -38,8 +37,5 @@ text-align: center;
 
     margin-top: 150px;
     margin-left: -14px;
-  }
-  .navbar-toggler{
-    margin-right: 40px;
   }
 }
