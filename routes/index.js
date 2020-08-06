@@ -229,15 +229,7 @@ router.post("/otp", function (req, res) {
 });
 
 router.post("/profile", upload.array("images"), async function (req, res) {
-  // if(enteredOTP == otp){
-  // 	req.flash("success", "Successfully registered, please login to continue" )
-  // 	console.log("inside");
-  // 	res.redirect("/login");
 
-  //   	}else{
-  // 	  	req.flash("error", "You entered the wrong OTP");
-  // 	  	res.redirect("back");
-  //   	}
   req.body.user.images = [];
   for (const file of req.files) {
     var image = await cloudinary.v2.uploader.upload(file.path);

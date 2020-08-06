@@ -218,9 +218,17 @@ input::before {
     font-size: 1.1em;
 }
 
-@media only screen and (max-width: 576px) { 
+
+@media (max-width: 1040px) { 
 .main{
-    width:400px;
+    width:390px;
     margin-top: 50px;
 }
+nav {
+    position: fixed;
+  }
+
+  #brand{
+    width: 390px;
+  }
 }

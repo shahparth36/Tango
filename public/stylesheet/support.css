@@ -107,10 +107,11 @@ label #sidebar_btn:hover {
 }
 
 
-.content {  
+.content {
+  padding-top: 150px;  
   width: 1200px;
   margin-left: 200px;
-  height: 100vh;
+  height: 100%;
   transition: 0.5s;
 }
 
@@ -172,11 +173,23 @@ form .filter_btn {
     
     height: auto; 
     padding: 50px 0px; 
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .footer a:hover {
     color: #19B3D3;
+}
+
+@media(max-width:1367px){
+
+  .content{
+    width: 1100px;
+  }
+
+  .container{
+    margin-left: -50px;
+    width:1050px;
+  }
 }
 
 
@@ -184,13 +197,54 @@ form .filter_btn {
 
 @media (max-width: 1040px) {
 
+  .content {
+    margin-left: 80px;
+    width: 350px;
+  }
+
+  .container {
+    width: 320px;
+  }
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
   #myNav {
-        padding-top: 0px;
-        height: 70px;
+    padding-top: 0px;
+    height: 70px;
   }
 
   .navbar-brand {
-        padding-top: .6525rem;
+    padding-top: 0.6525rem;
   }
 
   #myInput {
@@ -208,6 +262,11 @@ form .filter_btn {
 
   label #sidebar_btn {
         left: 14px;
+  }
+
+  .footer {
+    margin-left: -50px;
+    width: 500px;
   }
 
 }

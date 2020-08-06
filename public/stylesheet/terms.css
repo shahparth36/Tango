@@ -181,20 +181,73 @@ form .filter_btn {
 }
 
 
+@media(max-width:1367px){
+  .container{
+    width:1000px;
+    margin-left: 75px;
+  }
+}
+
 
 /* Styling for mobile size */
 
 @media (max-width: 1040px) {
 
+  .content {
+    width: 300px;
+  }
+
+  .container {
+    margin-left: -175px;
+    width: 320px;
+  }
+
+  .sidebar {
+    display: none;
+    width: 0px;
+  }
+
+  #check:checked ~ .sidebar {
+    display: block;
+    width: 100%;
+  }
+
+  #check:checked ~ .content {
+    display: none;
+  }
+
+  #check:checked ~ .footer {
+    display: none;
+  }
+
+  #check:checked ~ .sidebar center {
+    display: block;
+    margin-left: 80px;
+  }
+
+  #check:checked ~ .sidebar a {
+    padding-left: 170px;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
   #myNav {
-        padding-top: 0px;
-        height: 70px;
+    padding-top: 0px;
+    height: 70px;
   }
 
   .navbar-brand {
-        padding-top: .6525rem;
+    padding-top: 0.6525rem;
   }
 
+  .footer {
+    margin-left: -50px;
+    width: 500px;
+  }
+  
   #myInput {
         width: 78%;
         margin-bottom: 10px;
@@ -211,6 +264,7 @@ form .filter_btn {
   label #sidebar_btn {
         left: 14px;
   }
+
 
 }
 .class12345 {
