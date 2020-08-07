@@ -121,14 +121,6 @@ label #sidebar_btn:hover {
 #check {
     display: none;
 }
-
-#myBrand {
-    font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    color: white;
-    transition: 0.3s;
-    transition-property: color;
-}
   
 #myBrand:hover {
     color: #19B3D3;
@@ -138,13 +130,20 @@ label #sidebar_btn:hover {
     font-family: 'Pacifico', cursive;
 }
 
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+}
   
 #myNav {
-    padding-top: 15px;
-    height: 9.5%;
-    background-color: black;
-    color: white;
-    padding-bottom: 20px; 
+  padding-top: 18px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
 }
 
 #bottom {
@@ -296,10 +295,6 @@ form .filter_btn {
         text-align: center;
         justify-content: center;
     }
-
-    #myNav {
-        height: 70px;
-    }
     
     .footer {
         margin-left: -50px;
@@ -345,14 +340,18 @@ form .filter_btn {
         padding-left: 170px;
     }
 
+    #myNav {
+      padding-top: 0px;
+      height: 70px;
+    }
+  
     .navbar-brand {
-      	padding-top: 0rem;
+      padding-top: 0.8525rem;
     }
 
     .imgclass {
         margin-left: 30px;
     }
-
 
     #myInput {
       	width: 78%;
@@ -373,12 +372,12 @@ form .filter_btn {
 
     .carousel-control-next{
         margin-top: 80px;
-        margin-right: 55px;
+        margin-right: 10px;
     }
 
     .carousel-control-prev{
         margin-top: 80px;
-        margin-left: -10px;
+        margin-left: 10px;
     }
 
     .cimg {

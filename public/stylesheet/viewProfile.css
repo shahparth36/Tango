@@ -218,14 +218,6 @@ label #sidebar_btn:hover {
 #check {
     display: none;
 }
-
-#myBrand {
-    font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    color: white;
-    transition: 0.3s;
-    transition-property: color;
-}
   
 #myBrand:hover {
     color: #19B3D3;
@@ -235,14 +227,21 @@ label #sidebar_btn:hover {
     font-family: 'Pacifico', cursive;
 }
 
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+}
   
 #myNav {
-    padding-top: 15px;
-    height: 9.5%;
-    background-color: black;
-    color: white;
-    padding-bottom: 20px; 
-}
+  padding-top: 18px;
+  height: 70px;
+  background-color: black;
+  color: white;
+  padding-bottom: 20px;
+}  
 
 #bottom {
     display: block;
@@ -334,6 +333,10 @@ form .filter_btn {
   
   @media (max-width: 1040px) {
 
+  .navimg {
+      margin-left: 30px;
+  }
+
   #myRow1 .myclass {
     padding-left: 0px;
   }
@@ -397,13 +400,12 @@ form .filter_btn {
   }
     
     #myNav {
+      padding-top: 0px;
       height: 70px;
     }
-    
-    
-    #myBrand {
-      margin-bottom: 5px;
-      padding-bottom: 2rem;
+  
+    .navbar-brand {
+      padding-top: 0.8525rem;
     }
     
     #myInput {

@@ -140,8 +140,7 @@ body {
 }
 
 #myNav {
-  padding-top: 15px;
-  height: 9.5%;
+  height: 70px;
   background-color: black;
   color: white;
   padding-bottom: 20px;
@@ -311,7 +310,11 @@ hr {
   }
 
   .navbar-brand {
-    padding-top: 0.6525rem;
+    padding-top: 0.8525rem;
+  }
+
+  .navimg {
+      margin-left: 30px;
   }
 
   #myInput {

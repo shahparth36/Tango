@@ -114,19 +114,8 @@
 
   }
 
-
-
   #check {
     display: none;
-  }
-
-  #myBrand {
-    font-family: 'Pacifico', cursive;
-    font-size: 30px;
-    color: white;
-    transition: 0.3s;
-    transition-property: color;
-    
   }
   
   #myBrand:hover {
@@ -137,14 +126,21 @@
     font-family: 'Pacifico', cursive;
   }
 
+  #myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
+  }
   
-#myNav {
-    padding-top: 15px;
-    height: 9.5%;
+  #myNav {
+    padding-top: 18px;
+    height: 70px;
     background-color: black;
     color: white;
-    padding-bottom: 20px; 
-}
+    padding-bottom: 20px;
+  }
 
 #bottom {
     display: block;
@@ -408,9 +404,13 @@ form .filter_btn {
       padding-top: 0px;
       height: 70px;
     }
-  
+
     .navbar-brand {
-      padding-top: 0.6525rem;
+      padding-top: 0.8525rem;
+    }
+
+    .navimg {
+        margin-left: 30px;
     }
   
     #myInput {
