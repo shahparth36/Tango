@@ -1,17 +1,17 @@
 require("dotenv/config");
 
-var express      = require("express");
-var router       = express.Router();
-var passport     = require("passport");
-var User         = require("../models/user"),
-  	async        = require("async"),
-  	nodemailer   = require("nodemailer"),
-  	crypto 	     = require("crypto"),
-  	multer 	     = require("multer"),
-    cities 	     = require("all-countries-and-cities-json"),
-    indianCities = cities["India"],
-    fast2sms     = require("fast-two-sms");
-var middleware   = require("../middleware");
+var express = require("express");
+var router = express.Router();
+var passport = require("passport");
+var User = require("../models/user"),
+  async = require("async"),
+  nodemailer = require("nodemailer"),
+  crypto = require("crypto"),
+  multer = require("multer"),
+  cities = require("all-countries-and-cities-json"),
+  indianCities = cities["India"],
+  fast2sms = require("fast-two-sms");
+var middleware = require("../middleware");
 
 
 //CLOUDINARY REQUIREMENTS
@@ -46,85 +46,112 @@ router.get("/register", function (req, res) {
 });
 
 router.post("/register", upload.single("image"), function (req, res) {
-  if (req.body.password !== req.body.retypedpassword) {
-    req.flash("error", "passwords do not match");
-    return res.redirect("back");
-  } else {
-    // console.log("before cloudinary");
-    cloudinary.v2.uploader.upload(req.file.path, function (err, result) {
-      // console.log("inside cloudinary");
-      if (err) {
-        console.log(err);
+
+  User.find({}, (err, allUsers) => {
+    if (err) {
+      req.flash("error", err);
+      return res.redirect('back');
+    }
+    for (var i = 0; i < allUsers.length; i++) {
+      console.log(req.body.user.phNumber);
+      console.log(allUsers[i].phNumber);
+      if (allUsers[i].phNumber === req.body.user.phNumber) {
+        req.flash("error", "Phone Number already exists.Please sign up with different Phone Number.");
         return res.redirect("/register");
-      } else {
-        var dateString = req.body.user.dob;
-        var today = new Date();
-        var birthDate = new Date(dateString);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        var da = today.getDate() - birthDate.getDate();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-        }
-        if (m < 0) {
-          m += 12;
-        }
-        if (da < 0) {
-          da += 30;
-        }
-        if (age < 15 || age > 76) {
-          req.flash(
-            "error",
-            "Age " + age + " is restricted. You must be 16 years or older."
-          );
-          res.redirect("/register");
-        } else {
-          var otp = Math.floor(10000 + Math.random() * 90000);
-        var unirest = require("unirest");
-
-        var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
-
-        req1.headers({
-            "content-type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache",
-            "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
-        });
-        req1.form({
-            "sender_id": "FSTSMS",
-            "language": "english",
-            "route": "qt",
-            "numbers": req.body.user.phNumber,
-            "message": "32925",
-            "variables": "{#AA#}",
-            "variables_values": otp
-        });
-
-        req1.end(function (res) {
-            if (res.error) throw new Error(res.error);
-            console.log(res.body);
-        });
-        
-        console.log("message sent succesfully with otp " + otp);
-        res.render("otp", {
-            username: req.body.user.username,
-            email: req.body.user.email,
-            firstName: req.body.user.firstName,
-            lastName: req.body.user.lastName,
-            phNumber: req.body.user.phNumber,
-            image: result.secure_url,
-            imageId: result.public_id,
-            password: req.body.password,
-            retypedpassword: req.body.retypedpassword,
-            dob: req.body.user.dob,
-            indianCities: indianCities,
-            age: age,
-            otp: otp,
-            result: result,
-        });
-        }
       }
-    });
-  }
+
+      if (allUsers[i].email === req.body.user.email) {
+        req.flash("error", "Email Address already exists.Please sign up with different Email Address.");
+        return res.redirect("/register");
+      }
+
+      if (allUsers[i].username === req.body.user.username) {
+        console.log('inside last if');
+        req.flash("error", "Username already exists.Please sign up with different Username.");
+        return res.redirect("/register");
+      }
+    }
+    if (req.body.password !== req.body.retypedpassword) {
+      req.flash("error", "passwords do not match");
+      return res.redirect("back");
+    } else {
+      // console.log("before cloudinary");
+      cloudinary.v2.uploader.upload(req.file.path, function (err, result) {
+        // console.log("inside cloudinary");
+        if (err) {
+          console.log(err);
+          return res.redirect("/register");
+        } else {
+          var dateString = req.body.user.dob;
+          var today = new Date();
+          var birthDate = new Date(dateString);
+          var age = today.getFullYear() - birthDate.getFullYear();
+          var m = today.getMonth() - birthDate.getMonth();
+          var da = today.getDate() - birthDate.getDate();
+          if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+          }
+          if (m < 0) {
+            m += 12;
+          }
+          if (da < 0) {
+            da += 30;
+          }
+          if (age < 15 || age > 76) {
+            req.flash(
+              "error",
+              "Age " + age + " is restricted. You must be 16 years or older."
+            );
+            res.redirect("/register");
+          } else {
+            var otp = Math.floor(10000 + Math.random() * 90000);
+            var unirest = require("unirest");
+
+            var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
+
+            req1.headers({
+              "content-type": "application/x-www-form-urlencoded",
+              "cache-control": "no-cache",
+              "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+            });
+            req1.form({
+              "sender_id": "FSTSMS",
+              "language": "english",
+              "route": "qt",
+              "numbers": req.body.user.phNumber,
+              "message": "32925",
+              "variables": "{#AA#}",
+              "variables_values": otp
+            });
+
+            req1.end(function (res) {
+              if (res.error) throw new Error(res.error);
+              console.log(res.body);
+            });
+
+            console.log("message sent succesfully with otp " + otp);
+            res.render("otp", {
+              username: req.body.user.username,
+              email: req.body.user.email,
+              firstName: req.body.user.firstName,
+              lastName: req.body.user.lastName,
+              phNumber: req.body.user.phNumber,
+              image: result.secure_url,
+              imageId: result.public_id,
+              password: req.body.password,
+              retypedpassword: req.body.retypedpassword,
+              dob: req.body.user.dob,
+              indianCities: indianCities,
+              age: age,
+              otp: otp,
+              result: result,
+            });
+          }
+        }
+      });
+    }
+  })
+
 });
 
 router.post("/resendotp", function (req, res) {
@@ -154,30 +181,30 @@ router.post("/resendotp", function (req, res) {
       );
       res.redirect("/register");
     } else {
-      	var otp = Math.floor(10000 + Math.random() * 90000);
-      	var unirest = require("unirest");
+      var otp = Math.floor(10000 + Math.random() * 90000);
+      var unirest = require("unirest");
 
-      	var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
+      var req1 = unirest("POST", "https://www.fast2sms.com/dev/bulk");
 
-      	req1.headers({
-        	"content-type": "application/x-www-form-urlencoded",
-        	"cache-control": "no-cache",
-        	"authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
-      	});
-      	req1.form({
-      	  	"sender_id": "FSTSMS",
-      	  	"language": "english",
-      	  	"route": "qt",
-      	  	"numbers": req.body.user.phNumber,
-      	  	"message": "32925",
-      	  	"variables": "{#AA#}",
-      	  	"variables_values": otp
-      	});
+      req1.headers({
+        "content-type": "application/x-www-form-urlencoded",
+        "cache-control": "no-cache",
+        "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+      });
+      req1.form({
+        "sender_id": "FSTSMS",
+        "language": "english",
+        "route": "qt",
+        "numbers": req.body.user.phNumber,
+        "message": "32925",
+        "variables": "{#AA#}",
+        "variables_values": otp
+      });
 
-      	req1.end(function (res) {
-      	  	if (res.error) throw new Error(res.error);
-      	  	console.log(res.body);
-      	});
+      req1.end(function (res) {
+        if (res.error) throw new Error(res.error);
+        console.log(res.body);
+      });
 
       console.log("message sent succesfully with otp " + otp);
       res.render("otp", {
@@ -365,8 +392,8 @@ router.post("/forgot", function (req, res, next) {
           req.flash(
             "success",
             "An e-mail has been sent to " +
-              user.email +
-              " with further instructions."
+            user.email +
+            " with further instructions."
           );
           done(err, "done");
         });

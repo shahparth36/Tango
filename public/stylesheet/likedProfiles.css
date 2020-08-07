@@ -280,6 +280,15 @@ footer h5 {
 }
 
 @media (max-width: 1367px) {
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
   .container1 {
     /* width: 1000px; */
     width: 92%;
@@ -300,6 +309,7 @@ footer h5 {
 
 @media (max-width: 1040px) {
   .content {
+    margin-left: 0px;
     width: 300px;
   }
 
@@ -366,7 +376,7 @@ footer h5 {
 
   #team .container1 {
     margin-left: -120px;
-    width: 300px;
+    width: 320px;
     margin-right: 0px;
   }
 

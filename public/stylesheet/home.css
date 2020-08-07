@@ -242,7 +242,111 @@ form .filter_btn {
     margin-left: -30px;
 }
 
+/* share button styling */
+
+
+.social{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.social a{
+    padding-bottom: 0.714em !important;
+    padding-top: 0.714em !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top:-12px;
+    font-size: 30px;
+    padding: 15px;
+    transition: 700ms;
+    color: #252525;
+    text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    text-decoration: none;
+
+}
+.social a:nth-child(4){
+    transition-delay: 85ms;
+}
+.social a:nth-child(3){
+    transition-delay: 170ms;
+}
+.social a:nth-child(2){
+    transition-delay: 255ms;
+}
+.social a:nth-child(1){
+    transition-delay: 340ms;
+}
+.main{
+    width:200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: wrap;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    background:white;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+    color: #252525;
+}  
+
+.main .btn{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width:200px;
+    height: 50px;
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    background: #252525;
+    border-radius: 30px;
+    color: white;
+    transition: 950ms cubic-bezier(0.89, 0.03, 0.06, 1.5);
+}
+
+.main .btn a{
+	transform: scale(1);
+    display: flex;
+    margin-top: -12px;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	opacity: 1;
+	padding: 0;
+	/* margin: auto; */
+	color: white;
+	font-size: 20px;
+
+}
+.main:hover .social a{
+	transform: scale(1);
+	transition-timing-function: cubic-bezier(1, -0.03, 0, 1.85);
+	opacity: 1;
+}
+.main:hover .btn{
+	transform: translateX(-500px);
+}
+
 @media(max-width:1367px){
+
+    .sidebar {
+        padding-top: 50px;
+    }
+
+    #check:checked ~ .sidebar {
+        padding-top: 100px;
+    }
 
     .jumbotron{
         width:92%;
@@ -255,12 +359,12 @@ form .filter_btn {
     }
 
     .carousel-control-next{
-        margin-right: 55px;
+        margin-right: -50px;
         /* margin-top: 530px; */
     }
     
     .carousel-control-prev{
-        margin-left: -70px;
+        margin-left: -50px;
         /* margin-top: 530px; */
     }
 
@@ -273,6 +377,10 @@ form .filter_btn {
     #check:checked ~ .content .carousel-control-prev {
         margin-left: -70px;
         margin-top: 0px;
+    }
+
+    .main{
+        left:42%;
     }
 }
 
@@ -405,96 +513,6 @@ form .filter_btn {
     font-size: 400;
 }*/
 
-.social{
-    display:flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.social a{
-    padding-bottom: 0.714em !important;
-    padding-top: 0.714em !important;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 400;
-    padding: 15px;
-    transition: 700ms;
-    color: #252525;
-    text-align: center;
-    transform: scale(0);
-    opacity: 0;
-    text-decoration: none;
-
-}
-.social a:nth-child(4){
-    transition-delay: 85ms;
-}
-.social a:nth-child(3){
-    transition-delay: 170ms;
-}
-.social a:nth-child(2){
-    transition-delay: 255ms;
-}
-.social a:nth-child(1){
-    transition-delay: 340ms;
-}
-.main{
-    width:300px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    flex-direction: wrap;
-    flex-wrap: wrap;
-    position: absolute;
-    left: 50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    background:white;
-    border-radius: 59px;
-    text-align: center;
-    font-weight: bold;
-    overflow: hidden;
-    color: #252525;
-}  
-
-.main .btn{
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width:300px;
-    height: 80px;
-    position: absolute;
-    top: 0em;
-    left: 0em;
-    background: #252525;
-    border-radius: 59px;
-    color: white;
-    transition: 950ms cubic-bezier(0.89, 0.03, 0.06, 1.5);
-}
-
-.main .btn a{
-	transform: scale(1);
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-	flex-wrap: wrap;
-	opacity: 1;
-	padding: 0;
-	margin: auto;
-	color: white;
-	font-size: 20px;
-
-}
-.main:hover .social a{
-	transform: scale(1);
-	transition-timing-function: cubic-bezier(1, -0.03, 0, 1.85);
-	opacity: 1;
-}
-.main:hover .btn{
-	transform: translateX(-500px);
-}
 /* .main .btn i{
     text-align: center;
     margin-top: 10px;

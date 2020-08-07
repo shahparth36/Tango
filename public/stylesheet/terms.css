@@ -191,6 +191,15 @@ form .filter_btn {
 
 
 @media(max-width:1367px){
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
   .container{
     width:1000px;
     margin-left: 75px;

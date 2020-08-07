@@ -1,7 +1,7 @@
 
 .sidebar {
   background: black;
-  padding-top: 100px;
+  padding-top: 50px;
   position: fixed;
   left: 0;
   width: 60px;
@@ -371,6 +371,14 @@ a:focus {
         margin-left: 200px;
       width: 1200px;
     } */
+
+    .sidebar {
+      padding-top: 20px;
+    }
+  
+    #check:checked ~ .sidebar {
+      padding-top: 50px;
+    }
   
     .container{
       margin-left: -50px;

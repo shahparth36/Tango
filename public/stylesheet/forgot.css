@@ -1,3 +1,11 @@
+.navbar-brand{
+  font-size: 2em;
+  color:white;
+  font-family: 'Pacifico', cursive;
+  transition: 0.5s;
+  transition-property: color;
+}
+
 #or {
 width: 100%;
 height: 12px;
@@ -11,6 +19,14 @@ text-align: center;
 
 #myDiv {
     margin-top: 30px;
+}
+
+#myBrand {
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+    transition-property: color;
 }
 
 #myCard {

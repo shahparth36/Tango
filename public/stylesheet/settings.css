@@ -189,8 +189,8 @@ form .filter_btn {
 }
 
 .imgc {
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   border-radius: 50%;
 }
 
@@ -251,6 +251,15 @@ hr {
 }
 
 @media (max-width: 1367px) {
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
   .card {
     width: 1050px;
     margin-left: 20px;
@@ -353,8 +362,8 @@ hr {
   }
 
   .imgc {
-    height: 220px;
-    width: 220px;
+    width: 330px;
+    height: 330px;
   }
 
   hr {

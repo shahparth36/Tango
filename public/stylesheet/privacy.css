@@ -1,7 +1,7 @@
 
 .sidebar {
     background: black;
-    padding-top: 100px;
+    padding-top: 50px;
     position: fixed;
     left: 0;
     width: 60px;
@@ -184,6 +184,14 @@ form .filter_btn {
 /* Navbar and sidebar styling end */
 
 @media(max-width:1367px){
+
+  .sidebar {
+    padding-top: 20px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 50px;
+  }
 
   .container{
     margin-left:-75px;

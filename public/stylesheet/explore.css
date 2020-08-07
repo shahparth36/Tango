@@ -438,6 +438,27 @@ input[type="range"]:nth-child(1)::-webkit-slider-thumb {
 
 /* styling for ipad size */
 @media (max-width: 1367px) {
+
+  .sidebar {
+    padding-top: 75px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 70px;
+  }
+
+  .form-inline{
+    height:75px;
+  }
+
+  #myInput{
+    height:35px;
+  }
+
+  #check:checked ~ .sidebar a{
+    line-height: 45px;
+  }
+
   .container1 {
     width: 1100px;
     margin-left: 175px;

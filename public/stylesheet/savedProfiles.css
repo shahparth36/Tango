@@ -272,6 +272,15 @@ footer h5 {
 
 
 @media (max-width: 1367px){
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
   #container1{
     width: 95%;
     margin-left: -25px;

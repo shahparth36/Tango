@@ -1,7 +1,7 @@
 
 .sidebar {
   background: black;
-  padding-top: 100px;
+  padding-top: 50px;
   position: fixed;
   left: 0;
   width: 60px;
@@ -194,6 +194,14 @@ font-family: 'Playball', cursive;
 }
 
 @media(max-width:1367px){
+
+  .sidebar {
+    padding-top: 20px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 50px;
+  }
 
   .content{
     width:1200px;

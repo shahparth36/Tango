@@ -68,10 +68,9 @@
 }
 
 .hello1 img {
-  width: 100%;
   border-radius: 50%!important;
-  max-width: 360px;
-  max-height: 300px;
+  width: 330px;
+  height: 330px;
 }
 
 .footer-content {
@@ -322,6 +321,15 @@ form .filter_btn {
 }
 
 @media(max-width:1367px){
+
+  .sidebar {
+    padding-top: 50px;
+  }
+
+  #check:checked ~ .sidebar {
+    padding-top: 100px;
+  }
+
   .container{
       /* width: 1100px; */
       width: 87%;
