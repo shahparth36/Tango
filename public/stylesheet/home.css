@@ -160,6 +160,11 @@ form .filter_btn {
     margin-bottom: 10%;
 }
 
+.cimg {
+    width:375px;
+    height:250px;
+}
+
 .home{
     font-family: 'Playball', cursive;
 }
@@ -184,6 +189,11 @@ form .filter_btn {
 
 .spill {
     font-size: 15px;
+}
+
+.vnclass {
+    padding-right: 50px;
+    margin-right: 50px;
 }
 
 .myHr {
@@ -233,11 +243,49 @@ form .filter_btn {
     margin-left: -30px;
 }
 
+@media(max-width:1367px){
+
+    .jumbotron{
+        width:92%;
+        margin-left:-25px;
+    }
+
+    .card{
+        width: 64rem;
+        margin-left: -25px;
+    }
+
+    .carousel-control-next{
+        margin-right: 55px;
+        /* margin-top: 530px; */
+    }
+    
+    .carousel-control-prev{
+        margin-left: -70px;
+        /* margin-top: 530px; */
+    }
+
+
+    #check:checked ~ .content .carousel-control-next {
+        margin-right: 55px;
+        margin-top: 0px;
+    }
+    
+    #check:checked ~ .content .carousel-control-prev {
+        margin-left: -70px;
+        margin-top: 0px;
+    }
+}
+
 
 /* Styling for mobile size */
 
 @media (max-width: 1040px) {
 
+    .jumbotron {
+        width: 330px;
+    }
+    
     body {
         margin: 0px;
         padding: 0px;
@@ -250,18 +298,20 @@ form .filter_btn {
     }
 
     #myNav {
-        height: 3.0%;
+        height: 70px;
+    }
+    
+    .footer {
+        margin-left: -50px;
+        width: 500px;
     }
 
-    .footer {
-        margin-left: 0px;
-        margin-top: 70px;
+    .container {
+        margin-left: 25px;
     }
 
     .card {
-        width: 23rem;
-        margin-left: 10px;
-    
+        width: 330px;
     }
 
     .sidebar {
@@ -321,41 +371,32 @@ form .filter_btn {
       	left: 14px;
     }
 
-  }
-
-  @media(max-width:1367px){
-
-    .jumbotron{
-        width:92%;
-        margin-left:-25px;
-    }
-
-    .card{
-        width: 64rem;
-        margin-left: -25px;
-    }
-
     .carousel-control-next{
+        margin-top: 80px;
         margin-right: 55px;
-        /* margin-top: 530px; */
     }
-    
+
     .carousel-control-prev{
-        margin-left: -70px;
-        /* margin-top: 530px; */
+        margin-top: 80px;
+        margin-left: -10px;
     }
 
+    .cimg {
+        width: 280px;
+        height: 250px;
+    }
 
-    #check:checked ~ .content .carousel-control-next {
-        margin-right: 55px;
-        margin-top: 0px;
+    .vnclass {
+        margin-top: 20px;
+        padding-right: 0px;
+        margin-left: 60px;
     }
-    
-    #check:checked ~ .content .carousel-control-prev {
-        margin-left: -70px;
-        margin-top: 0px;
+
+    .myHeight {
+        margin-bottom: 10px;
     }
-}
+
+  }
 
   /* a{
     padding-bottom: 0.714em !important;

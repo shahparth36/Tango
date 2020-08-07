@@ -98,8 +98,8 @@
       <!-- <div class="container"> -->
       <!-- <div class="row text-center"> -->
       <!-- <div class="col-12"> -->
-      <div id="carouselExampleFade" class="carousel slide carousel-fade mb-5" data-ride="carousel"
-        data-interval="10000">
+        <%= user.length %>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade mb-5" data-ride="carousel">
         <div class="card">
           <div class="col-12 col-lg-12 py-5 classs">
             <div class="carousel-inner">
@@ -115,15 +115,16 @@
               </div>
               <% } %>
               <% for(var i = 0; i < user.length; i++) { %>
+                <p>hi</p>
               <% if (i===0) { %>
               <div class="carousel-item active">
                 <div class="row">
-                  <div class="col-lg-5 col-12 text-start">
+                  <div class="col-md-5 col-12 text-start pmclass">
                     <div class="img d-flex justify-content-start">
-                      <img src="<%= user[i].user.image %> " alt="..." width="375px" height="250px" class="d-block">
+                      <img src="<%= user[i].user.image %> " alt="..." class="d-block cimg">
                     </div>
                   </div>
-                    <div class="col-lg-6 col-7 mr-5 pr-5 text-center">
+                    <div class="col-lg-6 col-7 vnclass text-center">
                       <h3 class="card-title wcolor"><%= user[i].user.fullName %></h3>
                       <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
                         <%= user[i].user.city %></p>
@@ -132,9 +133,9 @@
                       </div>
                       <hr class="myHr">
                       <% if (user[i].user.bio.length <= 150 ) { %>
-                      <p class="wcolor"><%= user[i].user.bio %> </p>
+                      <p class="wcolor myHeight"><%= user[i].user.bio %> </p>
                       <% } else { %>
-                      <p class="wcolor"><%= user[i].user.bio.substring(0,250) %>...</p>
+                      <p class="wcolor myHeight"><%= user[i].user.bio.substring(0,250) %>...</p>
                       <% } %>
                       <a href="/profile/<%= user[i].user._id %>" class="btn btn-warning rounded-0">VIEW PROFILE</a>
                     </div>
@@ -142,15 +143,14 @@
                 </div>
               <!-- </div> -->
               <% } else { %>
-
               <div class="carousel-item">
                 <div class="row">
-                  <div class="col-lg-5 col-12 text-start">
+                  <div class="col-md-5 col-12 text-start pmclass">
                     <div class="img d-flex justify-content-start">
-                      <img src="<%= user[i].user.image %> " alt="..." width="375px" height="250px" class="d-block">
+                      <img src="<%= user[i].user.image %> " alt="..." class="d-block cimg">
                     </div>
                   </div>
-                  <div class="col-lg-6 col-7 mr-5 pr-5 text-center">
+                  <div class="col-lg-6 col-7 vnclass text-center">
                     <h3 class="card-title wcolor"><%= user[i].user.fullName %></h3>
                     <p class="wcolor"><%= user[i].user.age %> &bull; <%= user[i].user.username %> &bull;
                       <%= user[i].user.city %></p>
@@ -159,9 +159,9 @@
                     </div>
                     <hr class="myHr">
                     <% if (user[i].user.bio.length <= 150 ) { %>
-                    <p class="wcolor"><%= user[i].user.bio %> </p>
+                    <p class="wcolor myHeight"><%= user[i].user.bio %> </p>
                     <% } else { %>
-                    <p class="wcolor"><%= user[i].user.bio.substring(0,250) %>...</p>
+                    <p class="wcolor myHeight"><%= user[i].user.bio.substring(0,250) %>...</p>
                     <% } %>
                     <a href="/profile/<%= user[i].user._id %>" class="btn btn-warning rounded-0">VIEW PROFILE</a>
                     </div>
