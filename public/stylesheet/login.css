@@ -10,6 +10,10 @@ body {
   
 }
 
+.container {
+  margin: 100px auto;
+}
+
 .card{
   width: 27rem;
   /* max-width: 35rem; */
@@ -42,10 +46,6 @@ body {
 
 .wcolor {
   color: white;
-}
-
-.mycon {
-  margin: 10% auto;
 }
 
 a.navbar-brand:hover {
@@ -155,7 +155,7 @@ input:focus {
   }
   .mycon {
 
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: -14px;
   }
   .navbar-toggler{

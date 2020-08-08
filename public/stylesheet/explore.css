@@ -1,3 +1,28 @@
+div.wrapper_work{
+	float:left; /* important */
+	position:relative; /* important(so we can absolutely position the description div */
+}
+div.description{
+  position:absolute; /* absolute position (so we can position it where we want)*/
+  bottom: 0px; /* position will be on bottom */
+  width:100%;
+  background-color: black;
+  color:white;
+  opacity: 0.4;
+}
+
+.wrapper_work img {
+  width:300px; 
+  height: 259px;
+}
+
+p.description_content{
+	padding:30px;
+	margin:0px;
+  filter: alpha(opacity=60);
+}
+
+
 body {
   position: relative;
   display: flex;
@@ -256,6 +281,10 @@ form .filter_btn {
   text-decoration: none;
 }
 
+.card-body{
+  height:80px;
+}
+
 /* Card Styling start */
 
 .container1 {
@@ -305,6 +334,9 @@ form .filter_btn {
   position: relative;
   background: black;
   color: #fff;
+  
+  margin-top: 18px; 
+
   /* margin-left: 50px; */
   display: flex;
   justify-content: center;
@@ -334,11 +366,9 @@ form .filter_btn {
 
 .container1 .cards .face.face1 .content1 p {
   /* margin: 10px 0 0 ; */
-  padding: 0;
+  padding: 5px;
   text-align: center;
-  background-color: white;
-  color: black;
-  font-size: 1.7em;
+  font-size: 1.3rem;
 }
 
 .container1 .cards .face.face2 a {
@@ -365,75 +395,79 @@ form .filter_btn {
   font-size: 20px;
 }
 
+.mgclass {
+  margin-left: 50px;
+}
+
 /* Card Styling end */
 
 /* Age filter styling */
 
-input[type="range"] {
+input[type='range'] {
   width: 210px;
   height: 30px;
   overflow: hidden;
   cursor: pointer;
-  outline: none;
+    outline: none;
 }
-input[type="range"],
-input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"]::-webkit-slider-thumb {
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background: none;
+    background: none;
 }
-input[type="range"]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   width: 200px;
   height: 1px;
-  background: #003d7c;
+  background: #003D7C;
 }
 
-input[type="range"]:nth-child(2)::-webkit-slider-runnable-track {
+input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
   background: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   position: relative;
   height: 15px;
   width: 15px;
   margin-top: -7px;
   background: #fff;
-  border: 1px solid #003d7c;
+  border: 1px solid #003D7C;
   border-radius: 25px;
   z-index: 1;
 }
 
-input[type="range"]:nth-child(1)::-webkit-slider-thumb {
+
+input[type='range']:nth-child(1)::-webkit-slider-thumb{
   z-index: 2;
 }
 
-.rangeslider {
-  position: relative;
-  height: 60px;
-  width: 210px;
-  display: inline-block;
-  margin-top: -5px;
-  margin-left: 20px;
+.rangeslider{
+    position: relative;
+    height: 60px;
+    width: 210px;
+    display: inline-block;
+    margin-top: -5px;
+    margin-left: 20px;
 }
-.rangeslider input {
-  position: absolute;
+.rangeslider input{
+    position: absolute;
 }
-.rangeslider {
-  position: absolute;
-}
-
-.rangeslider span {
-  position: absolute;
-  margin-top: 30px;
-  left: 0;
+.rangeslider{
+    position: absolute;
 }
 
-.rangeslider .right {
-  position: relative;
-  float: right;
-  margin-right: -5px;
+.rangeslider span{
+    position: absolute;
+    margin-top: 30px;
+    left: 0;
 }
 
+.rangeslider .right{
+   position: relative;
+   float: right;
+   margin-right: -5px;
+}
 /* age filter styling end */
 
 /* styling for ipad size */
@@ -478,11 +512,24 @@ input[type="range"]:nth-child(1)::-webkit-slider-thumb {
     width: 1050px;
     margin-left: 20px;
   }
+
 }
 
 /* Styling for mobile size */
 
 @media (max-width: 1040px) {
+
+  .card-body{
+    padding: 1.25rem 0px;
+  }
+
+  .mgclass {
+    margin: 10px 2px;
+  }
+
+  .rangeslider{
+    margin-left: -10px;
+  }
 
     #myNav {
       padding-top: 8px;

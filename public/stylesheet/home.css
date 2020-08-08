@@ -168,6 +168,10 @@ form .filter_btn {
     font-family: 'Playball', cursive;
 }
 
+.alert{
+    width:100%;
+}
+
 /* Navbar and sidebar styling end */
 
 .container {
@@ -222,14 +226,13 @@ form .filter_btn {
     margin-right: 5px;
 }
 
-#check:checked ~ .content .carousel-control-next {
-    margin-right: 10px;
-    margin-top: 455px;
+#check:checked ~ .content .carousel-control-prev {
+    margin-left: -35px;
 }
 
 #check:checked ~ .content .carousel-control-prev {
-    margin-left: 270px;
-    margin-top: 455px;
+    margin-left: -30px;
+    /* margin-top: 455px; */
 }
 
 /* carousel styling */
@@ -288,7 +291,7 @@ form .filter_btn {
     flex-direction: wrap;
     flex-wrap: wrap;
     position: absolute;
-    left: 50%;
+    left: 48%;
     top:50%;
     transform:translate(-50%, -50%);
     background:white;
@@ -340,6 +343,11 @@ form .filter_btn {
 
 @media(max-width:1367px){
 
+    .alert{
+        margin-left:-30px;
+        width:93%;
+    }
+
     .sidebar {
         padding-top: 50px;
     }
@@ -370,12 +378,12 @@ form .filter_btn {
 
 
     #check:checked ~ .content .carousel-control-next {
-        margin-right: 55px;
+        margin-right: -55px;
         margin-top: 0px;
     }
     
     #check:checked ~ .content .carousel-control-prev {
-        margin-left: -70px;
+        margin-left: -50px;
         margin-top: 0px;
     }
 
@@ -410,7 +418,8 @@ form .filter_btn {
     }
 
     .container {
-        margin-left: 25px;
+        
+        margin-left: 70px;
     }
 
     .card {
