@@ -11,13 +11,13 @@ body {
 }
 
 .container {
-  margin: 100px auto;
+  margin-top: 100px;
 }
 
 .card{
   width: 27rem;
   /* max-width: 35rem; */
-  margin: 50px auto;
+  margin: 200px auto;
   
 }
 

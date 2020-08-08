@@ -112,14 +112,14 @@ router.post("/register", upload.single("image"), function (req, res) {
             req1.headers({
               "content-type": "application/x-www-form-urlencoded",
               "cache-control": "no-cache",
-              "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+              "authorization": "tnAmBy6Zq8kAhQfOvXMH25gnIlLir4W0TCgSclCi7vStRd7jiYGuSinHLJXl"
             });
             req1.form({
               "sender_id": "FSTSMS",
               "language": "english",
               "route": "qt",
               "numbers": req.body.user.phNumber,
-              "message": "32925",
+              "message": "31399",
               "variables": "{#AA#}",
               "variables_values": otp
             });
@@ -189,14 +189,14 @@ router.post("/resendotp", function (req, res) {
       req1.headers({
         "content-type": "application/x-www-form-urlencoded",
         "cache-control": "no-cache",
-        "authorization": "5pvq38YXkxd1iNZbUtHFz6gTSVEAo4Mfw7GyL9u2CnPJQIjBasHqmXZNdA5jUPKsQ86p0RwBJFWzE4l3"
+        "authorization": "tnAmBy6Zq8kAhQfOvXMH25gnIlLir4W0TCgSclCi7vStRd7jiYGuSinHLJXl"
       });
       req1.form({
         "sender_id": "FSTSMS",
         "language": "english",
         "route": "qt",
         "numbers": req.body.user.phNumber,
-        "message": "32925",
+        "message": "31399",
         "variables": "{#AA#}",
         "variables_values": otp
       });
