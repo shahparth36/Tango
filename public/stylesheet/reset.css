@@ -41,7 +41,9 @@ body {
       padding-top: 1.2rem; 
       padding-bottom: 3rem;
   }
-  
+  #pass{
+    padding-top: 100px;
+  }
   @media (max-width: 1040px) {
     
     nav {
