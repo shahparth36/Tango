@@ -119,7 +119,7 @@ router.post("/register", upload.single("image"), function (req, res) {
               "language": "english",
               "route": "qt",
               "numbers": req.body.user.phNumber,
-              "message": "31399",
+              "message": "33529",
               "variables": "{#AA#}",
               "variables_values": otp
             });
@@ -196,7 +196,7 @@ router.post("/resendotp", function (req, res) {
         "language": "english",
         "route": "qt",
         "numbers": req.body.user.phNumber,
-        "message": "31399",
+        "message": "33529",
         "variables": "{#AA#}",
         "variables_values": otp
       });
