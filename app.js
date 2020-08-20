@@ -4,8 +4,8 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
-    flash = require("connect-flash");
-LocalStrategy = require("passport-local"),
+    flash = require("connect-flash"),
+    LocalStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     passportLocalMongoose = require("passport-local-mongoose"),
     User = require("./models/user");
@@ -28,8 +28,11 @@ var footerRoutes = require("./routes/footer");
 
 // mongoose.connect("mongodb://localhost/dating_app", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 mongoose.connect(
-    "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+    "mongodb+srv://Parth01:parth_shah1936@cluster0.exb3l.mongodb.net/test1?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+    }
 );
 var app = express();
 app.set("view engine", "ejs");
@@ -38,8 +41,12 @@ app.use(methodOverride("_method"));
 app.use(flash());
 app.locals.moment = require('moment');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(express.urlencoded({
+    extended: false
+}));
 app.use(require("express-session")({
     secret: "Rusty is the best and cutest dog in the world",
     resave: false,
